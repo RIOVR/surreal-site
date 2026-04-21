@@ -2,6 +2,7 @@
 
 const MenuView = ({ openDish, openDrink, initialTab = 'comidas', density = 'editorial', onChangeTab }) => {
   const [tab, setTab] = React.useState(initialTab);
+  const isMobile = useIsMobile();
   React.useEffect(() => { setTab(initialTab); }, [initialTab]);
 
   const changeTab = (t) => { setTab(t); onChangeTab && onChangeTab(t); };
@@ -9,7 +10,7 @@ const MenuView = ({ openDish, openDrink, initialTab = 'comidas', density = 'edit
   return (
     <section id="menu" data-screen-label="Menu" style={{
       background: 'var(--ink)',
-      padding: '60px 0 120px',
+      padding: isMobile ? '40px 0 90px' : '60px 0 120px',
       position: 'relative',
     }}>
       {/* Tab strip */}
@@ -19,8 +20,9 @@ const MenuView = ({ openDish, openDrink, initialTab = 'comidas', density = 'edit
         backdropFilter: 'blur(14px)',
         WebkitBackdropFilter: 'blur(14px)',
         borderBottom: '1px solid var(--border)',
-        padding: '16px 32px',
-        display: 'flex', gap: 24,
+        padding: isMobile ? '12px 16px' : '16px 32px',
+        display: 'flex',
+        gap: isMobile ? 14 : 24,
         alignItems: 'center', justifyContent: 'center',
       }}>
         <TabSwitch active={tab === 'comidas'} onClick={() => changeTab('comidas')} accent="red">
@@ -32,7 +34,7 @@ const MenuView = ({ openDish, openDrink, initialTab = 'comidas', density = 'edit
         </TabSwitch>
       </div>
 
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '0 32px' }}>
+      <div style={{ maxWidth: 1240, margin: '0 auto', padding: isMobile ? '0 18px' : '0 32px' }}>
         {tab === 'comidas' && <ComidasView openDish={openDish} density={density} />}
         {tab === 'drinks' && <BebidasView openDrink={openDrink} density={density} />}
       </div>
@@ -42,10 +44,11 @@ const MenuView = ({ openDish, openDrink, initialTab = 'comidas', density = 'edit
 
 const TabSwitch = ({ active, onClick, accent, children }) => {
   const accentColor = accent === 'magenta' ? 'var(--neon-magenta)' : 'var(--surreal-red)';
+  const isMobile = useIsMobile();
   return (
     <button onClick={onClick} style={{
       fontFamily: 'var(--font-display)',
-      fontSize: 36,
+      fontSize: isMobile ? 26 : 36,
       lineHeight: 1,
       background: 'transparent',
       border: 'none',
@@ -65,6 +68,7 @@ const ComidasView = ({ openDish, density }) => {
   const menu = window.SURREAL.menu;
   const [filter, setFilter] = React.useState('all');
   const [search, setSearch] = React.useState('');
+  const isMobile = useIsMobile();
 
   const filters = [
     { id: 'all', label: 'Tudo' },
@@ -86,37 +90,44 @@ const ComidasView = ({ openDish, density }) => {
   };
 
   return (
-    <div style={{ paddingTop: 56 }}>
+    <div style={{ paddingTop: isMobile ? 36 : 56 }}>
       {/* Intro + filter row */}
       <div style={{
-        display: 'grid', gridTemplateColumns: '1fr auto',
-        alignItems: 'end', gap: 32, flexWrap: 'wrap',
-        marginBottom: 40,
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : '1fr auto',
+        alignItems: isMobile ? 'stretch' : 'end',
+        gap: isMobile ? 20 : 32,
+        marginBottom: isMobile ? 32 : 40,
       }}>
         <div>
           <Eyebrow color="red">Cardápio · Comidas 2026</Eyebrow>
           <h2 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(44px, 6vw, 88px)',
-            lineHeight: 0.9,
+            fontSize: 'clamp(40px, 9vw, 88px)',
+            lineHeight: 0.92,
             color: 'var(--bone)',
             margin: '16px 0 12px',
           }}>O que se come por aqui.</h2>
           <p style={{
             fontFamily: 'var(--font-serif)', fontStyle: 'italic',
-            fontSize: 20, color: 'var(--fg-muted)', maxWidth: 520, margin: 0,
+            fontSize: isMobile ? 17 : 20, color: 'var(--fg-muted)', maxWidth: 520, margin: 0,
           }}>
             Cozinha autoral brasileira com licença poética.
             Toque um prato pra ouvir o poema inteiro.
           </p>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-end' }}>
+        <div style={{
+          display: 'flex', flexDirection: 'column',
+          gap: 12,
+          alignItems: isMobile ? 'stretch' : 'flex-end',
+          width: isMobile ? '100%' : 'auto',
+        }}>
           <div style={{
             display: 'flex', alignItems: 'center',
             border: '1px solid var(--border)', borderRadius: 999,
             background: 'var(--ink-80)', padding: '6px 14px',
-            width: 240,
+            width: isMobile ? '100%' : 240,
           }}>
             <span style={{ color: 'var(--fg-faint)', fontSize: 14, marginRight: 8 }}>⌕</span>
             <input
@@ -129,7 +140,10 @@ const ComidasView = ({ openDish, density }) => {
                 fontFamily: 'var(--font-body)', fontSize: 13,
               }} />
           </div>
-          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
+          <div style={{
+            display: 'flex', gap: 6, flexWrap: 'wrap',
+            justifyContent: isMobile ? 'flex-start' : 'flex-end',
+          }}>
             {filters.map(f => (
               <Chip key={f.id} active={filter === f.id} onClick={() => setFilter(f.id)}>
                 {f.label}
@@ -150,8 +164,8 @@ const ComidasView = ({ openDish, density }) => {
               {density === 'editorial' ? (
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))',
-                  gap: 28,
+                  gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(290px, 1fr))',
+                  gap: isMobile ? 20 : 28,
                 }}>
                   {dishes.map(d => <DishCard key={d.id} dish={d} onClick={openDish} />)}
                 </div>
@@ -212,29 +226,32 @@ const BebidasView = ({ openDrink, density }) => {
   const bebidas = window.SURREAL.bebidas;
   const vinhos = window.SURREAL.vinhos;
   const [base, setBase] = React.useState('all');
+  const isMobile = useIsMobile();
 
   const bases = ['all', 'Gin', 'Vodka', 'Whisky', 'Tequila', 'Cachaça', 'Rum', 'Zero', 'Cerveja', 'Soft'];
   const filtered = base === 'all' ? bebidas : bebidas.filter(b => b.base === base);
 
   return (
-    <div style={{ paddingTop: 56 }}>
+    <div style={{ paddingTop: isMobile ? 36 : 56 }}>
       <div style={{
-        display: 'grid', gridTemplateColumns: '1fr auto',
-        alignItems: 'end', gap: 32, flexWrap: 'wrap',
-        marginBottom: 32,
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : '1fr auto',
+        alignItems: isMobile ? 'stretch' : 'end',
+        gap: isMobile ? 20 : 32,
+        marginBottom: isMobile ? 28 : 32,
       }}>
         <div>
           <Eyebrow color="magenta">Cardápio · Bebidas 2026</Eyebrow>
           <h2 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(44px, 6vw, 88px)',
-            lineHeight: 0.9,
+            fontSize: 'clamp(40px, 9vw, 88px)',
+            lineHeight: 0.92,
             color: 'var(--bone)',
             margin: '16px 0 12px',
           }}>Entre o real e o imaginado.</h2>
           <p style={{
             fontFamily: 'var(--font-serif)', fontStyle: 'italic',
-            fontSize: 20, color: 'var(--fg-muted)', maxWidth: 640, margin: 0,
+            fontSize: isMobile ? 17 : 20, color: 'var(--fg-muted)', maxWidth: 640, margin: 0,
           }}>
             No Surreal, a coquetelaria não acompanha a comida.
             Ela divide o protagonismo.
@@ -270,8 +287,8 @@ const BebidasView = ({ openDrink, density }) => {
             {isAutoral ? (
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-                gap: 20,
+                gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(280px, 1fr))',
+                gap: isMobile ? 16 : 20,
               }}>
                 {drinks.map(d => <DrinkCard key={d.id} drink={d} onClick={openDrink} />)}
               </div>
@@ -515,13 +532,18 @@ const DrinkRow = ({ drink, last, onClick }) => (
 // ---------- Wine list ----------
 const WineList = ({ vinhos }) => {
   const byGroup = {};
+  const isMobile = useIsMobile();
   vinhos.forEach(v => {
     const g = v.grupo || 'Por taça';
     if (!byGroup[g]) byGroup[g] = [];
     byGroup[g].push(v);
   });
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: 40 }}>
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(360px, 1fr))',
+      gap: isMobile ? 28 : 40,
+    }}>
       {Object.entries(byGroup).map(([g, list]) => (
         <div key={g}>
           <Eyebrow color="ember">{g}</Eyebrow>

@@ -109,4 +109,17 @@ const Leader = () => (
   }} />
 );
 
-Object.assign(window, { Eyebrow, Button, Chip, Tag, Price, Leader });
+// Hook responsivo compartilhado — retorna true quando a tela for <= breakpoint
+const useIsMobile = (breakpoint = 860) => {
+  const [isMobile, setIsMobile] = React.useState(false);
+  React.useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${breakpoint}px)`);
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, [breakpoint]);
+  return isMobile;
+};
+
+Object.assign(window, { Eyebrow, Button, Chip, Tag, Price, Leader, useIsMobile });

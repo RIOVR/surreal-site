@@ -4,6 +4,7 @@ const Portal = ({ onEnter, mode, setMode }) => {
   const [hover, setHover] = React.useState(false);
   const [prov, setProv] = React.useState(0);
   const provs = window.SURREAL.provocacoes;
+  const isMobile = useIsMobile();
   React.useEffect(() => {
     const i = setInterval(() => setProv(p => (p + 1) % provs.length), 3200);
     return () => clearInterval(i);
@@ -14,7 +15,7 @@ const Portal = ({ onEnter, mode, setMode }) => {
       position: 'relative',
       minHeight: '100vh',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      padding: '140px 32px 80px',
+      padding: isMobile ? '100px 18px 130px' : '140px 32px 80px',
       overflow: 'hidden',
       background: 'var(--ink)',
     }}>
@@ -43,13 +44,20 @@ const Portal = ({ onEnter, mode, setMode }) => {
 
       {/* Top chrome */}
       <div style={{
-        position: 'absolute', top: 28, left: 28, right: 28,
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        position: 'absolute',
+        top: isMobile ? 16 : 28,
+        left: isMobile ? 16 : 28,
+        right: isMobile ? 16 : 28,
+        display: 'flex',
+        alignItems: isMobile ? 'flex-start' : 'center',
+        justifyContent: 'space-between',
+        flexDirection: isMobile ? 'column' : 'row',
+        gap: isMobile ? 10 : 0,
         zIndex: 3,
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <img src="assets/logo-wordmark.png" alt="Surreal"
-               style={{ height: 34, filter: 'invert(1)' }} />
+               style={{ height: isMobile ? 28 : 34, filter: 'invert(1)' }} />
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
           <Eyebrow color="magenta">DESDE 2019</Eyebrow>
@@ -98,8 +106,16 @@ const Portal = ({ onEnter, mode, setMode }) => {
         </div>
 
         <div style={{
-          display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap',
+          display: 'flex',
+          gap: isMobile ? 12 : 16,
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+          flexDirection: isMobile ? 'column' : 'row',
+          alignItems: isMobile ? 'stretch' : 'flex-start',
           marginBottom: 18,
+          maxWidth: isMobile ? 360 : 'none',
+          marginLeft: isMobile ? 'auto' : undefined,
+          marginRight: isMobile ? 'auto' : undefined,
         }}>
           <ActChoice
             num="I"
@@ -138,34 +154,51 @@ const Portal = ({ onEnter, mode, setMode }) => {
 
       {/* Bottom-left — small credit line */}
       <div style={{
-        position: 'absolute', bottom: 24, left: 28,
+        position: 'absolute',
+        bottom: isMobile ? 18 : 24,
+        left: isMobile ? 14 : 28,
+        right: isMobile ? 14 : 'auto',
         display: 'flex', alignItems: 'center', gap: 10, zIndex: 3,
+        flexWrap: 'wrap',
+        justifyContent: isMobile ? 'center' : 'flex-start',
       }}>
         <span style={{
           width: 6, height: 6, borderRadius: '50%',
           background: 'var(--surreal-red)',
           boxShadow: '0 0 8px var(--surreal-red)',
           animation: 'pulse 2.4s ease-in-out infinite',
+          flexShrink: 0,
         }} />
         <span style={{
-          fontFamily: 'var(--font-mono)', fontSize: 10,
-          color: 'var(--fg-muted)', letterSpacing: '0.15em',
-        }}>ABERTO · SEG–QUI: 12H-16H / 18H-00H · SEX: 12H-16H / 18H-01H · SAB: 12H-01H · DOM: 12H-00H</span>
+          fontFamily: 'var(--font-mono)',
+          fontSize: isMobile ? 8 : 10,
+          color: 'var(--fg-muted)',
+          letterSpacing: isMobile ? '0.1em' : '0.15em',
+          lineHeight: 1.4,
+          textAlign: isMobile ? 'center' : 'left',
+        }}>
+          {isMobile
+            ? 'ABERTO · SEG–QUI 12H–00H · SEX 12H–01H · SÁB 12H–01H · DOM 12H–00H'
+            : 'ABERTO · SEG–QUI: 12H-16H / 18H-00H · SEX: 12H-16H / 18H-01H · SAB: 12H-01H · DOM: 12H-00H'}
+        </span>
       </div>
 
-      {/* Bottom-right mascot corner */}
-      <img src="assets/mascot.png" alt="" aria-hidden
-           style={{
-             position: 'absolute', bottom: 16, right: 20,
-             height: 88, opacity: 0.92, zIndex: 3,
-             animation: 'floatY 4.5s ease-in-out infinite',
-           }} />
+      {/* Bottom-right mascot corner — escondido no mobile pra não sobrepor a barra de horário */}
+      {!isMobile && (
+        <img src="assets/mascot.png" alt="" aria-hidden
+             style={{
+               position: 'absolute', bottom: 16, right: 20,
+               height: 88, opacity: 0.92, zIndex: 3,
+               animation: 'floatY 4.5s ease-in-out infinite',
+             }} />
+      )}
     </section>
   );
 };
 
 const ActChoice = ({ num, label, sub, color, onClick }) => {
   const [h, setH] = React.useState(false);
+  const isMobile = useIsMobile();
   const accent = color === 'red' ? 'var(--surreal-red)'
                : color === 'magenta' ? 'var(--neon-magenta)'
                : 'var(--ember)';
@@ -175,8 +208,9 @@ const ActChoice = ({ num, label, sub, color, onClick }) => {
       onMouseEnter={() => setH(true)}
       onMouseLeave={() => setH(false)}
       style={{
-        width: 240, minHeight: 160,
-        padding: '22px 22px 22px',
+        width: isMobile ? '100%' : 240,
+        minHeight: isMobile ? 110 : 160,
+        padding: isMobile ? '18px 20px' : '22px 22px 22px',
         background: h ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.02)',
         border: `1px solid ${h ? accent : 'var(--border)'}`,
         borderRadius: 14,
