@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Surreal — Cardápio Digital</title>
+  <meta name="description" content="Cardápio digital do Surreal — coquetelaria autoral, comida criativa e surrealismo em Botafogo, Rio de Janeiro. Edição 2026." />
+  <meta property="og:title" content="Surreal — Um menu surreal." />
+  <meta property="og:description" content="Beba com todos os sentidos. Cardápio 2026 — Botafogo, RJ." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/logo-wordmark.png" />
+  <meta name="theme-color" content="#0A0A0A" />
+  <link rel="icon" href="assets/mascot.png" type="image/png" />
+  <link rel="stylesheet" href="assets/colors_and_type.css" />
+  <style>
+    html, body { margin: 0; padding: 0; background: var(--ink); color: var(--bone); }
+    * { box-sizing: border-box; }
+
+    @keyframes spiralSpin { to { transform: rotate(360deg); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes driftUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.55; transform: scale(0.88); } }
+    @keyframes floatY { 0%,100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-10px) rotate(3deg); } }
+
+    ::selection { background: var(--surreal-red); color: var(--bone); }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: var(--ink); }
+    ::-webkit-scrollbar-thumb { background: var(--ink-60); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--surreal-red-dark); }
+
+    /* Fixed floating controls */
+    .float-back-top {
+      position: fixed; right: 20px; top: 20px; z-index: 40;
+      padding: 10px 14px; border-radius: 999px;
+      background: rgba(10,10,10,0.78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      color: var(--bone);
+      font-family: var(--font-body); font-size: 10px;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      cursor: pointer;
+      transition: all 220ms var(--ease-out-soft);
+    }
+    .float-back-top:hover { border-color: var(--surreal-red); color: var(--surreal-red); }
+
+    /* hide spiral when quieted */
+    body[data-spiral="quieta"] [data-spiralbg] {
+      animation: none !important; opacity: 0.04 !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+
+  <script>
+    // Configurações visuais (não mexa aqui — se quiser trocar o hero, veja o GUIA-DE-EDICAO)
+    window.__TWEAK_DEFAULTS__ = {
+      "density": "editorial",
+      "hero": "portal",
+      "drinkAccent": "magenta",
+      "spiral": "ativa"
+    };
+  </script>
+
+  <script src="data.js"></script>
+  <script src="dist/ui.js"></script>
+  <script src="dist/Portal.js"></script>
+  <script src="dist/MenuView.js"></script>
+  <script src="dist/DishSheet.js"></script>
+  <script src="dist/Footer.js"></script>
+  <script src="dist/Tweaks.js"></script>
+  <script src="dist/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,871 @@
+// MenuView.jsx — the main menu browser (comidas + bebidas as tabs)
+
+const MenuView = ({
+  openDish,
+  openDrink,
+  initialTab = 'comidas',
+  density = 'editorial',
+  onChangeTab
+}) => {
+  const [tab, setTab] = React.useState(initialTab);
+  React.useEffect(() => {
+    setTab(initialTab);
+  }, [initialTab]);
+  const changeTab = t => {
+    setTab(t);
+    onChangeTab && onChangeTab(t);
+  };
+  return /*#__PURE__*/React.createElement("section", {
+    id: "menu",
+    "data-screen-label": "Menu",
+    style: {
+      background: 'var(--ink)',
+      padding: '60px 0 120px',
+      position: 'relative'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'sticky',
+      top: 0,
+      zIndex: 20,
+      background: 'rgba(10,10,10,0.88)',
+      backdropFilter: 'blur(14px)',
+      WebkitBackdropFilter: 'blur(14px)',
+      borderBottom: '1px solid var(--border)',
+      padding: '16px 32px',
+      display: 'flex',
+      gap: 24,
+      alignItems: 'center',
+      justifyContent: 'center'
+    }
+  }, /*#__PURE__*/React.createElement(TabSwitch, {
+    active: tab === 'comidas',
+    onClick: () => changeTab('comidas'),
+    accent: "red"
+  }, "Comidas"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: 'var(--font-serif)',
+      fontStyle: 'italic',
+      color: 'var(--fg-faint)',
+      fontSize: 18
+    }
+  }, "\xD7"), /*#__PURE__*/React.createElement(TabSwitch, {
+    active: tab === 'drinks',
+    onClick: () => changeTab('drinks'),
+    accent: "magenta"
+  }, "Bebidas")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      maxWidth: 1240,
+      margin: '0 auto',
+      padding: '0 32px'
+    }
+  }, tab === 'comidas' && /*#__PURE__*/React.createElement(ComidasView, {
+    openDish: openDish,
+    density: density
+  }), tab === 'drinks' && /*#__PURE__*/React.createElement(BebidasView, {
+    openDrink: openDrink,
+    density: density
+  })));
+};
+const TabSwitch = ({
+  active,
+  onClick,
+  accent,
+  children
+}) => {
+  const accentColor = accent === 'magenta' ? 'var(--neon-magenta)' : 'var(--surreal-red)';
+  return /*#__PURE__*/React.createElement("button", {
+    onClick: onClick,
+    style: {
+      fontFamily: 'var(--font-display)',
+      fontSize: 36,
+      lineHeight: 1,
+      background: 'transparent',
+      border: 'none',
+      cursor: 'pointer',
+      color: active ? accentColor : 'var(--fg-muted)',
+      transition: 'color 220ms var(--ease-out-soft)',
+      padding: '6px 4px',
+      borderBottom: active ? `3px solid ${accentColor}` : '3px solid transparent',
+      letterSpacing: '-0.01em'
+    }
+  }, children);
+};
+
+// ====================== COMIDAS ======================
+const ComidasView = ({
+  openDish,
+  density
+}) => {
+  const secoes = window.SURREAL.secoes.comidas;
+  const menu = window.SURREAL.menu;
+  const [filter, setFilter] = React.useState('all');
+  const [search, setSearch] = React.useState('');
+  const filters = [{
+    id: 'all',
+    label: 'Tudo'
+  }, {
+    id: 'chef',
+    label: 'Chef'
+  }, {
+    id: 'veggie',
+    label: 'Veggie'
+  }, {
+    id: 'teatro',
+    label: 'Teatro'
+  }];
+  const match = d => {
+    if (search) {
+      const q = search.toLowerCase();
+      if (!d.nome.toLowerCase().includes(q) && !d.desc.toLowerCase().includes(q)) return false;
+    }
+    if (filter === 'all') return true;
+    if (filter === 'chef') return d.tag === 'Chef' || d.tag === 'Assinatura';
+    if (filter === 'veggie') return d.alerg && (d.alerg.includes('vegano') || d.alerg.includes('veggie'));
+    if (filter === 'teatro') return d.tag === 'Teatro';
+    return true;
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      paddingTop: 56
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr auto',
+      alignItems: 'end',
+      gap: 32,
+      flexWrap: 'wrap',
+      marginBottom: 40
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Eyebrow, {
+    color: "red"
+  }, "Card\xE1pio \xB7 Comidas 2026"), /*#__PURE__*/React.createElement("h2", {
+    style: {
+      fontFamily: 'var(--font-display)',
+      fontSize: 'clamp(44px, 6vw, 88px)',
+      lineHeight: 0.9,
+      color: 'var(--bone)',
+      margin: '16px 0 12px'
+    }
+  }, "O que se come por aqui."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontFamily: 'var(--font-serif)',
+      fontStyle: 'italic',
+      fontSize: 20,
+      color: 'var(--fg-muted)',
+      maxWidth: 520,
+      margin: 0
+    }
+  }, "Cozinha autoral brasileira com licen\xE7a po\xE9tica. Toque um prato pra ouvir o poema inteiro.")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 12,
+      alignItems: 'flex-end'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      border: '1px solid var(--border)',
+      borderRadius: 999,
+      background: 'var(--ink-80)',
+      padding: '6px 14px',
+      width: 240
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: 'var(--fg-faint)',
+      fontSize: 14,
+      marginRight: 8
+    }
+  }, "\u2315"), /*#__PURE__*/React.createElement("input", {
+    value: search,
+    onChange: e => setSearch(e.target.value),
+    placeholder: "buscar um prato...",
+    style: {
+      background: 'transparent',
+      border: 'none',
+      outline: 'none',
+      color: 'var(--bone)',
+      flex: 1,
+      fontFamily: 'var(--font-body)',
+      fontSize: 13
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 6,
+      flexWrap: 'wrap',
+      justifyContent: 'flex-end'
+    }
+  }, filters.map(f => /*#__PURE__*/React.createElement(Chip, {
+    key: f.id,
+    active: filter === f.id,
+    onClick: () => setFilter(f.id)
+  }, f.label))))), secoes.map((sec, idx) => {
+    const dishes = menu.filter(d => d.secao === sec.id && match(d));
+    if (dishes.length === 0) return null;
+    return /*#__PURE__*/React.createElement(React.Fragment, {
+      key: sec.id
+    }, /*#__PURE__*/React.createElement("div", {
+      id: `sec-${sec.id}`,
+      style: {
+        marginBottom: sec.id === 'sanduiches' ? 24 : 88
+      }
+    }, /*#__PURE__*/React.createElement(SectionHeader, {
+      num: `0${idx + 1}`,
+      title: sec.nome,
+      subtitle: sec.subtitle,
+      color: "red"
+    }), density === 'editorial' ? /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))',
+        gap: 28
+      }
+    }, dishes.map(d => /*#__PURE__*/React.createElement(DishCard, {
+      key: d.id,
+      dish: d,
+      onClick: openDish
+    }))) : /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'flex',
+        flexDirection: 'column'
+      }
+    }, dishes.map((d, i) => /*#__PURE__*/React.createElement(DishRow, {
+      key: d.id,
+      dish: d,
+      onClick: openDish,
+      last: i === dishes.length - 1
+    })))), sec.id === 'sanduiches' && /*#__PURE__*/React.createElement("div", {
+      style: {
+        marginBottom: 88,
+        padding: '28px 32px',
+        border: '1px solid var(--border)',
+        borderRadius: 14,
+        background: 'var(--ink-80)'
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'baseline',
+        gap: 12,
+        flexWrap: 'wrap',
+        marginBottom: 6
+      }
+    }, /*#__PURE__*/React.createElement(Eyebrow, {
+      color: "ember"
+    }, "Deixe seu sandu\xEDche ainda mais surreal"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: 'var(--font-serif)',
+        fontStyle: 'italic',
+        fontSize: 13,
+        color: 'var(--fg-muted)'
+      }
+    }, "complementos adicionais")), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
+        gap: 14,
+        marginTop: 14
+      }
+    }, window.SURREAL.extras.map(x => /*#__PURE__*/React.createElement("div", {
+      key: x.item,
+      style: {
+        display: 'flex',
+        alignItems: 'baseline',
+        gap: 8,
+        paddingBottom: 8,
+        borderBottom: '1px dotted var(--border)'
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: 'var(--font-body)',
+        fontSize: 14,
+        color: 'var(--bone)'
+      }
+    }, x.item), /*#__PURE__*/React.createElement(Leader, null), /*#__PURE__*/React.createElement(Price, {
+      value: x.preco,
+      style: {
+        fontSize: 13
+      }
+    }))))));
+  }));
+};
+
+// ====================== BEBIDAS ======================
+const BebidasView = ({
+  openDrink,
+  density
+}) => {
+  const secoes = window.SURREAL.secoes.drinks;
+  const bebidas = window.SURREAL.bebidas;
+  const vinhos = window.SURREAL.vinhos;
+  const [base, setBase] = React.useState('all');
+  const bases = ['all', 'Gin', 'Vodka', 'Whisky', 'Tequila', 'Cachaça', 'Rum', 'Zero', 'Cerveja', 'Soft'];
+  const filtered = base === 'all' ? bebidas : bebidas.filter(b => b.base === base);
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      paddingTop: 56
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr auto',
+      alignItems: 'end',
+      gap: 32,
+      flexWrap: 'wrap',
+      marginBottom: 32
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Eyebrow, {
+    color: "magenta"
+  }, "Card\xE1pio \xB7 Bebidas 2026"), /*#__PURE__*/React.createElement("h2", {
+    style: {
+      fontFamily: 'var(--font-display)',
+      fontSize: 'clamp(44px, 6vw, 88px)',
+      lineHeight: 0.9,
+      color: 'var(--bone)',
+      margin: '16px 0 12px'
+    }
+  }, "Entre o real e o imaginado."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontFamily: 'var(--font-serif)',
+      fontStyle: 'italic',
+      fontSize: 20,
+      color: 'var(--fg-muted)',
+      maxWidth: 640,
+      margin: 0
+    }
+  }, "No Surreal, a coquetelaria n\xE3o acompanha a comida. Ela divide o protagonismo."))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 8,
+      flexWrap: 'wrap',
+      marginBottom: 56,
+      paddingBottom: 20,
+      borderBottom: '1px solid var(--border)'
+    }
+  }, bases.map(b => /*#__PURE__*/React.createElement(Chip, {
+    key: b,
+    active: base === b,
+    onClick: () => setBase(b),
+    color: "magenta"
+  }, b === 'all' ? 'Tudo' : b))), secoes.map((sec, idx) => {
+    const drinks = filtered.filter(b => b.secao === sec.id);
+    if (drinks.length === 0) return null;
+    const isAutoral = sec.id === 'leves' || sec.id === 'intensos' || sec.id === 'sem-alcool';
+    return /*#__PURE__*/React.createElement("div", {
+      key: sec.id,
+      id: `bsec-${sec.id}`,
+      style: {
+        marginBottom: 80
+      }
+    }, /*#__PURE__*/React.createElement(SectionHeader, {
+      num: `0${idx + 1}`,
+      title: sec.nome,
+      subtitle: sec.subtitle,
+      color: "magenta"
+    }), isAutoral ? /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+        gap: 20
+      }
+    }, drinks.map(d => /*#__PURE__*/React.createElement(DrinkCard, {
+      key: d.id,
+      drink: d,
+      onClick: openDrink
+    }))) : /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'flex',
+        flexDirection: 'column'
+      }
+    }, drinks.map((d, i) => /*#__PURE__*/React.createElement(DrinkRow, {
+      key: d.id,
+      drink: d,
+      last: i === drinks.length - 1,
+      onClick: d.poema && d.poema.length ? openDrink : undefined
+    }))));
+  }), /*#__PURE__*/React.createElement("div", {
+    id: "vinhos",
+    style: {
+      marginTop: 56,
+      marginBottom: 40
+    }
+  }, /*#__PURE__*/React.createElement(SectionHeader, {
+    num: "09",
+    title: "Carta de vinhos",
+    subtitle: "Por ta\xE7a ou garrafa.",
+    color: "magenta"
+  }), /*#__PURE__*/React.createElement(WineList, {
+    vinhos: vinhos
+  })));
+};
+
+// Section header
+const SectionHeader = ({
+  num,
+  title,
+  subtitle,
+  color = 'red'
+}) => {
+  const accent = color === 'magenta' ? 'var(--neon-magenta)' : 'var(--surreal-red)';
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'flex-end',
+      gap: 20,
+      paddingBottom: 16,
+      marginBottom: 32,
+      borderBottom: '1px solid var(--border)'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: 'var(--font-mono)',
+      fontSize: 13,
+      color: accent,
+      letterSpacing: '0.2em'
+    }
+  }, num), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/React.createElement("h3", {
+    style: {
+      fontFamily: 'var(--font-display)',
+      fontSize: 'clamp(28px, 3.4vw, 44px)',
+      lineHeight: 1,
+      color: 'var(--bone)',
+      margin: 0
+    }
+  }, title), subtitle && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: 'var(--font-serif)',
+      fontStyle: 'italic',
+      fontSize: 15,
+      color: 'var(--fg-muted)',
+      marginTop: 6
+    }
+  }, subtitle)));
+};
+
+// ---------- Dish editorial card ----------
+const DishCard = ({
+  dish,
+  onClick
+}) => {
+  const [h, setH] = React.useState(false);
+  const placeholder = !dish.photo;
+  return /*#__PURE__*/React.createElement("button", {
+    onClick: () => onClick(dish),
+    onMouseEnter: () => setH(true),
+    onMouseLeave: () => setH(false),
+    style: {
+      background: 'transparent',
+      border: 'none',
+      padding: 0,
+      cursor: 'pointer',
+      textAlign: 'left',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 14,
+      transition: 'transform 260ms var(--ease-out-soft)',
+      transform: h ? 'translateY(-4px)' : 'translateY(0)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'relative',
+      aspectRatio: '4/5',
+      borderRadius: 14,
+      overflow: 'hidden',
+      background: placeholder ? 'var(--ink-80)' : 'var(--ink)',
+      border: '1px solid var(--border)'
+    }
+  }, placeholder ? /*#__PURE__*/React.createElement(PlaceholderArt, {
+    name: dish.nome
+  }) : /*#__PURE__*/React.createElement("img", {
+    src: dish.photo,
+    alt: dish.nome,
+    style: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      filter: h ? 'brightness(1.08)' : 'brightness(1)',
+      transition: 'filter 320ms'
+    }
+  }), dish.tag && /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: 'absolute',
+      top: 12,
+      left: 12,
+      fontFamily: 'var(--font-body)',
+      fontWeight: 600,
+      fontSize: 10,
+      letterSpacing: '0.28em',
+      textTransform: 'uppercase',
+      padding: '6px 10px',
+      borderRadius: 999,
+      background: dish.tag === 'Chef' || dish.tag === 'Assinatura' ? 'rgba(0,0,0,.6)' : 'var(--surreal-red)',
+      color: dish.tag === 'Chef' || dish.tag === 'Assinatura' ? 'var(--ember)' : 'var(--bone)',
+      border: dish.tag === 'Chef' || dish.tag === 'Assinatura' ? '1px solid var(--ember)' : 'none',
+      backdropFilter: 'blur(6px)'
+    }
+  }, dish.tag), /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: 'absolute',
+      bottom: 12,
+      right: 12,
+      fontFamily: 'var(--font-mono)',
+      fontSize: 10,
+      padding: '4px 10px',
+      borderRadius: 999,
+      background: 'rgba(0,0,0,0.6)',
+      color: 'var(--bone)',
+      border: '1px solid var(--border)',
+      letterSpacing: '0.12em'
+    }
+  }, dish.tipo)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      gap: 12,
+      alignItems: 'baseline'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: 'var(--font-serif)',
+      fontStyle: 'italic',
+      fontSize: 22,
+      lineHeight: 1.08,
+      color: 'var(--bone)'
+    }
+  }, dish.nome), /*#__PURE__*/React.createElement(Price, {
+    value: dish.preco
+  })), dish.poema && dish.poema[0] && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: 'var(--font-serif)',
+      fontStyle: 'italic',
+      fontSize: 13,
+      color: 'var(--fg-muted)',
+      lineHeight: 1.5
+    }
+  }, "\"", dish.poema[0], "\""));
+};
+
+// Compact row variant (list density)
+const DishRow = ({
+  dish,
+  onClick,
+  last
+}) => /*#__PURE__*/React.createElement("button", {
+  onClick: () => onClick(dish),
+  style: {
+    background: 'transparent',
+    border: 'none',
+    textAlign: 'left',
+    cursor: 'pointer',
+    display: 'grid',
+    gridTemplateColumns: 'auto 1fr auto',
+    gap: 18,
+    alignItems: 'baseline',
+    padding: '18px 0',
+    borderBottom: last ? 'none' : '1px solid var(--border)'
+  }
+}, /*#__PURE__*/React.createElement("span", {
+  style: {
+    fontFamily: 'var(--font-mono)',
+    fontSize: 11,
+    color: 'var(--fg-faint)',
+    letterSpacing: '0.15em',
+    minWidth: 48
+  }
+}, dish.tipo), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  style: {
+    fontFamily: 'var(--font-serif)',
+    fontStyle: 'italic',
+    fontSize: 20,
+    color: 'var(--bone)',
+    marginBottom: 4
+  }
+}, dish.nome, " ", dish.tag && /*#__PURE__*/React.createElement(Tag, {
+  color: "ember"
+}, dish.tag)), /*#__PURE__*/React.createElement("div", {
+  style: {
+    fontFamily: 'var(--font-body)',
+    fontSize: 13,
+    color: 'var(--fg-muted)',
+    lineHeight: 1.5
+  }
+}, dish.desc)), /*#__PURE__*/React.createElement(Price, {
+  value: dish.preco
+}));
+
+// ---------- Drink card (autoral) ----------
+const DrinkCard = ({
+  drink,
+  onClick
+}) => {
+  const [h, setH] = React.useState(false);
+  return /*#__PURE__*/React.createElement("button", {
+    onClick: () => onClick(drink),
+    onMouseEnter: () => setH(true),
+    onMouseLeave: () => setH(false),
+    style: {
+      background: h ? 'rgba(230,0,126,0.04)' : 'var(--ink-80)',
+      border: `1px solid ${h ? 'var(--neon-magenta)' : 'var(--border)'}`,
+      borderRadius: 14,
+      padding: '22px 20px 20px',
+      cursor: 'pointer',
+      textAlign: 'left',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 12,
+      transition: 'all 240ms var(--ease-out-soft)',
+      boxShadow: h ? '0 0 24px rgba(230,0,126,0.2)' : 'none',
+      minHeight: 220
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'flex-start',
+      marginBottom: 4
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 6,
+      flexWrap: 'wrap'
+    }
+  }, drink.tag && /*#__PURE__*/React.createElement(Tag, {
+    color: drink.secao === 'sem-alcool' ? 'ember' : 'magenta'
+  }, drink.tag), drink.ml && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: 'var(--font-mono)',
+      fontSize: 10,
+      color: 'var(--fg-muted)',
+      letterSpacing: '0.1em',
+      padding: '5px 8px',
+      border: '1px solid var(--border)',
+      borderRadius: 999
+    }
+  }, drink.ml, "ML")), /*#__PURE__*/React.createElement(Price, {
+    value: drink.preco
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: 'var(--font-display)',
+      fontSize: 28,
+      lineHeight: 0.98,
+      color: 'var(--bone)'
+    }
+  }, drink.nome), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: 'var(--font-body)',
+      fontSize: 12,
+      color: 'var(--fg-muted)',
+      lineHeight: 1.5
+    }
+  }, drink.desc), drink.poema && drink.poema[0] && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: 'var(--font-serif)',
+      fontStyle: 'italic',
+      fontSize: 13,
+      color: 'var(--neon-magenta-soft, #FF3DA0)',
+      opacity: 0.88,
+      lineHeight: 1.45,
+      marginTop: 'auto',
+      paddingTop: 8
+    }
+  }, "\"", drink.poema[0], "\""));
+};
+
+// Drink classic row
+const DrinkRow = ({
+  drink,
+  last,
+  onClick
+}) => /*#__PURE__*/React.createElement("div", {
+  onClick: onClick ? () => onClick(drink) : undefined,
+  style: {
+    display: 'grid',
+    gridTemplateColumns: '1fr auto',
+    gap: 18,
+    padding: '16px 0',
+    alignItems: 'baseline',
+    borderBottom: last ? 'none' : '1px solid var(--border)',
+    cursor: onClick ? 'pointer' : 'default'
+  }
+}, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  style: {
+    display: 'flex',
+    alignItems: 'baseline',
+    gap: 10,
+    flexWrap: 'wrap'
+  }
+}, /*#__PURE__*/React.createElement("span", {
+  style: {
+    fontFamily: 'var(--font-serif)',
+    fontStyle: 'italic',
+    fontSize: 18,
+    color: 'var(--bone)'
+  }
+}, drink.nome), drink.ml && /*#__PURE__*/React.createElement("span", {
+  style: {
+    fontFamily: 'var(--font-mono)',
+    fontSize: 10,
+    color: 'var(--fg-faint)',
+    letterSpacing: '0.1em'
+  }
+}, drink.ml, "ML")), drink.desc && /*#__PURE__*/React.createElement("div", {
+  style: {
+    fontFamily: 'var(--font-body)',
+    fontSize: 13,
+    color: 'var(--fg-muted)',
+    marginTop: 4
+  }
+}, drink.desc)), /*#__PURE__*/React.createElement(Price, {
+  value: drink.preco
+}));
+
+// ---------- Wine list ----------
+const WineList = ({
+  vinhos
+}) => {
+  const byGroup = {};
+  vinhos.forEach(v => {
+    const g = v.grupo || 'Por taça';
+    if (!byGroup[g]) byGroup[g] = [];
+    byGroup[g].push(v);
+  });
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+      gap: 40
+    }
+  }, Object.entries(byGroup).map(([g, list]) => /*#__PURE__*/React.createElement("div", {
+    key: g
+  }, /*#__PURE__*/React.createElement(Eyebrow, {
+    color: "ember"
+  }, g), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 14
+    }
+  }, list.map((v, i) => /*#__PURE__*/React.createElement("div", {
+    key: v.id,
+    style: {
+      padding: '14px 0',
+      borderBottom: i === list.length - 1 ? 'none' : '1px solid var(--border)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'baseline',
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: 'var(--font-serif)',
+      fontStyle: 'italic',
+      fontSize: 16,
+      color: 'var(--bone)'
+    }
+  }, v.nome), /*#__PURE__*/React.createElement(Leader, null), /*#__PURE__*/React.createElement(Price, {
+    value: v.preco,
+    style: {
+      fontSize: 13
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: 'var(--font-body)',
+      fontSize: 12,
+      color: 'var(--fg-muted)',
+      marginTop: 4,
+      lineHeight: 1.45
+    }
+  }, v.desc)))))));
+};
+
+// ---------- Placeholder art when photo is missing ----------
+const PlaceholderArt = ({
+  name
+}) => {
+  // hash name to pick a treatment
+  const hash = name.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+  const variants = [{
+    bg: 'var(--surreal-red-ink)',
+    ink: 'var(--bone)',
+    glyph: '✦'
+  }, {
+    bg: 'var(--wine)',
+    ink: 'var(--ember-soft)',
+    glyph: '◉'
+  }, {
+    bg: 'var(--ink-60)',
+    ink: 'var(--neon-magenta)',
+    glyph: '◎'
+  }, {
+    bg: 'var(--ember)',
+    ink: 'var(--ink)',
+    glyph: '✶'
+  }, {
+    bg: 'var(--ink-80)',
+    ink: 'var(--absinthe)',
+    glyph: '❍'
+  }];
+  const v = variants[hash % variants.length];
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: '100%',
+      height: '100%',
+      background: v.bg,
+      color: v.ink,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 20,
+      padding: 24,
+      textAlign: 'center',
+      position: 'relative',
+      overflow: 'hidden'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      inset: '-20%',
+      backgroundImage: 'url(assets/bolacha.jpg)',
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      opacity: 0.1,
+      filter: 'grayscale(1) contrast(1.2)',
+      animation: 'spiralSpin 120s linear infinite'
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: 'var(--font-display)',
+      fontSize: 72,
+      lineHeight: 1,
+      opacity: 0.9,
+      position: 'relative'
+    }
+  }, v.glyph), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: 'var(--font-body)',
+      fontSize: 10,
+      letterSpacing: '0.3em',
+      textTransform: 'uppercase',
+      opacity: 0.6,
+      position: 'relative'
+    }
+  }, "foto em breve"));
+};
+Object.assign(window, {
+  MenuView,
+  DishCard,
+  DrinkCard
+});
