@@ -269,8 +269,9 @@ blockquote {
 /* ============================================================
    Responsividade Mobile
    ============================================================
-   Overrides que respondem aos estilos inline do React.
-   Usamos !important porque os componentes definem estilos inline.
+   A maior parte do layout responsivo agora é feita nos
+   próprios componentes React via hook useIsMobile.
+   Aqui só ficam ajustes globais que dependem de CSS.
    ============================================================ */
 
 /* Evita scroll horizontal geral */
@@ -278,193 +279,16 @@ html, body {
   overflow-x: hidden;
 }
 
-/* ============ TABLET / MOBILE (<= 860px) ============ */
+/* ============ MOBILE (<= 860px) ============ */
 @media (max-width: 860px) {
-  /* Todas as seções principais — padding horizontal menor */
-  #portal { padding: 100px 20px 80px !important; }
-  #menu   { padding: 40px 0 90px !important; }
-  #visit  { padding: 60px 20px 40px !important; }
-
-  /* Menu wrapper interno */
-  #menu > div[style*="max-width: 1240px"],
-  #menu div[style*="max-width: 1240px"] {
-    padding: 0 20px !important;
-  }
-
-  /* Tabs do menu (Comidas × Bebidas) — menores */
-  #menu button[style*="font-size: 36px"] {
-    font-size: 28px !important;
-  }
-  #menu div[style*="padding: 16px 32px"] {
-    padding: 14px 20px !important;
-  }
-
-  /* Intro row (headline + filtros) — empilha em coluna */
-  #menu div[style*="grid-template-columns: 1fr auto"] {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
-  }
-  #menu div[style*="align-items: flex-end"] > div[style*="flex-direction: column"][style*="align-items: flex-end"] {
-    align-items: stretch !important;
-    width: 100% !important;
-  }
-  #menu input[placeholder*="buscar"] {
-    width: 100% !important;
-  }
-
-  /* Grid de pratos — 1 coluna em mobile */
-  #menu div[style*="minmax(290px"],
-  #menu div[style*="minmax(280px"] {
-    grid-template-columns: 1fr !important;
-    gap: 22px !important;
-  }
-
-  /* Carta de vinhos — 1 coluna em mobile */
-  #vinhos div[style*="minmax(360px"] {
-    grid-template-columns: 1fr !important;
-    gap: 32px !important;
-  }
-
-  /* Títulos h2 menores em mobile */
-  #menu h2 {
-    font-size: clamp(36px, 10vw, 64px) !important;
-    line-height: 0.95 !important;
-  }
-
-  /* ========== Portal (tela de capa) ========== */
-  #portal h1 {
-    font-size: clamp(64px, 20vw, 140px) !important;
-    line-height: 0.86 !important;
-  }
-
-  /* Top chrome do portal — empilha */
-  #portal > div[style*="top: 28px"][style*="left: 28px"] {
-    top: 18px !important;
-    left: 18px !important;
-    right: 18px !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
-  }
-
-  /* Cards Ato I/II/III — full width, empilhados */
-  #portal button[style*="width: 240px"] {
-    width: 100% !important;
-    max-width: 360px !important;
-    min-height: 130px !important;
-  }
-  #portal div[style*="gap: 16px"][style*="flex-wrap: wrap"] {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 12px !important;
-    max-width: 360px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  /* Barra de horário embaixo do portal — texto muito menor */
-  #portal div[style*="bottom: 24px"][style*="left: 28px"] {
-    bottom: 14px !important;
-    left: 14px !important;
-    right: 14px !important;
-  }
-  #portal div[style*="bottom: 24px"][style*="left: 28px"] span[style*="letter-spacing: 0.15em"] {
-    font-size: 7px !important;
-    line-height: 1.35 !important;
-    letter-spacing: 0.08em !important;
-  }
-
-  /* Mascote — menor e não sobrepõe */
-  #portal img[alt=""][aria-hidden] {
-    height: 56px !important;
-    bottom: 58px !important;
-    right: 14px !important;
-    opacity: 0.75 !important;
-  }
-
-  /* ========== Modal de prato/drink (DishSheet) ========== */
-  /* Container com 2 colunas foto+texto → empilha */
-  div[style*="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)"] {
-    grid-template-columns: 1fr !important;
-    max-height: 92vh !important;
-    overflow-y: auto !important;
-  }
-  /* Imagem do modal — altura fixa no topo */
-  div[style*="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)"] > div:first-child {
-    min-height: 220px !important;
-    max-height: 36vh !important;
-    aspect-ratio: 4/3 !important;
-  }
-  /* Padding interno do lado direito (agora inferior) */
-  div[style*="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)"] > div:nth-child(2) {
-    padding: 24px 22px 28px !important;
-  }
-  /* Título do prato no modal */
-  div[style*="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)"] h3 {
-    font-size: 34px !important;
-  }
-  /* Backdrop do modal — menos padding */
-  div[style*="position: fixed"][style*="z-index: 100"] {
-    padding: 12px !important;
-  }
-
-  /* ========== Seção de extras (complementos sanduíches) ========== */
-  #menu div[style*="minmax(180px, 1fr)"] {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 10px !important;
-  }
-
-  /* Back-to-top button */
+  /* Tab strip sticky fica no topo — o botão "↑ portal" precisa
+     sair do topo pra não sobrepor as tabs Comidas × Bebidas. */
   .float-back-top {
+    top: auto !important;
+    bottom: 18px !important;
     right: 14px !important;
-    top: 14px !important;
-    padding: 8px 12px !important;
+    padding: 10px 14px !important;
     font-size: 9px !important;
-  }
-}
-
-/* ============ PHONE PEQUENO (<= 480px) ============ */
-@media (max-width: 480px) {
-  #portal {
-    padding: 90px 14px 60px !important;
-  }
-  #portal h1 {
-    font-size: clamp(56px, 17vw, 100px) !important;
-  }
-  #portal div[style*="font-size: clamp(18px, 2.2vw, 26px)"] {
-    font-size: 17px !important;
-    margin: 18px auto 40px !important;
-  }
-
-  #menu > div[style*="max-width: 1240px"],
-  #menu div[style*="max-width: 1240px"] {
-    padding: 0 14px !important;
-  }
-
-  #menu h2 {
-    font-size: clamp(32px, 11vw, 48px) !important;
-  }
-
-  #menu div[style*="gap: 20px"][style*="border-bottom: 1px solid"] {
-    gap: 12px !important;
-  }
-  #menu h3[style*="clamp(28px"] {
-    font-size: clamp(22px, 7vw, 32px) !important;
-  }
-
-  /* Extras em 1 coluna */
-  #menu div[style*="minmax(180px, 1fr)"] {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Modal — título ainda menor */
-  div[style*="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)"] h3 {
-    font-size: 28px !important;
-  }
-
-  /* Footer — 1 coluna */
-  #visit div[style*="minmax(240px, 1fr)"] {
-    grid-template-columns: 1fr !important;
-    gap: 28px !important;
+    z-index: 30 !important;
   }
 }
