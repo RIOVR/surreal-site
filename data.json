@@ -3,446 +3,444 @@
     "name": "Surreal",
     "tagline": "Um portal sensorial",
     "address": "Botafogo · Rio de Janeiro",
-    "instagram": "@surrealbar.rj",
-    "site": "www.surrealrio.com"
+    "instagram": "@surrealrio",
+    "site": "www.surrealexperience.com"
   },
   "menu": [
     {
-      "id": "flor-carnivora",
-      "secao": "entradas",
-      "tipo": "Entrada",
-      "nome": "Flor Carnívora",
-      "preco": 43,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 43,
       "desc": "Croquetta de couve-flor com queijo meia cura e kimchi, coberta por peixe curado na beterraba com um toque cítrico e maionese de sriracha.",
+      "photo": "assets/photo-croquettes.jpg",
+      "tipo": "Entrada",
+      "nome": "Flor Carnívora",
       "poema": [
         "Ela parece inofensiva.",
         "Mas carrega fome, cor e contraste.",
         "Uma flor quente que se alimenta de carne crua."
       ],
-      "photo": "assets/photo-croquettes.jpg",
-      "tag": "Assinatura"
+      "tag": "Assinatura",
+      "id": "flor-carnivora",
+      "secao": "entradas"
     },
     {
-      "id": "la-la-land",
-      "secao": "entradas",
-      "tipo": "Entrada",
-      "nome": "La La Land",
-      "preco": 59,
       "alerg": [
         "lactose"
       ],
+      "preco": 59,
       "desc": "Peixe curado na beterraba, sour cream, aioli de abacate e azeite verde, servido com chips de batata doce roxa.",
+      "photo": "assets/photo-ceviche.jpg",
+      "tipo": "Entrada",
+      "nome": "La La Land",
       "poema": [
         "O peixe tá rosa, o azeite é verde, a batata é roxa.",
         "Colorido como um musical, fresco como um sonho.",
         "Você morde e acorda."
       ],
-      "photo": "assets/photo-ceviche.jpg",
-      "tag": null
+      "tag": null,
+      "id": "la-la-land",
+      "secao": "entradas"
     },
     {
-      "id": "ancho-em-chamas",
-      "secao": "entradas",
-      "tipo": "Teatro",
-      "nome": "Ancho em Chamas",
-      "preco": 109,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 109,
       "desc": "Bife Ancho Cara Preta (250g), servido com molho roti e alecrim em chamas. Acompanha porção de pão caseiro ou batata rústica.",
+      "photo": "assets/photo-ancho.jpg",
+      "tipo": "Teatro",
+      "nome": "Ancho em Chamas",
       "poema": [
         "Sinta o sabor vibrante do fogo e da brasa."
       ],
-      "photo": "assets/photo-ancho.jpg",
-      "tag": "Teatro"
+      "tag": "Teatro",
+      "id": "ancho-em-chamas",
+      "secao": "entradas"
     },
     {
-      "id": "pollos-hermanos",
-      "secao": "entradas",
-      "tipo": "Entrada",
-      "nome": "Los Pollos Hermanos",
-      "preco": 45,
       "alerg": [
         "glúten"
       ],
+      "preco": 45,
       "desc": "Pedaços de sobrecoxa de frango marinados, ultra crocantes e suculentos. Servidos com a nossa deliciosa maionese da casa.",
+      "photo": null,
+      "tipo": "Entrada",
+      "nome": "Los Pollos Hermanos",
       "poema": [
         "Sabor e crocância que vão te deixar viciado."
       ],
-      "photo": null,
-      "tag": null
+      "tag": null,
+      "id": "pollos-hermanos",
+      "secao": "entradas"
     },
     {
-      "id": "jardim-da-carne",
-      "secao": "entradas",
-      "tipo": "Entrada",
-      "nome": "O Jardim da Carne",
-      "preco": 62,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 62,
       "desc": "Steak tartar de filé mignon cortado na ponta da faca, marinado com mostarda dijon, alcaparras e uma seleção de especiarias. Acompanha pão caseiro.",
+      "photo": "assets/photo-tartare.jpg",
+      "tipo": "Entrada",
+      "nome": "O Jardim da Carne",
       "poema": [
         "Sedutor, cru e vibrante,",
         "como um jardim proibido."
       ],
-      "photo": "assets/photo-tartare.jpg",
-      "tag": "Chef"
+      "tag": "Chef",
+      "id": "jardim-da-carne",
+      "secao": "entradas"
     },
     {
-      "id": "tropikaos",
-      "secao": "entradas",
-      "tipo": "Entrada",
-      "nome": "Tropikáos",
-      "preco": 45,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 45,
       "desc": "Cubos de peixe branco grelhado com vinagrete de banana, tomate, cebola roxa e picles de manga, acompanhados de uma crocante massa de pastel. (opção vegetariana disponível)",
+      "photo": null,
+      "tipo": "Entrada",
+      "nome": "Tropikáos",
       "poema": [
         "Doce, ácido, fresco e frito.",
         "Inesperado, colorido e feliz demais pra fazer sentido.",
         "Come com a mão, come sorrindo e não tenta entender — só vai."
       ],
-      "photo": null,
-      "tag": null
+      "tag": null,
+      "id": "tropikaos",
+      "secao": "entradas"
     },
     {
-      "id": "arquivo-cheese",
-      "secao": "entradas",
-      "tipo": "Entrada",
-      "nome": "Arquivo Cheese X",
-      "preco": 43,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 43,
       "desc": "Porção de bolinhas de queijo crocantes por fora e cremosas por dentro, servida com geleia de goiaba com pimenta. (8 unidades)",
+      "photo": null,
+      "tipo": "Entrada",
+      "nome": "Arquivo Cheese X",
       "poema": [
         "Classificado. Não recomendado pra quem tem medo do prazer.",
         "Derrete, explode e desaparece — sem deixar rastros.",
         "Dizem que é só queijo. Mas quem provou sabe: tem algo ali."
       ],
-      "photo": null,
-      "tag": null
+      "tag": null,
+      "id": "arquivo-cheese",
+      "secao": "entradas"
     },
     {
-      "id": "dragon-fries",
-      "secao": "entradas",
-      "tipo": "Entrada",
-      "nome": "Dragon Fries",
-      "preco": 47,
       "alerg": [
         "glúten"
       ],
+      "preco": 47,
       "desc": "Batatas crinkle crocantes, maionese de pimenta Sriracha, gergelim torrado, cebolinha e alga nori.",
+      "photo": null,
+      "tipo": "Entrada",
+      "nome": "Dragon Fries",
       "poema": [
         "Picantes como o fogo de um dragão.",
         "Crocam, queimam e desaparecem sem deixar rastro."
       ],
-      "photo": null,
-      "tag": null
+      "tag": null,
+      "id": "dragon-fries",
+      "secao": "entradas"
     },
     {
-      "id": "surreal-burger",
-      "secao": "sanduiches",
-      "tipo": "Burger",
-      "nome": "Surreal Burger",
-      "preco": 55,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 55,
       "desc": "Blend Angus Cara Preta de 180g, queijo meia cura derretido, cogumelos, bacon crocante e maionese trufada, servido no pão brioche macio.",
+      "photo": "assets/photo-rib-fiction.jpg",
+      "tipo": "Burger",
+      "nome": "Surreal Burger",
       "poema": [
         "A carne sonhava ser estrela.",
         "O cogumelo chamou o queijo pra derreter.",
         "O bacon caiu no sonho. A trufa guiou tudo.",
         "Nada faz sentido. Tudo faz vontade."
       ],
-      "photo": "assets/photo-rib-fiction.jpg",
-      "tag": "Clássico"
+      "tag": "Clássico",
+      "id": "surreal-burger",
+      "secao": "sanduiches"
     },
     {
-      "id": "pop-art",
-      "secao": "sanduiches",
-      "tipo": "Burger",
-      "nome": "Pop Art Burger",
-      "preco": 55,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 55,
       "desc": "Dupla camada de smash Angus (2x90g), cheddar derretido, picles de jalapeño, alface crocante, cebola caramelizada e maionese surreal.",
+      "photo": null,
+      "tipo": "Burger",
+      "nome": "Pop Art Burger",
       "poema": [
         "Uma mordida e você vira exposição."
       ],
-      "photo": null,
-      "tag": null
+      "tag": null,
+      "id": "pop-art",
+      "secao": "sanduiches"
     },
     {
-      "id": "smash-me-baby",
-      "secao": "sanduiches",
-      "tipo": "Burger",
-      "nome": "Smash me Baby",
-      "preco": 43,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 43,
       "desc": "Smash burger com duas carnes angus, cheddar derretido, maionese surreal e pão brioche selado na manteiga.",
+      "photo": null,
+      "tipo": "Burger",
+      "nome": "Smash me Baby",
       "poema": [
         "Me amassa, me sela, me devora.",
         "Suculência em dose dupla com gosto de \"quero mais\".",
         "Smash me, baby — uma mordida de cada vez."
       ],
-      "photo": null,
-      "tag": null
+      "tag": null,
+      "id": "smash-me-baby",
+      "secao": "sanduiches"
     },
     {
-      "id": "rib-fiction",
-      "secao": "sanduiches",
-      "tipo": "Mini",
-      "nome": "Rib Fiction",
-      "preco": 43,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 43,
       "desc": "Dois mini sanduíches de costela defumada, maionese da casa, queijo meia cura derretido e vinagrete de agrião.",
+      "photo": "assets/photo-rib-fiction.jpg",
+      "tipo": "Mini",
+      "nome": "Rib Fiction",
       "poema": [
         "Ele entra defumando tudo,",
         "derrete o queijo com o olhar",
         "e ainda dá tempo de provocar o agrião.",
         "Ele sabe que é um bad motherfucker."
       ],
-      "photo": "assets/photo-rib-fiction.jpg",
-      "tag": "Chef"
+      "tag": "Chef",
+      "id": "rib-fiction",
+      "secao": "sanduiches"
     },
     {
-      "id": "dali-dog",
-      "secao": "sanduiches",
-      "tipo": "Hot dog",
-      "nome": "Dalí Dog",
-      "preco": 42,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 42,
       "desc": "Linguiça de costela, maionese da casa, mostarda, vinagrete e broto de coentro, servido no pão de leite.",
+      "photo": null,
+      "tipo": "Hot dog",
+      "nome": "Dalí Dog",
       "poema": [
         "O tempo derrete e a fome também.",
         "Um delírio gastronômico digno de museu."
       ],
-      "photo": null,
-      "tag": null
+      "tag": null,
+      "id": "dali-dog",
+      "secao": "sanduiches"
     },
     {
-      "id": "delirio-tropical",
-      "secao": "sanduiches",
-      "tipo": "Mini",
-      "nome": "O Delírio Tropical",
-      "preco": 45,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 45,
       "desc": "Dois mini sanduíches com peixe frito crocante, acompanhados de vinagrete de banana e picles de manga.",
+      "photo": null,
+      "tipo": "Mini",
+      "nome": "O Delírio Tropical",
       "poema": [
         "Surreal como o calor de fevereiro.",
         "Uma mordida e o verão derrete na boca."
       ],
-      "photo": null,
-      "tag": null
+      "tag": null,
+      "id": "delirio-tropical",
+      "secao": "sanduiches"
     },
     {
-      "id": "ceci-nest-pas",
-      "secao": "sanduiches",
-      "tipo": "Veggie",
-      "nome": "Ceci n'est pas un hamburger",
-      "preco": 55,
       "alerg": [
         "glúten",
         "lactose",
         "veggie"
       ],
+      "preco": 55,
       "desc": "Isso não é um hambúrguer: feito de fibra de caju, cogumelos frescos e aioli de abacate.",
+      "photo": null,
+      "tipo": "Veggie",
+      "nome": "Ceci n'est pas un hamburger",
       "poema": [
         "Não é carne. Não é ilusão.",
         "Com gosto de brasa, textura de engano",
         "e vontade de repetir."
       ],
-      "photo": null,
-      "tag": "Veggie"
+      "tag": "Veggie",
+      "id": "ceci-nest-pas",
+      "secao": "sanduiches"
     },
     {
-      "id": "poderoso-chefao",
-      "secao": "principais",
-      "tipo": "Prato",
-      "nome": "Poderoso Chefão",
-      "preco": 79,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 79,
       "desc": "Filé Mignon servido com arroz à piamontese com queijo meia cura, molho roti e batata rústica.",
+      "photo": null,
+      "tipo": "Prato",
+      "nome": "Poderoso Chefão",
       "poema": [
         "Macio como um acerto de contas bem feito.",
         "Uma proposta que você não pode recusar."
       ],
-      "photo": null,
-      "tag": null
+      "tag": null,
+      "id": "poderoso-chefao",
+      "secao": "principais"
     },
     {
-      "id": "querida-empanei",
-      "secao": "principais",
-      "tipo": "Prato",
-      "nome": "Querida, Empanei o Frango",
-      "preco": 69,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 69,
       "desc": "Frango crocante empanado na farinha Panko, arroz cremoso de limão e batatas rústicas.",
+      "photo": null,
+      "tipo": "Prato",
+      "nome": "Querida, Empanei o Frango",
       "poema": [
         "Não encolhi, não — empanei,",
         "e ficou gigante na crocância,",
         "imenso no sabor e absurdamente cremoso no limão.",
         "Servido com uma pitada de nostalgia bem temperada."
       ],
-      "photo": null,
-      "tag": null
+      "tag": null,
+      "id": "querida-empanei",
+      "secao": "principais"
     },
     {
-      "id": "mushroom-kingdom",
-      "secao": "principais",
-      "tipo": "Massa",
-      "nome": "Mushroom Kingdom",
-      "preco": 66,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 66,
       "desc": "Linguini envolto em um cremoso molho trufado com cogumelos salteados e Parmesão. Acrescente Ancho por +R$ 30.",
+      "photo": null,
+      "tipo": "Massa",
+      "nome": "Mushroom Kingdom",
       "poema": [
         "Um reino escondido sob a terra, onde cogumelos mandam no sabor.",
         "É trufa, é textura, é um abraço da floresta no seu prato.",
         "Você pisa nesse reino com o garfo… e não quer mais sair."
       ],
-      "photo": null,
-      "tag": null
+      "tag": null,
+      "id": "mushroom-kingdom",
+      "secao": "principais"
     },
     {
-      "id": "verde-de-fome",
-      "secao": "principais",
-      "tipo": "Salada",
-      "nome": "Verde de Fome",
-      "preco": 59,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 59,
       "desc": "Salada Caesar com frango: alface crocante, croutons dourados, parmesão ralado, molho Caesar com especiarias e tiras de frango grelhado.",
+      "photo": null,
+      "tipo": "Salada",
+      "nome": "Verde de Fome",
       "poema": [
         "Parece leve, mas vem faminta.",
         "Croca, tempera, envolve — e devora por dentro."
       ],
-      "photo": null,
-      "tag": null
+      "tag": null,
+      "id": "verde-de-fome",
+      "secao": "principais"
     },
     {
-      "id": "carne-vegana",
-      "secao": "principais",
-      "tipo": "Vegano",
-      "nome": "Carne Vegana de Fibra de Caju",
-      "preco": 69,
       "alerg": [
         "glúten",
         "vegano"
       ],
+      "preco": 69,
       "desc": "Fibra de caju transformada em carne, acompanhada de arroz de tomate, aioli de abacate e salada do dia.",
+      "photo": null,
+      "tipo": "Vegano",
+      "nome": "Carne Vegana de Fibra de Caju",
       "poema": [
         "Uma reinvenção da natureza,",
         "onde a fibra do caju se torna carne,",
         "desafiando convenções e despertando os sentidos."
       ],
-      "photo": null,
-      "tag": "Vegano"
+      "tag": "Vegano",
+      "id": "carne-vegana",
+      "secao": "principais"
     },
     {
-      "id": "banoffee",
-      "secao": "sobremesas",
-      "tipo": "Doce",
-      "nome": "Banoffee Surreal",
-      "preco": 39,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 39,
       "desc": "Banana, doce de leite, chantilly leve e farofa crocante de biscoito.",
+      "photo": null,
+      "tipo": "Doce",
+      "nome": "Banoffee Surreal",
       "poema": [
         "Doce na medida, cremosa no ponto.",
         "É sobremesa, é conforto, é um abraço de açúcar.",
         "Você dá a primeira colher achando que conhece",
         "mas ela vira e diz: \"Surpreendi?\""
       ],
-      "photo": null,
-      "tag": null
+      "tag": null,
+      "id": "banoffee",
+      "secao": "sobremesas"
     },
     {
-      "id": "sal-no-doce",
-      "secao": "sobremesas",
-      "tipo": "Doce",
-      "nome": "Tem Sal no meu Doce?",
-      "preco": 39,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 39,
       "desc": "Torta em camadas de caramelo de missô, chocolate meio amargo e base crocante de biscoito de castanha de caju e gergelim.",
+      "photo": null,
+      "tipo": "Doce",
+      "nome": "Tem Sal no meu Doce?",
       "poema": [
         "Sim, tem sal no seu doce.",
         "E você vai amar não saber",
         "se isso é um elogio ou um aviso."
       ],
-      "photo": null,
-      "tag": "Novo"
+      "tag": "Novo",
+      "id": "sal-no-doce",
+      "secao": "sobremesas"
     },
     {
-      "id": "fantastico-bolo",
-      "secao": "sobremesas",
-      "tipo": "Doce",
-      "nome": "O Fantástico Bolo de Chocolate",
-      "preco": 39,
       "alerg": [
         "glúten",
         "lactose"
       ],
+      "preco": 39,
       "desc": "Bolo de chocolate crocante por fora e cremoso por dentro, servido com calda de chocolate branco assado e sorvete de creme.",
+      "photo": null,
+      "tipo": "Doce",
+      "nome": "O Fantástico Bolo de Chocolate",
       "poema": [
         "Quando você provar esse bolo, vai se sentir como se tivesse ganhado o bilhete dourado.",
         "É tão gostoso que você vai sair cantando:",
         "\"Oompa Loompa dumpa di du…\""
       ],
-      "photo": null,
-      "tag": null
+      "tag": null,
+      "id": "fantastico-bolo",
+      "secao": "sobremesas"
     }
   ],
   "bebidas": [
     {
-      "id": "kill-bill",
-      "secao": "leves",
-      "nome": "Kill Bill",
       "preco": 42,
-      "ml": 280,
       "desc": "Gin, concentrado de pêssego, maracujá e um toque de frutas vermelhas, finalizado com espuma de gengibre.",
+      "base": "Gin",
+      "nome": "Kill Bill",
       "poema": [
         "Ela sorri, mas veio pra matar.",
         "Frutada, ácida, sedutora — e com gengibre na lâmina.",
@@ -450,47 +448,47 @@
         "ou acorde na cena seguinte sem lembrar o que te atingiu."
       ],
       "tag": "Autoral",
-      "base": "Gin"
+      "id": "kill-bill",
+      "secao": "leves",
+      "ml": 280
     },
     {
-      "id": "branca-neve",
-      "secao": "leves",
-      "nome": "Branca como a neve",
+      "alerg": [
+        "lactose"
+      ],
       "preco": 38,
-      "ml": 100,
       "desc": "Gin, chocolate branco, pistache, maracujá, pimenta e vermute.",
+      "base": "Gin",
+      "nome": "Branca como a neve",
       "poema": [
         "Doce, cremosa, sensual.",
         "Um conto de fadas com final etílico."
       ],
       "tag": null,
-      "base": "Gin",
-      "alerg": [
-        "lactose"
-      ]
+      "id": "branca-neve",
+      "secao": "leves",
+      "ml": 100
     },
     {
-      "id": "a-forca",
-      "secao": "leves",
-      "nome": "A Força",
       "preco": 35,
-      "ml": 160,
       "desc": "Vodka, cordial de limão, suco de maçã verde e Sour Mix.",
+      "base": "Vodka",
+      "nome": "A Força",
       "poema": [
         "Sabedoria, frescor e potência, ele carrega.",
         "Depois do primeiro gole,",
         "a Força está em você também."
       ],
       "tag": null,
-      "base": "Vodka"
+      "id": "a-forca",
+      "secao": "leves",
+      "ml": 160
     },
     {
-      "id": "watermelon-sugar",
-      "secao": "leves",
-      "nome": "Watermelon Sugar",
       "preco": 42,
-      "ml": 350,
       "desc": "Vodka, Aperol, cordial de limão, soda de melancia e frutas vermelhas, finalizado com espuma de gengibre.",
+      "base": "Vodka",
+      "nome": "Watermelon Sugar",
       "poema": [
         "Doce como um refrão grudado na língua.",
         "Watermelon sugar, high —",
@@ -498,29 +496,30 @@
         "e quando você vê… já tá cantando com o copo na mão."
       ],
       "tag": "Pop",
-      "base": "Vodka"
+      "id": "watermelon-sugar",
+      "secao": "leves",
+      "ml": 350
     },
     {
-      "id": "espinhos-flores",
-      "secao": "intensos",
-      "nome": "Espinhos e Flores",
       "preco": 42,
-      "ml": 160,
       "desc": "Jack Daniel's N7, Campari, suco de abacaxi e purê de grapefruit.",
+      "base": "Whisky",
+      "nome": "Espinhos e Flores",
       "poema": [
         "Entre a dor e a beleza, acidez e doçura.",
         "Inspirado em Frida Kahlo, para beber de coração aberto."
       ],
       "tag": "Autoral",
-      "base": "Whisky"
+      "id": "espinhos-flores",
+      "secao": "intensos",
+      "ml": 160
     },
     {
-      "id": "memoria-derretida",
-      "secao": "intensos",
-      "nome": "Memória Derretida",
       "preco": 42,
-      "ml": 160,
       "desc": "Jack Daniel's N7, xarope de lichia, limão-cravo, finalizado com um toque de vinho Malbec.",
+      "base": "Whisky",
+      "photo": "assets/photo-drink1.jpg",
+      "nome": "Memória Derretida",
       "poema": [
         "Um drink que brinca com o tempo",
         "e desafia os sentidos.",
@@ -528,60 +527,62 @@
         "servido em estado de sonho."
       ],
       "tag": "Assinatura",
-      "base": "Whisky",
-      "photo": "assets/photo-drink1.jpg"
+      "id": "memoria-derretida",
+      "secao": "intensos",
+      "ml": 160
     },
     {
-      "id": "pantera-negra",
-      "secao": "intensos",
-      "nome": "Pantera Negra",
       "preco": 38,
-      "ml": 120,
       "desc": "Campari, vermute de jabuticaba, purê de jabuticaba, limão e licor de café.",
+      "base": "Campari",
+      "nome": "Pantera Negra",
       "poema": [
         "Anda devagar, mas ataca sem aviso.",
         "Fruta sombria, café que sussurra, amargor que arranha.",
         "Você não domina a Pantera."
       ],
       "tag": null,
-      "base": "Campari"
+      "id": "pantera-negra",
+      "secao": "intensos",
+      "ml": 120
     },
     {
-      "id": "venere-negroni",
-      "secao": "intensos",
-      "nome": "Venere Negroni",
       "preco": 38,
-      "ml": 90,
       "desc": "Gin infusionado com tangerina, Campari com um toque de cardamomo e vermute branco.",
+      "base": "Gin",
+      "nome": "Venere Negroni",
       "poema": [
         "Amarga com elegância, cítrica com intenção.",
         "É Vênus embriagada — e você, só mais um mortal encantado."
       ],
       "tag": null,
-      "base": "Gin"
+      "id": "venere-negroni",
+      "secao": "intensos",
+      "ml": 90
     },
     {
-      "id": "tequila-black",
-      "secao": "intensos",
-      "nome": "Tequila is the new Black",
       "preco": 38,
-      "ml": 160,
       "desc": "El Jimador, Aperol, purê de toranja, limão e agave.",
+      "base": "Tequila",
+      "nome": "Tequila is the new Black",
       "poema": [
         "Sofisticado, mas com fogo na alma.",
         "Amargo com estilo, ácido com vontade.",
         "Tequila é o novo pretinho básico."
       ],
       "tag": null,
-      "base": "Tequila"
+      "id": "tequila-black",
+      "secao": "intensos",
+      "ml": 160
     },
     {
-      "id": "like-a-virgin",
-      "secao": "sem-alcool",
-      "nome": "Like a Virgin",
+      "alerg": [
+        "lactose"
+      ],
       "preco": 22,
-      "ml": 350,
       "desc": "Água de coco, purê de mirtilo com especiarias e espuma de coco.",
+      "base": "Zero",
+      "nome": "Like a Virgin",
       "poema": [
         "Puro? Talvez.",
         "Inocente? Só na primeira olhada.",
@@ -590,18 +591,15 @@
         "Um \"virgin drink\" com intenções nada santas."
       ],
       "tag": "Sem álcool",
-      "base": "Zero",
-      "alerg": [
-        "lactose"
-      ]
+      "id": "like-a-virgin",
+      "secao": "sem-alcool",
+      "ml": 350
     },
     {
-      "id": "stranger-things",
-      "secao": "sem-alcool",
-      "nome": "Stranger Things",
       "preco": 22,
-      "ml": 350,
       "desc": "Chá de hibisco, xarope de canela, suco de cranberry e limão tahiti.",
+      "base": "Zero",
+      "nome": "Stranger Things",
       "poema": [
         "Docemente esquisito.",
         "Escuro, ácido, perfumado —",
@@ -609,30 +607,30 @@
         "Beba com cuidado: coisas estranhas podem acontecer."
       ],
       "tag": "Sem álcool",
-      "base": "Zero"
+      "id": "stranger-things",
+      "secao": "sem-alcool",
+      "ml": 350
     },
     {
-      "id": "pineapple-express",
-      "secao": "sem-alcool",
-      "nome": "Pineapple Express",
       "preco": 22,
-      "ml": 350,
       "desc": "Suco de abacaxi, suco de limão siciliano, xarope de coco e lasca de coco caramelizado.",
+      "base": "Zero",
+      "nome": "Pineapple Express",
       "poema": [
         "Uma viagem na cabeça.",
         "Doce, ácido, cremoso — e perigosamente refrescante.",
         "Embarque imediato, sem escala pra realidade."
       ],
       "tag": "Sem álcool",
-      "base": "Zero"
+      "id": "pineapple-express",
+      "secao": "sem-alcool",
+      "ml": 350
     },
     {
-      "id": "twist-fizz",
-      "secao": "sem-alcool",
-      "nome": "Twist n' Fizz",
       "preco": 22,
-      "ml": 350,
       "desc": "Hortelã, limão siciliano, xarope de amêndoa e água com gás.",
+      "base": "Zero",
+      "nome": "Twist n' Fizz",
       "poema": [
         "Refrescante e elegante.",
         "Cítrico, leve, borbulhante —",
@@ -640,15 +638,15 @@
         "e devolve o brilho do dia."
       ],
       "tag": "Sem álcool",
-      "base": "Zero"
+      "id": "twist-fizz",
+      "secao": "sem-alcool",
+      "ml": 350
     },
     {
-      "id": "miss-sunshine",
-      "secao": "sem-alcool",
-      "nome": "Miss Sunshine",
       "preco": 22,
-      "ml": 350,
       "desc": "Manga spicy, suco de limão, pimenta e água com gás.",
+      "base": "Zero",
+      "nome": "Miss Sunshine",
       "poema": [
         "Doce com atitude.",
         "Picante, vibrante, ensolarado —",
@@ -656,336 +654,338 @@
         "e surpreende a cada gole."
       ],
       "tag": "Sem álcool",
-      "base": "Zero"
+      "id": "miss-sunshine",
+      "secao": "sem-alcool",
+      "ml": 350
     },
     {
-      "id": "rabo-galo-zero",
-      "secao": "classicos-zero",
-      "nome": "Rabo de Galo (zero)",
       "preco": 25,
-      "ml": null,
       "desc": "Mate, suco de maçã e maçã verde.",
+      "base": "Zero",
+      "nome": "Rabo de Galo (zero)",
       "poema": [
         "Brasileiro na alma, refrescante na essência.",
         "Tradicional e inovador ao mesmo tempo."
       ],
       "tag": "Sem álcool",
-      "base": "Zero"
+      "id": "rabo-galo-zero",
+      "secao": "classicos-zero",
+      "ml": null
     },
     {
-      "id": "old-fashioned-zero",
-      "secao": "classicos-zero",
-      "nome": "Old Fashioned (zero)",
       "preco": 25,
-      "ml": null,
       "desc": "Suco de maçã, mate, óleos essenciais de laranja, cereja e toque de açúcar.",
+      "base": "Zero",
+      "nome": "Old Fashioned (zero)",
       "poema": [
         "Robusto, aromático, atemporal.",
         "O clássico dos clássicos — reimaginado sem perder a alma."
       ],
       "tag": "Sem álcool",
-      "base": "Zero"
+      "id": "old-fashioned-zero",
+      "secao": "classicos-zero",
+      "ml": null
     },
     {
-      "id": "penicillin-zero",
-      "secao": "classicos-zero",
-      "nome": "Penicillin (zero)",
       "preco": 25,
-      "ml": null,
       "desc": "Suco de maçã, limão siciliano, mel e suco de gengibre.",
+      "base": "Zero",
+      "nome": "Penicillin (zero)",
       "poema": [
         "Doce, picante, curativo.",
         "Um gole que aquece, acalma e surpreende",
         "como um elixir moderno."
       ],
       "tag": "Sem álcool",
-      "base": "Zero"
+      "id": "penicillin-zero",
+      "secao": "classicos-zero",
+      "ml": null
     },
     {
+      "preco": 40,
+      "desc": "Gin, Campari, vermute tinto.",
+      "base": "Gin",
+      "nome": "Negroni",
+      "poema": [],
+      "tag": null,
       "id": "negroni",
       "secao": "classicos",
-      "nome": "Negroni",
-      "preco": 40,
-      "ml": 90,
-      "desc": "Gin, Campari, vermute tinto.",
-      "poema": [],
-      "tag": null,
-      "base": "Gin"
+      "ml": 90
     },
     {
+      "preco": 42,
+      "desc": "Jack Daniel's N7, Campari, vermute tinto.",
+      "base": "Whisky",
+      "nome": "Boulevardier",
+      "poema": [],
+      "tag": null,
       "id": "boulevardier",
       "secao": "classicos",
-      "nome": "Boulevardier",
-      "preco": 42,
-      "ml": 90,
-      "desc": "Jack Daniel's N7, Campari, vermute tinto.",
-      "poema": [],
-      "tag": null,
-      "base": "Whisky"
+      "ml": 90
     },
     {
+      "preco": 35,
+      "desc": "Vodka, soda de gengibre, limão siciliano e espuma cítrica de gengibre.",
+      "base": "Vodka",
+      "nome": "Moscow Mule",
+      "poema": [],
+      "tag": null,
       "id": "moscow-mule",
       "secao": "classicos",
-      "nome": "Moscow Mule",
-      "preco": 35,
-      "ml": 170,
-      "desc": "Vodka, soda de gengibre, limão siciliano e espuma cítrica de gengibre.",
-      "poema": [],
-      "tag": null,
-      "base": "Vodka"
+      "ml": 170
     },
     {
+      "preco": 28,
+      "desc": "Rum prata, suco de limão, hortelã, água gaseificada e bitter.",
+      "base": "Rum",
+      "nome": "Mojito",
+      "poema": [],
+      "tag": null,
       "id": "mojito",
       "secao": "classicos",
-      "nome": "Mojito",
-      "preco": 28,
-      "ml": 300,
-      "desc": "Rum prata, suco de limão, hortelã, água gaseificada e bitter.",
-      "poema": [],
-      "tag": null,
-      "base": "Rum"
+      "ml": 300
     },
     {
+      "preco": 38,
+      "desc": "Gin, limão siciliano, açúcar e bitter.",
+      "base": "Gin",
+      "nome": "Fitzgerald",
+      "poema": [],
+      "tag": null,
       "id": "fitzgerald",
       "secao": "classicos",
-      "nome": "Fitzgerald",
-      "preco": 38,
-      "ml": 160,
-      "desc": "Gin, limão siciliano, açúcar e bitter.",
-      "poema": [],
-      "tag": null,
-      "base": "Gin"
+      "ml": 160
     },
     {
+      "preco": 35,
+      "desc": "Aperol, água com gás, espumante e rodela de laranja.",
+      "base": "Aperol",
+      "nome": "Aperol Spritz",
+      "poema": [],
+      "tag": null,
       "id": "aperol-spritz",
       "secao": "classicos",
-      "nome": "Aperol Spritz",
-      "preco": 35,
-      "ml": 300,
-      "desc": "Aperol, água com gás, espumante e rodela de laranja.",
-      "poema": [],
-      "tag": null,
-      "base": "Aperol"
+      "ml": 300
     },
     {
+      "preco": 35,
+      "desc": "Cachaça, vermute tinto, Cynar, bitter e laranja.",
+      "base": "Cachaça",
+      "nome": "Rabo de Galo",
+      "poema": [],
+      "tag": null,
       "id": "rabo-galo",
       "secao": "classicos",
-      "nome": "Rabo de Galo",
-      "preco": 35,
-      "ml": 160,
-      "desc": "Cachaça, vermute tinto, Cynar, bitter e laranja.",
-      "poema": [],
-      "tag": null,
-      "base": "Cachaça"
+      "ml": 160
     },
     {
+      "preco": 42,
+      "desc": "Gentleman Jack, limão siciliano, mel, gengibre e Laphroaig Single Malt.",
+      "base": "Whisky",
+      "nome": "Penicillin",
+      "poema": [],
+      "tag": null,
       "id": "penicillin",
       "secao": "classicos",
-      "nome": "Penicillin",
-      "preco": 42,
-      "ml": 160,
-      "desc": "Gentleman Jack, limão siciliano, mel, gengibre e Laphroaig Single Malt.",
-      "poema": [],
-      "tag": null,
-      "base": "Whisky"
+      "ml": 160
     },
     {
+      "preco": 42,
+      "desc": "Jack Daniel's N7, bitter, óleos essenciais de laranja, cereja e toque de açúcar.",
+      "base": "Whisky",
+      "nome": "Old Fashioned",
+      "poema": [],
+      "tag": null,
       "id": "old-fashioned",
       "secao": "classicos",
-      "nome": "Old Fashioned",
-      "preco": 42,
-      "ml": 80,
-      "desc": "Jack Daniel's N7, bitter, óleos essenciais de laranja, cereja e toque de açúcar.",
-      "poema": [],
-      "tag": null,
-      "base": "Whisky"
+      "ml": 80
     },
     {
+      "preco": 30,
+      "desc": "Morango, Maracujá ou Limão.",
+      "base": "Cachaça",
+      "nome": "Caipirinha, Caipivodka ou Caipisake",
+      "poema": [],
+      "tag": null,
       "id": "caipirinha",
       "secao": "classicos",
-      "nome": "Caipirinha, Caipivodka ou Caipisake",
-      "preco": 30,
-      "ml": 200,
-      "desc": "Morango, Maracujá ou Limão.",
-      "poema": [],
-      "tag": null,
-      "base": "Cachaça"
+      "ml": 200
     },
     {
+      "preco": 35,
+      "desc": "Gin e água tônica harmonizada com limão siciliano e zimbro.",
+      "base": "Gin",
+      "nome": "Gin Tônica",
+      "poema": [],
+      "tag": null,
       "id": "gin-tonica",
       "secao": "classicos",
-      "nome": "Gin Tônica",
-      "preco": 35,
-      "ml": 350,
-      "desc": "Gin e água tônica harmonizada com limão siciliano e zimbro.",
-      "poema": [],
-      "tag": null,
-      "base": "Gin"
+      "ml": 350
     },
     {
+      "preco": 14,
+      "desc": "German Pilsen · IBU 12 · 5,0%",
+      "base": "Cerveja",
+      "nome": "Chopp Odin Pilsen",
+      "poema": [],
+      "tag": null,
       "id": "odin-pilsen",
       "secao": "chopp",
-      "nome": "Chopp Odin Pilsen",
-      "preco": 14,
-      "ml": 300,
-      "desc": "German Pilsen · IBU 12 · 5,0%",
-      "poema": [],
-      "tag": null,
-      "base": "Cerveja"
+      "ml": 300
     },
     {
+      "preco": 16,
+      "desc": "IPA · IBU 39 · 8,3%",
+      "base": "Cerveja",
+      "nome": "Chopp Odin Session IPA",
+      "poema": [],
+      "tag": null,
       "id": "odin-ipa",
       "secao": "chopp",
-      "nome": "Chopp Odin Session IPA",
-      "preco": 16,
-      "ml": 300,
-      "desc": "IPA · IBU 39 · 8,3%",
-      "poema": [],
-      "tag": null,
-      "base": "Cerveja"
+      "ml": 300
     },
     {
+      "preco": 25,
+      "desc": "American Blonde Ale · IBU 18 · 5,0%",
+      "base": "Cerveja",
+      "nome": "Hocus Pocus Orange",
+      "poema": [],
+      "tag": null,
       "id": "hp-orange",
       "secao": "cervejas",
-      "nome": "Hocus Pocus Orange",
-      "preco": 25,
-      "ml": 500,
-      "desc": "American Blonde Ale · IBU 18 · 5,0%",
-      "poema": [],
-      "tag": null,
-      "base": "Cerveja"
+      "ml": 500
     },
     {
+      "preco": 30,
+      "desc": "Belgian Golden Strong Ale · IBU 25 · 8,5%",
+      "base": "Cerveja",
+      "nome": "Hocus Pocus Magic",
+      "poema": [],
+      "tag": null,
       "id": "hp-magic",
       "secao": "cervejas",
-      "nome": "Hocus Pocus Magic",
-      "preco": 30,
-      "ml": 500,
-      "desc": "Belgian Golden Strong Ale · IBU 25 · 8,5%",
-      "poema": [],
-      "tag": null,
-      "base": "Cerveja"
+      "ml": 500
     },
     {
+      "preco": 33,
+      "desc": "American IPA · IBU 80 · 7,0%",
+      "base": "Cerveja",
+      "nome": "Hocus Pocus Interstellar",
+      "poema": [],
+      "tag": null,
       "id": "hp-interstellar",
       "secao": "cervejas",
-      "nome": "Hocus Pocus Interstellar",
-      "preco": 33,
-      "ml": 500,
-      "desc": "American IPA · IBU 80 · 7,0%",
-      "poema": [],
-      "tag": null,
-      "base": "Cerveja"
+      "ml": 500
     },
     {
+      "preco": 33,
+      "desc": "Belgian Tripel · IBU 25 · 7,5%",
+      "base": "Cerveja",
+      "nome": "Odin Tripel",
+      "poema": [],
+      "tag": null,
       "id": "odin-tripel",
       "secao": "cervejas",
-      "nome": "Odin Tripel",
-      "preco": 33,
-      "ml": 600,
-      "desc": "Belgian Tripel · IBU 25 · 7,5%",
-      "poema": [],
-      "tag": null,
-      "base": "Cerveja"
+      "ml": 600
     },
     {
+      "preco": 33,
+      "desc": "Imperial Stout · IBU 50 · 10,0%",
+      "base": "Cerveja",
+      "nome": "Odin Stout",
+      "poema": [],
+      "tag": null,
       "id": "odin-stout",
       "secao": "cervejas",
-      "nome": "Odin Stout",
-      "preco": 33,
-      "ml": 600,
-      "desc": "Imperial Stout · IBU 50 · 10,0%",
-      "poema": [],
-      "tag": null,
-      "base": "Cerveja"
+      "ml": 600
     },
     {
+      "preco": 14,
+      "desc": "Heineken · Stella Pure Gold · Spaten · Estrella Galicia · Heineken Zero",
+      "base": "Cerveja",
+      "nome": "Long neck",
+      "poema": [],
+      "tag": null,
       "id": "longneck",
       "secao": "cervejas",
-      "nome": "Long neck",
-      "preco": 14,
-      "ml": 330,
-      "desc": "Heineken · Stella Pure Gold · Spaten · Estrella Galicia · Heineken Zero",
-      "poema": [],
-      "tag": null,
-      "base": "Cerveja"
+      "ml": 330
     },
     {
+      "preco": 20,
+      "desc": "Intenso, aromático e naturalmente doce, sem açúcar ou aditivos.",
+      "base": "Soft",
+      "nome": "Suco de Uva Bordô Orgânico",
+      "poema": [],
+      "tag": null,
       "id": "uva-bordo",
       "secao": "soft",
-      "nome": "Suco de Uva Bordô Orgânico",
-      "preco": 20,
-      "ml": 150,
-      "desc": "Intenso, aromático e naturalmente doce, sem açúcar ou aditivos.",
-      "poema": [],
-      "tag": null,
-      "base": "Soft"
+      "ml": 150
     },
     {
+      "preco": 20,
+      "desc": "Leve, perfumado e refrescante. Traz notas florais e frutadas.",
+      "base": "Soft",
+      "nome": "Suco de Uva Niagara Orgânico",
+      "poema": [],
+      "tag": null,
       "id": "uva-niagara",
       "secao": "soft",
-      "nome": "Suco de Uva Niagara Orgânico",
-      "preco": 20,
-      "ml": 150,
-      "desc": "Leve, perfumado e refrescante. Traz notas florais e frutadas.",
-      "poema": [],
-      "tag": null,
-      "base": "Soft"
+      "ml": 150
     },
     {
+      "preco": 12,
+      "desc": "Laranja · Limão · Maracujá",
+      "base": "Soft",
+      "nome": "Sucos naturais",
+      "poema": [],
+      "tag": null,
       "id": "suco-natural",
       "secao": "soft",
-      "nome": "Sucos naturais",
-      "preco": 12,
-      "ml": 280,
-      "desc": "Laranja · Limão · Maracujá",
-      "poema": [],
-      "tag": null,
-      "base": "Soft"
+      "ml": 280
     },
     {
+      "preco": 9,
+      "desc": "Coca · Coca Zero · Guaraná · Guaraná Zero · Sprite",
+      "base": "Soft",
+      "nome": "Refrigerantes",
+      "poema": [],
+      "tag": null,
       "id": "refrigerante",
       "secao": "soft",
-      "nome": "Refrigerantes",
-      "preco": 9,
-      "ml": 330,
-      "desc": "Coca · Coca Zero · Guaraná · Guaraná Zero · Sprite",
-      "poema": [],
-      "tag": null,
-      "base": "Soft"
+      "ml": 330
     },
     {
+      "preco": 12,
+      "desc": "Natural · Limão · Maracujá",
+      "base": "Soft",
+      "nome": "Mate da Casa",
+      "poema": [],
+      "tag": null,
       "id": "mate-casa",
       "secao": "soft",
-      "nome": "Mate da Casa",
-      "preco": 12,
-      "ml": 280,
-      "desc": "Natural · Limão · Maracujá",
-      "poema": [],
-      "tag": null,
-      "base": "Soft"
+      "ml": 280
     },
     {
+      "preco": 9,
+      "desc": "Comum · Zero",
+      "base": "Soft",
+      "nome": "Água Tônica",
+      "poema": [],
+      "tag": null,
       "id": "tonica",
       "secao": "soft",
-      "nome": "Água Tônica",
-      "preco": 9,
-      "ml": 220,
-      "desc": "Comum · Zero",
-      "poema": [],
-      "tag": null,
-      "base": "Soft"
+      "ml": 220
     },
     {
-      "id": "agua",
-      "secao": "soft",
-      "nome": "Água Prata",
       "preco": 9,
-      "ml": 220,
       "desc": "Sem gás · Com gás",
+      "base": "Soft",
+      "nome": "Água Prata",
       "poema": [],
       "tag": null,
-      "base": "Soft"
+      "id": "agua",
+      "secao": "soft",
+      "ml": 220
     }
   ],
   "vinhos": [
