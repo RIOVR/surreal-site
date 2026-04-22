@@ -1,132 +1,155 @@
 # Guia de Edição — Surreal Cardápio Digital
 
-Este guia é pra você, Frederico, editar o cardápio **sem precisar saber programar**.
-Todas as edições acontecem no **GitHub**, direto pelo navegador. Após salvar, a Vercel publica a mudança no site em ~20 segundos. Automático.
+Você tem duas formas de editar o site. Use a que for mais confortável pra cada situação.
 
-> 📌 **Link do repositório:** `https://github.com/SEU-USUARIO/surreal-site` (você vai receber esse link quando o repo estiver criado)
+| Jeito | Quando usar | Onde |
+|---|---|---|
+| 🎨 **Painel Decap CMS** *(recomendado)* | Dia a dia — trocar preço, texto, foto de um prato | https://surrealrio.com/admin/ |
+| 🔧 **GitHub direto** *(fallback)* | Alterações estruturais ou se o CMS estiver fora | https://github.com/RIOVR/surreal-site |
 
----
-
-## 1. Trocar texto ou preço de um prato/bebida
-
-Todos os textos do cardápio estão num único arquivo: **`data.js`**.
-
-### Passo a passo:
-
-1. Acesse o repositório no GitHub.
-2. Clique em **`data.js`**.
-3. Clique no ícone de **lápis ✏️** no canto superior direito ("Edit this file").
-4. Encontre o prato ou drink que quer editar. A estrutura é assim:
-
-   ```js
-   {
-     id: 'surreal-burger', secao: 'sanduiches', tipo: 'Burger',
-     nome: 'Surreal Burger', preco: 55, alerg: ['glúten', 'lactose'],
-     desc: 'Blend Angus Cara Preta de 180g, queijo meia cura derretido...',
-     poema: ['A carne sonhava ser estrela.', 'O cogumelo chamou o queijo pra derreter.'],
-     photo: 'assets/photo-rib-fiction.jpg', tag: 'Clássico',
-   },
-   ```
-
-5. Edite o que precisar:
-   - **`nome`**: nome do prato
-   - **`preco`**: número em reais (sem "R$", só o número — `55`)
-   - **`desc`**: descrição que aparece nos cards e no pop-up
-   - **`poema`**: array de strings (cada linha do poema entre `'aspas simples,'`)
-   - **`tag`**: `'Chef'`, `'Assinatura'`, `'Novo'`, `'Veggie'`, `'Vegano'`, `'Teatro'`, `'Sem álcool'`, ou `null` (sem tag)
-   - **`alerg`**: lista de alérgenos, ex: `['glúten', 'lactose']`
-   - **`photo`**: caminho da foto (ver seção 2)
-
-6. Role até embaixo da página. Em "Commit changes":
-   - Escreva uma mensagem curta, tipo "Atualiza preço do Surreal Burger"
-   - Selecione "Commit directly to the `main` branch"
-   - Clique em **"Commit changes"**
-
-7. Pronto. Em ~20 segundos o site já está atualizado em https://surrealrio.com.
-
-> 💡 **Erro de sintaxe?** Se você esquecer uma vírgula ou aspas, o site pode quebrar. Antes de fazer commit, confira que cada linha termina com vírgula `,` e que strings estão entre aspas `'...'`. Em caso de dúvida, me chama antes de commitar.
+Os dois caminhos editam o **mesmo arquivo** (`data.json`). O que você salva no CMS vai direto pro GitHub como um commit, e a Vercel redeploy o site em ~30 segundos.
 
 ---
 
-## 2. Trocar ou adicionar foto de um prato
+## 🎨 Caminho 1 — Painel Decap CMS
 
-### Para trocar uma foto existente:
+### Primeiro acesso
 
-1. Tire a foto nova no celular (ou no computador).
-2. **Nome do arquivo**: mantenha o mesmo nome da foto antiga, ex: `photo-surreal-burger.jpg`. Assim você substitui sem precisar editar código.
-3. No GitHub, entre na pasta **`assets/`**.
-4. Clique na foto antiga (ex: `photo-rib-fiction.jpg`).
-5. Clique em **"Delete"** (ícone de lixeira). Confirme.
-6. Volte para a pasta `assets/` e clique em **"Add file" → "Upload files"**.
-7. Arraste a foto nova (com o mesmo nome) e commit.
+1. Abra **https://surrealrio.com/admin/** (ou `https://surreal-site.vercel.app/admin/` enquanto o domínio não propaga).
+2. Clique em **"Login with GitHub"**.
+3. Autorize o app "Surreal CMS" a acessar o seu repositório. Isso acontece só uma vez.
+4. Você está dentro.
 
-### Para adicionar foto a um prato que não tem:
+### Editar um prato
 
-1. Suba a foto nova em `assets/` com um nome claro, ex: `photo-dali-dog.jpg`.
-2. Edite `data.js` (ver seção 1).
-3. Encontre o prato e troque `photo: null` por `photo: 'assets/photo-dali-dog.jpg'`.
-4. Commit.
+1. Na barra lateral, clique em **"Cardápio Surreal"** → **"Dados do cardápio"**.
+2. Role até a seção **"Pratos (comidas)"**. Cada prato é um item da lista.
+3. Clique no prato que quer editar (ex: "Surreal Burger — R$ 55").
+4. Edite o que precisar: nome, preço, descrição, poema, alérgenos, tag, foto.
+5. Clique em **"Save"** (canto superior direito).
+6. Depois clique em **"Publish"** (e escolha "Publish now").
+7. Em ~30 segundos o site está atualizado.
 
-> 📏 **Tamanho ideal da foto**: 1200×1500 pixels (formato retrato 4:5). Se for maior, não tem problema — o site ajusta sozinho. Peso ideal: até 500 KB. Se a sua foto tem vários MB, use https://tinypng.com pra compactar.
+### Trocar foto de um prato
+
+1. Dentro do prato, no campo **"Foto"**, clique na imagem atual (ou em "Choose an image").
+2. Clique em **"Upload"** e escolha o arquivo novo do seu computador.
+3. Save + Publish.
+
+**Peso ideal da foto:** até 500 KB. Se sua foto tem 5 MB, use https://tinypng.com antes de subir.
+
+### Adicionar um prato novo
+
+1. Na seção "Pratos (comidas)", role até o final e clique em **"+ Add Pratos (comidas)"**.
+2. Preencha todos os campos obrigatórios:
+   - **ID único**: algo curto sem espaços, tipo `novo-drink-2026`
+   - **Seção**: escolha em que parte do menu vai aparecer
+   - **Tipo**: descrição curta (ex: "Burger", "Entrada")
+   - **Nome, Preço, Descrição, Foto**: óbvios
+3. Save + Publish.
+
+### Editar horários, endereço, Instagram
+
+Role até **"Informações do bar"** no início da página — é um bloco só.
+
+### Editar as frases rotativas do portal
+
+Role até **"Frases rotativas do portal"**. Adicione/remova/edite as linhas.
 
 ---
 
-## 3. Adicionar um novo prato ou bebida
+## 🔧 Caminho 2 — GitHub direto
 
-1. Edite `data.js` (ver seção 1).
-2. Copie um bloco existente (do tipo mostrado acima) e cole logo depois dele.
-3. Mude o **`id`** (precisa ser único, tipo `'novo-drink-2026'`).
-4. Edite nome, preço, descrição, etc.
-5. **Não esqueça**: no final do bloco, tem uma vírgula `,` antes do próximo prato.
-6. Commit.
+Quando usar: quando o CMS estiver fora por algum motivo, ou pra alterações avançadas (mudanças nas seções do menu, reestruturação).
+
+### Editar conteúdo (preço, texto de prato, etc.)
+
+1. Acesse **https://github.com/RIOVR/surreal-site/blob/main/data.json**
+2. Clique no **lápis ✏️** pra editar.
+3. Edite o JSON com cuidado — toda vírgula e aspas importa.
+4. Em "Commit changes", escolha "Commit directly to `main`" → "Commit changes".
+5. Em ~30s o site está atualizado.
+
+> ⚠️ **Atenção:** não edite `data.js` — ele é **gerado automaticamente** a partir de `data.json` toda vez que a Vercel faz deploy. Qualquer edição manual em `data.js` é perdida.
+
+### Trocar / subir uma foto
+
+1. Acesse **https://github.com/RIOVR/surreal-site/tree/main/assets**
+2. Pra substituir foto existente: clique nela → lixeira → commit.
+3. Volte em `assets/` → "Add file" → "Upload files" → arrasta a foto nova.
+4. No `data.json`, ajusta o caminho `"photo": "assets/nome-da-foto.jpg"` se mudou o nome.
 
 ---
 
-## 4. Editar frases do portal (tela de abertura)
+## 📋 Estrutura do data.json (referência)
 
-As frases que rotacionam na capa (tipo "Beba com todos os sentidos.") estão em `data.js`, na seção **`provocacoes`**:
-
-```js
-provocacoes: [
-  'Beba com todos os sentidos.',
-  'Ir além da comida e da bebida.',
-  'Um sonho lúcido em Botafogo.',
-  // ...adicione/edite aqui
-],
+```json
+{
+  "info": {
+    "name": "Surreal",
+    "tagline": "Um portal sensorial",
+    "address": "Botafogo · Rio de Janeiro",
+    "instagram": "@surrealbar.rj",
+    "site": "www.surrealrio.com"
+  },
+  "provocacoes": ["Beba com todos os sentidos.", ...],
+  "menu": [
+    {
+      "id": "surreal-burger",
+      "secao": "sanduiches",
+      "tipo": "Burger",
+      "nome": "Surreal Burger",
+      "preco": 55,
+      "alerg": ["glúten", "lactose"],
+      "desc": "Blend Angus Cara Preta...",
+      "poema": ["A carne sonhava ser estrela.", ...],
+      "photo": "assets/photo-rib-fiction.jpg",
+      "tag": "Clássico"
+    }
+  ],
+  "bebidas": [ ... ],
+  "vinhos": [ ... ],
+  "extras": [ ... ],
+  "secoes": { "comidas": [...], "drinks": [...] }
+}
 ```
 
 ---
 
-## 5. Editar horário ou endereço
+## 🆘 Problemas comuns
 
-O horário está no `components/Portal.jsx` e o endereço no `components/Footer.jsx`. **Essas edições precisam de recompilação** (JSX → JS).
+**O CMS pede login e dá erro "Unauthorized":**
+A GitHub OAuth App não está configurada corretamente. Me chama pra verificar as env vars da Vercel.
 
-**Não edite direto — me chama** que eu faço pra você, ou siga:
+**Salvei e o site não mudou:**
+Espere 1 minuto. A Vercel precisa rebuildar. Você pode conferir o status do deploy em https://vercel.com/surrealrio/surreal-site/deployments
 
-1. Edite `.jsx` no GitHub.
-2. Localmente (ou via GitHub Codespaces), rode `npm run build`.
-3. Commit os arquivos `dist/*.js` atualizados.
+**Editei direto no GitHub e quebrou o site:**
+Vá em https://github.com/RIOVR/surreal-site/commits/main → encontre o commit anterior ao problema → clique em **"Revert"**. O site volta ao estado bom em 30s.
 
-> 💡 **Na Fase 2** vou conectar um CMS (painel web visual) onde você edita tudo isso sem encostar no código. Mas por enquanto, é assim.
-
----
-
-## 6. Se algo der errado
-
-- **O site quebrou depois de uma edição**: no GitHub, vá em "Commits" (aba no topo do repositório), encontre o commit anterior ao problema, clique nele e depois em "Revert this commit". Isso volta o site ao estado bom.
-- **Não sei o que está errado**: me chama aqui no chat, te ajudo em segundos.
+**Upload de foto falha no CMS:**
+Verifique o tamanho (máx 25 MB — mas ideal é < 1 MB). Comprima em https://tinypng.com.
 
 ---
 
-## Próxima evolução (Fase 2)
+## 🧰 Para programadores (opcional)
 
-Quando você quiser, eu adiciono o **Decap CMS** — um painel web bonito onde você:
-- Edita pratos/bebidas via formulário (sem ver código)
-- Arrasta fotos direto na interface
-- Vê preview antes de publicar
+Se quiser rodar localmente:
 
-É grátis, mas precisa de uma configuração de OAuth que leva uns 20 minutos. Me avisa quando quiser ativar.
+```bash
+npm install
+npm run build      # gera data.js a partir de data.json + compila JSX
+npm run dev        # sobe servidor em http://localhost:8765
+```
+
+Arquitetura:
+- `data.json` = fonte da verdade do conteúdo (editado via CMS)
+- `data.js` = gerado no build, consumido pelo browser (`window.SURREAL`)
+- `components/*.jsx` = componentes React (editados a mão)
+- `dist/*.js` = JSX compilado (gerado no build)
+- `admin/` = painel Decap CMS
+- `api/auth.js` + `api/callback.js` = proxy OAuth pro GitHub (funções serverless Vercel)
 
 ---
 
-**Dúvidas? Me chama aqui no chat que eu te guio.**
+Dúvidas? Me chama aqui no chat.
