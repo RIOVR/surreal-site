@@ -1,0 +1,174 @@
+# Decap CMS — Configuração do Surreal
+# Define como o painel /admin/ edita o data.json do site.
+
+backend:
+  name: github
+  repo: RIOVR/surreal-site
+  branch: main
+  base_url: https://surreal-site.vercel.app
+  auth_endpoint: api/auth
+
+media_folder: "assets"
+public_folder: "assets"
+locale: 'pt'
+
+site_url: https://surreal-site.vercel.app
+display_url: https://surreal-site.vercel.app
+logo_url: https://surreal-site.vercel.app/assets/logo-wordmark.png
+
+collections:
+  - name: "cardapio"
+    label: "Cardápio Surreal"
+    files:
+      - name: "data"
+        label: "Dados do cardápio (pratos, bebidas, vinhos, textos)"
+        file: "data.json"
+        format: "json"
+        fields:
+          - label: "Informações do bar"
+            name: "info"
+            widget: "object"
+            fields:
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "Tagline", name: "tagline", widget: "string" }
+              - { label: "Endereço", name: "address", widget: "string" }
+              - { label: "Instagram", name: "instagram", widget: "string" }
+              - { label: "Site", name: "site", widget: "string" }
+
+          - label: "Frases rotativas do portal"
+            name: "provocacoes"
+            widget: "list"
+            summary: "{{fields.frase}}"
+            field: { label: "Frase", name: "frase", widget: "string" }
+
+          - label: "Pratos (comidas)"
+            name: "menu"
+            widget: "list"
+            summary: "{{fields.nome}} — R$ {{fields.preco}}"
+            fields:
+              - { label: "ID único", name: "id", widget: "string" }
+              - label: "Seção"
+                name: "secao"
+                widget: "select"
+                options:
+                  - { label: "Entradas", value: "entradas" }
+                  - { label: "Sanduíches", value: "sanduiches" }
+                  - { label: "Pratos principais", value: "principais" }
+                  - { label: "Sobremesas", value: "sobremesas" }
+              - { label: "Tipo", name: "tipo", widget: "string" }
+              - { label: "Nome", name: "nome", widget: "string" }
+              - { label: "Preço (R$)", name: "preco", widget: "number", value_type: "int" }
+              - label: "Alérgenos"
+                name: "alerg"
+                widget: "list"
+                required: false
+                field: { label: "Alérgeno", name: "item", widget: "string" }
+              - { label: "Descrição", name: "desc", widget: "text" }
+              - label: "Poema"
+                name: "poema"
+                widget: "list"
+                required: false
+                field: { label: "Linha", name: "linha", widget: "string" }
+              - { label: "Foto", name: "photo", widget: "image", required: false }
+              - label: "Tag"
+                name: "tag"
+                widget: "select"
+                required: false
+                options:
+                  - { label: "Sem tag", value: "" }
+                  - { label: "Chef", value: "Chef" }
+                  - { label: "Assinatura", value: "Assinatura" }
+                  - { label: "Clássico", value: "Clássico" }
+                  - { label: "Teatro", value: "Teatro" }
+                  - { label: "Veggie", value: "Veggie" }
+                  - { label: "Vegano", value: "Vegano" }
+                  - { label: "Novo", value: "Novo" }
+
+          - label: "Bebidas"
+            name: "bebidas"
+            widget: "list"
+            summary: "{{fields.nome}} — R$ {{fields.preco}}"
+            fields:
+              - { label: "ID único", name: "id", widget: "string" }
+              - label: "Seção"
+                name: "secao"
+                widget: "select"
+                options:
+                  - { label: "Leves, pops & perigosos", value: "leves" }
+                  - { label: "Intensos, amargos & envolventes", value: "intensos" }
+                  - { label: "Sem álcool", value: "sem-alcool" }
+                  - { label: "Clássicos zero álcool", value: "classicos-zero" }
+                  - { label: "Drinks clássicos", value: "classicos" }
+                  - { label: "Chopp", value: "chopp" }
+                  - { label: "Cervejas artesanais", value: "cervejas" }
+                  - { label: "Sucos & soft", value: "soft" }
+              - { label: "Nome", name: "nome", widget: "string" }
+              - { label: "Preço (R$)", name: "preco", widget: "number", value_type: "int" }
+              - { label: "Volume em ml", name: "ml", widget: "number", required: false, value_type: "int" }
+              - { label: "Descrição", name: "desc", widget: "text" }
+              - label: "Poema"
+                name: "poema"
+                widget: "list"
+                required: false
+                field: { label: "Linha", name: "linha", widget: "string" }
+              - { label: "Tag", name: "tag", widget: "string", required: false }
+              - label: "Base"
+                name: "base"
+                widget: "select"
+                options:
+                  - { label: "Gin", value: "Gin" }
+                  - { label: "Vodka", value: "Vodka" }
+                  - { label: "Whisky", value: "Whisky" }
+                  - { label: "Tequila", value: "Tequila" }
+                  - { label: "Cachaça", value: "Cachaça" }
+                  - { label: "Rum", value: "Rum" }
+                  - { label: "Campari", value: "Campari" }
+                  - { label: "Aperol", value: "Aperol" }
+                  - { label: "Zero", value: "Zero" }
+                  - { label: "Cerveja", value: "Cerveja" }
+                  - { label: "Soft", value: "Soft" }
+              - { label: "Foto", name: "photo", widget: "image", required: false }
+              - label: "Alérgenos"
+                name: "alerg"
+                widget: "list"
+                required: false
+                field: { label: "Alérgeno", name: "item", widget: "string" }
+
+          - label: "Vinhos"
+            name: "vinhos"
+            widget: "list"
+            summary: "{{fields.nome}} — R$ {{fields.preco}}"
+            fields:
+              - { label: "ID único", name: "id", widget: "string" }
+              - { label: "Grupo", name: "grupo", widget: "string", required: false }
+              - { label: "Nome", name: "nome", widget: "string" }
+              - { label: "Preço (R$)", name: "preco", widget: "number", value_type: "int" }
+              - { label: "Volume em ml", name: "ml", widget: "number", required: false, value_type: "int" }
+              - { label: "Descrição", name: "desc", widget: "text" }
+
+          - label: "Complementos"
+            name: "extras"
+            widget: "list"
+            summary: "{{fields.item}} — R$ {{fields.preco}}"
+            fields:
+              - { label: "Item", name: "item", widget: "string" }
+              - { label: "Preço (R$)", name: "preco", widget: "number", value_type: "int" }
+
+          - label: "Seções do menu"
+            name: "secoes"
+            widget: "object"
+            fields:
+              - label: "Seções de comidas"
+                name: "comidas"
+                widget: "list"
+                fields:
+                  - { label: "ID interno", name: "id", widget: "string" }
+                  - { label: "Nome visível", name: "nome", widget: "string" }
+                  - { label: "Subtítulo", name: "subtitle", widget: "string" }
+              - label: "Seções de bebidas"
+                name: "drinks"
+                widget: "list"
+                fields:
+                  - { label: "ID interno", name: "id", widget: "string" }
+                  - { label: "Nome visível", name: "nome", widget: "string" }
+                  - { label: "Subtítulo", name: "subtitle", widget: "string" }
