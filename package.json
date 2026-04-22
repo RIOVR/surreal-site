@@ -4,7 +4,7 @@
   "description": "Cardápio digital do Surreal Bar — Botafogo, RJ.",
   "private": true,
   "scripts": {
-    "build": "babel components --out-dir dist --presets=@babel/preset-react --extensions .jsx && babel src/app.jsx --out-file dist/app.js --presets=@babel/preset-react",
+    "build": "node scripts/build-data.js && babel components --out-dir dist --presets=@babel/preset-react --extensions .jsx && babel src/app.jsx --out-file dist/app.js --presets=@babel/preset-react",
     "dev": "python3 -m http.server 8765"
   },
   "author": "Surreal Bar",
@@ -12,6 +12,7 @@
   "devDependencies": {
     "@babel/cli": "^7.28.6",
     "@babel/core": "^7.29.0",
-    "@babel/preset-react": "^7.28.5"
+    "@babel/preset-react": "^7.28.5",
+    "js-yaml": "^4.1.1"
   }
 }
