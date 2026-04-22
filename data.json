@@ -194,7 +194,7 @@
       ],
       "preco": 43,
       "desc": "Smash burger com duas carnes angus, cheddar derretido, maionese surreal e pão brioche selado na manteiga.",
-      "photo": null,
+      "photo": "assets/smashme.jpg",
       "tipo": "Burger",
       "nome": "Smash me Baby",
       "poema": [
@@ -233,7 +233,7 @@
       ],
       "preco": 42,
       "desc": "Linguiça de costela, maionese da casa, mostarda, vinagrete e broto de coentro, servido no pão de leite.",
-      "photo": null,
+      "photo": "assets/dalidog.jpg",
       "tipo": "Hot dog",
       "nome": "Dalí Dog",
       "poema": [
@@ -270,7 +270,7 @@
       ],
       "preco": 55,
       "desc": "Isso não é um hambúrguer: feito de fibra de caju, cogumelos frescos e aioli de abacate.",
-      "photo": null,
+      "photo": "assets/naoeumburger.jpg",
       "tipo": "Veggie",
       "nome": "Ceci n'est pas un hamburger",
       "poema": [
