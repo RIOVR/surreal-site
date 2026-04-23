@@ -84,7 +84,7 @@
       ],
       "preco": 62,
       "desc": "Steak tartar de filé mignon cortado na ponta da faca, marinado com mostarda dijon, alcaparras e uma seleção de especiarias. Acompanha pão caseiro.",
-      "photo": "assets/photo-tartare.jpg",
+      "photo": "assets/jardim.jpg",
       "tipo": "Entrada",
       "nome": "O Jardim da Carne",
       "poema": [
@@ -251,7 +251,7 @@
       ],
       "preco": 45,
       "desc": "Dois mini sanduíches com peixe frito crocante, acompanhados de vinagrete de banana e picles de manga.",
-      "photo": null,
+      "photo": "assets/delirio.jpg",
       "tipo": "Mini",
       "nome": "O Delírio Tropical",
       "poema": [
@@ -403,7 +403,7 @@
       ],
       "preco": 39,
       "desc": "Torta em camadas de caramelo de missô, chocolate meio amargo e base crocante de biscoito de castanha de caju e gergelim.",
-      "photo": null,
+      "photo": "assets/temsal.jpg",
       "tipo": "Doce",
       "nome": "Tem Sal no meu Doce?",
       "poema": [
@@ -422,7 +422,7 @@
       ],
       "preco": 39,
       "desc": "Bolo de chocolate crocante por fora e cremoso por dentro, servido com calda de chocolate branco assado e sorvete de creme.",
-      "photo": null,
+      "photo": "assets/fantasticobolo.jpg",
       "tipo": "Doce",
       "nome": "O Fantástico Bolo de Chocolate",
       "poema": [
