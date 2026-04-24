@@ -555,7 +555,7 @@ const WineList = ({ vinhos }) => {
   const byGroup = {};
   vinhos.forEach(v => {
     const key = v.grupo ? JSON.stringify(v.grupo) : 'porTaca';
-    if (!byGroup[key]) byGroup[key] = { grupoRaw: v.grupo, items: [] };
+    if (!byGroup[key]) byGroup[key] = { grupoRaw: v.grupo, pais: v.pais, items: [] };
     byGroup[key].items.push(v);
   });
 
@@ -565,11 +565,22 @@ const WineList = ({ vinhos }) => {
       gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(360px, 1fr))',
       gap: isMobile ? 28 : 40,
     }}>
-      {Object.entries(byGroup).map(([key, { grupoRaw, items }]) => {
+      {Object.entries(byGroup).map(([key, { grupoRaw, pais, items }]) => {
         const groupLabel = grupoRaw ? t(grupoRaw, lang) : uiT('porTaca', lang);
         return (
         <div key={key}>
-          <Eyebrow color="ember">{groupLabel}</Eyebrow>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
+            <Eyebrow color="ember">{groupLabel}</Eyebrow>
+            {pais && (
+              <span style={{
+                fontFamily: 'var(--font-serif)',
+                fontStyle: 'italic',
+                fontSize: 13,
+                color: 'var(--fg-muted)',
+                letterSpacing: '0.05em',
+              }}>· {pais}</span>
+            )}
+          </div>
           <div style={{ marginTop: 14 }}>
             {items.map((v, i) => (
               <div key={v.id} style={{
