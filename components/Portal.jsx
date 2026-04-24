@@ -21,13 +21,9 @@ const Portal = ({ onEnter, mode, setMode }) => {
     }}>
       {/* Spiral */}
       <div style={{
-        position: 'absolute',
-        // Em mobile, expande mais pra cobrir toda a tela; em desktop, -30% já basta
-        inset: isMobile ? '-60%' : '-30%',
+        position: 'absolute', inset: '-30%',
         backgroundImage: 'url(assets/bolacha.png)',
-        // Mobile: 'cover' faz o spiral encher toda a tela (overflowa horizontal ok);
-        // Desktop: 'contain' mantém o spiral proporcional
-        backgroundSize: isMobile ? 'cover' : 'contain',
+        backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         opacity: 0.12, filter: 'grayscale(1) contrast(1.3)',
