@@ -48,6 +48,21 @@ collections:
                   - { label: "🇬🇧 English",    name: "en", widget: "string" }
                   - { label: "🇪🇸 Español",    name: "es", widget: "string" }
 
+          # ---------------- HORÁRIOS ----------------
+          - label: "Horários de funcionamento"
+            name: "horarios"
+            widget: "list"
+            summary: "{{fields.dias.pt}} · {{fields.horas}}"
+            fields:
+              - label: "Dias da semana"
+                name: "dias"
+                widget: "object"
+                fields:
+                  - { label: "🇧🇷 Português (ex: Seg–Qui)", name: "pt", widget: "string" }
+                  - { label: "🇬🇧 English (ex: Mon–Thu)",    name: "en", widget: "string" }
+                  - { label: "🇪🇸 Español (ex: Lun–Jue)",    name: "es", widget: "string" }
+              - { label: "Horas (igual nos 3 idiomas, ex: 12H-16H / 18H-00H)", name: "horas", widget: "string" }
+
           # ---------------- FRASES DO PORTAL ----------------
           - label: "Frases rotativas do portal"
             name: "provocacoes"
