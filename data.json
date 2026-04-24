@@ -731,7 +731,7 @@
         "en": "Linguine wrapped in creamy truffle sauce with sautéed mushrooms and Parmesan. Add Ancho steak for R$ 30.",
         "es": "Linguini envuelto en salsa cremosa de trufa con champiñones salteados y parmesano. Añade Ancho por R$ 30."
       },
-      "photo": null,
+      "photo": "assets/mushroom.png",
       "tipo": {
         "pt": "Massa",
         "en": "Pasta",
