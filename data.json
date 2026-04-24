@@ -3,7 +3,7 @@
     "name": "Surreal Bar",
     "tagline": {
       "pt": "Um portal sensorial",
-      "en": "A sensorial portal",
+      "en": "A sensory portal",
       "es": "Un portal sensorial"
     },
     "address": {
@@ -731,7 +731,7 @@
         "en": "Linguine wrapped in creamy truffle sauce with sautéed mushrooms and Parmesan. Add Ancho steak for R$ 30.",
         "es": "Linguini envuelto en salsa cremosa de trufa con champiñones salteados y parmesano. Añade Ancho por R$ 30."
       },
-      "photo": "assets/mushroom.png",
+      "photo": null,
       "tipo": {
         "pt": "Massa",
         "en": "Pasta",
@@ -2193,11 +2193,7 @@
   "vinhos": [
     {
       "id": "taca",
-      "grupo": {
-        "pt": "taça de vinho",
-        "en": "glass of wine",
-        "es": "copa de vino"
-      },
+      "grupo": null,
       "nome": {
         "pt": "Taça de Vinho Branco ou Tinto",
         "en": "Glass of White or Red Wine",
@@ -2702,6 +2698,40 @@
       "pt": "Memória viva.",
       "en": "Living memory.",
       "es": "Memoria viva."
+    }
+  ],
+  "horarios": [
+    {
+      "dias": {
+        "pt": "Seg–Qui",
+        "en": "Mon–Thu",
+        "es": "Lun–Jue"
+      },
+      "horas": "12H-16H / 18H-00H"
+    },
+    {
+      "dias": {
+        "pt": "Sex",
+        "en": "Fri",
+        "es": "Vie"
+      },
+      "horas": "12H-16H / 18H-01H"
+    },
+    {
+      "dias": {
+        "pt": "Sáb",
+        "en": "Sat",
+        "es": "Sáb"
+      },
+      "horas": "12H-01H"
+    },
+    {
+      "dias": {
+        "pt": "Dom",
+        "en": "Sun",
+        "es": "Dom"
+      },
+      "horas": "12H-00H"
     }
   ]
 }
