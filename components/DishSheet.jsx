@@ -2,6 +2,7 @@
 
 const DishSheet = ({ item, type = 'dish', onClose }) => {
   const isMobile = useIsMobile();
+  const { lang } = useLang();
   React.useEffect(() => {
     if (!item) return;
     const onKey = (e) => { if (e.key === 'Escape') onClose(); };
@@ -16,6 +17,10 @@ const DishSheet = ({ item, type = 'dish', onClose }) => {
   if (!item) return null;
   const isDrink = type === 'drink';
   const accent = isDrink ? 'var(--neon-magenta)' : 'var(--surreal-red)';
+  const itemNome = t(item.nome, lang);
+  const itemTipo = t(item.tipo, lang);
+  const itemDesc = t(item.desc, lang);
+  const itemPoema = t(item.poema, lang) || [];
 
   return (
     <div onClick={onClose} style={{
@@ -47,7 +52,7 @@ const DishSheet = ({ item, type = 'dish', onClose }) => {
           aspectRatio: isMobile ? '4/3' : 'auto',
         }}>
           {item.photo
-            ? <img src={item.photo} alt={item.nome}
+            ? <img src={item.photo} alt={itemNome}
                    style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             : <div style={{ width: '100%', height: '100%' }}>
                 <PlaceholderBig glyph={isDrink ? '◉' : '✦'} accent={accent} />
@@ -82,7 +87,7 @@ const DishSheet = ({ item, type = 'dish', onClose }) => {
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <Eyebrow color={isDrink ? 'magenta' : 'red'}>
-              {isDrink ? 'Drink' : item.tipo || 'Cardápio'}
+              {isDrink ? uiT('drink', lang) : (itemTipo || uiT('cardapio', lang))}
             </Eyebrow>
             <button onClick={onClose} style={{
               background: 'transparent', border: '1px solid var(--border)',
@@ -100,14 +105,14 @@ const DishSheet = ({ item, type = 'dish', onClose }) => {
             color: 'var(--bone)', margin: 0,
             letterSpacing: '-0.01em',
             wordBreak: 'break-word',
-          }}>{item.nome}</h3>
+          }}>{itemNome}</h3>
 
           <p style={{
             fontFamily: 'var(--font-body)', fontSize: 14,
             color: 'var(--fg-muted)', lineHeight: 1.55, margin: 0,
-          }}>{item.desc}</p>
+          }}>{itemDesc}</p>
 
-          {item.poema && item.poema.length > 0 && (
+          {itemPoema && itemPoema.length > 0 && (
             <blockquote style={{
               fontFamily: 'var(--font-serif)', fontStyle: 'italic',
               fontSize: 18, lineHeight: 1.45,
@@ -116,13 +121,13 @@ const DishSheet = ({ item, type = 'dish', onClose }) => {
               padding: '4px 0 4px 18px',
               margin: '6px 0',
             }}>
-              {item.poema.map((l, i) => <div key={i}>{l}</div>)}
+              {itemPoema.map((l, i) => <div key={i}>{l}</div>)}
             </blockquote>
           )}
 
           {item.alerg && item.alerg.length > 0 && (
             <div>
-              <Eyebrow color="muted" size="xs">pode conter</Eyebrow>
+              <Eyebrow color="muted" size="xs">{uiT('podeConter', lang)}</Eyebrow>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 10 }}>
                 {item.alerg.map(a => (
                   <span key={a} style={{
@@ -150,7 +155,7 @@ const DishSheet = ({ item, type = 'dish', onClose }) => {
               fontFamily: 'var(--font-body)', fontSize: 11,
               letterSpacing: '0.25em', textTransform: 'uppercase',
               fontWeight: 600, cursor: 'pointer',
-            }}>voltar</button>
+            }}>{uiT('voltar', lang)}</button>
           </div>
         </div>
       </div>

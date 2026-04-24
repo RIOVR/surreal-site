@@ -2,6 +2,7 @@
 
 const Footer = () => {
   const i = window.SURREAL.info;
+  const { lang } = useLang();
   return (
     <section id="visit" data-screen-label="Footer" style={{
       background: 'var(--ink)',
@@ -23,42 +24,40 @@ const Footer = () => {
               fontSize: 18, color: 'var(--bone)', opacity: 0.85,
               margin: 0, maxWidth: 300,
             }}>
-              Um portal sensorial em Botafogo.
-              Beba com todos os sentidos.
+              {uiT('footerTagline', lang)}
             </p>
           </div>
           <div>
-            <Eyebrow color="magenta">Onde</Eyebrow>
+            <Eyebrow color="magenta">{uiT('footerOnde', lang)}</Eyebrow>
             <div style={{ marginTop: 14, fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--bone)', lineHeight: 1.7 }}>
-              <div>{i.address}</div>
-              <div>{i.neighborhood || 'Botafogo · Rio de Janeiro'}</div>
-              <div style={{ color: 'var(--fg-muted)', marginTop: 8 }}>Ter–Qui · 18h–00h</div>
-              <div style={{ color: 'var(--fg-muted)' }}>Sex–Sáb · 18h–02h</div>
-              <div style={{ color: 'var(--fg-faint)' }}>Dom–Seg · descansando</div>
+              <div>{t(i.address, lang)}</div>
+              <div style={{ color: 'var(--fg-muted)', marginTop: 8 }}>{uiT('footerSeg', lang)}</div>
+              <div style={{ color: 'var(--fg-muted)' }}>{uiT('footerSex', lang)}</div>
+              <div style={{ color: 'var(--fg-faint)' }}>{uiT('footerDom', lang)}</div>
             </div>
           </div>
           <div>
-            <Eyebrow color="magenta">Fale com a gente</Eyebrow>
+            <Eyebrow color="magenta">{uiT('footerFale', lang)}</Eyebrow>
             <div style={{ marginTop: 14, fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--bone)', lineHeight: 1.7 }}>
               <div>{i.instagram}</div>
               <div>{i.site}</div>
             </div>
           </div>
           <div>
-            <Eyebrow color="magenta">Avisos do portal</Eyebrow>
+            <Eyebrow color="magenta">{uiT('footerAvisos', lang)}</Eyebrow>
             <p style={{
               fontFamily: 'var(--font-body)', fontSize: 12,
               color: 'var(--fg-muted)', lineHeight: 1.55, marginTop: 12,
             }}>
-              Alguns pratos podem conter lactose, glúten, nozes, pimenta ou outros ingredientes alergênicos. Qualquer restrição, avise nossa equipe antes de pedir.
+              {uiT('footerAvisosTexto', lang)}
             </p>
             <p style={{
               fontFamily: 'var(--font-body)', fontSize: 11,
               color: 'var(--fg-faint)', lineHeight: 1.55, marginTop: 10,
             }}>
-              Aceitamos dinheiro, pix, cartões e vouchers.<br />
-              Procon 151 · Vigilância Sanitária 1746.<br />
-              Se beber, não dirija.
+              {uiT('footerPagamentos', lang)}<br />
+              {uiT('footerProcon', lang)}<br />
+              {uiT('footerSeBeber', lang)}
             </p>
           </div>
         </div>
@@ -69,7 +68,7 @@ const Footer = () => {
           color: 'var(--fg-faint)', letterSpacing: '0.18em',
         }}>
           <span>© SURREAL · MMXXVI</span>
-          <span>CARDÁPIO VIVO — VERSÃO 2026.04</span>
+          <span>{uiT('footerVersao', lang)}</span>
         </div>
       </div>
     </section>

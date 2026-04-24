@@ -1,5 +1,5 @@
-# Decap CMS — Configuração do Surreal
-# Define como o painel /admin/ edita o data.json do site.
+# Decap CMS — Configuração do Surreal (trilíngue PT/EN/ES)
+# Cada campo traduzível tem 3 subcampos: pt, en, es.
 
 backend:
   name: github
@@ -21,30 +21,47 @@ collections:
     label: "Cardápio Surreal"
     files:
       - name: "data"
-        label: "Dados do cardápio (pratos, bebidas, vinhos, textos)"
+        label: "Dados do cardápio"
         file: "data.json"
         format: "json"
         fields:
+          # ---------------- INFO ----------------
           - label: "Informações do bar"
             name: "info"
             widget: "object"
             fields:
               - { label: "Nome", name: "name", widget: "string" }
-              - { label: "Tagline", name: "tagline", widget: "string" }
-              - { label: "Endereço", name: "address", widget: "string" }
               - { label: "Instagram", name: "instagram", widget: "string" }
               - { label: "Site", name: "site", widget: "string" }
+              - label: "Tagline (frase curta)"
+                name: "tagline"
+                widget: "object"
+                fields:
+                  - { label: "🇧🇷 Português", name: "pt", widget: "string" }
+                  - { label: "🇬🇧 English",    name: "en", widget: "string" }
+                  - { label: "🇪🇸 Español",    name: "es", widget: "string" }
+              - label: "Endereço"
+                name: "address"
+                widget: "object"
+                fields:
+                  - { label: "🇧🇷 Português", name: "pt", widget: "string" }
+                  - { label: "🇬🇧 English",    name: "en", widget: "string" }
+                  - { label: "🇪🇸 Español",    name: "es", widget: "string" }
 
+          # ---------------- FRASES DO PORTAL ----------------
           - label: "Frases rotativas do portal"
             name: "provocacoes"
             widget: "list"
-            summary: "{{fields.frase}}"
-            field: { label: "Frase", name: "frase", widget: "string" }
+            fields:
+              - { label: "🇧🇷 Português", name: "pt", widget: "string" }
+              - { label: "🇬🇧 English",    name: "en", widget: "string" }
+              - { label: "🇪🇸 Español",    name: "es", widget: "string" }
 
+          # ---------------- PRATOS ----------------
           - label: "Pratos (comidas)"
             name: "menu"
             widget: "list"
-            summary: "{{fields.nome}} — R$ {{fields.preco}}"
+            summary: "{{fields.nome.pt}} — R$ {{fields.preco}}"
             fields:
               - { label: "ID único", name: "id", widget: "string" }
               - label: "Seção"
@@ -55,20 +72,7 @@ collections:
                   - { label: "Sanduíches", value: "sanduiches" }
                   - { label: "Pratos principais", value: "principais" }
                   - { label: "Sobremesas", value: "sobremesas" }
-              - { label: "Tipo", name: "tipo", widget: "string" }
-              - { label: "Nome", name: "nome", widget: "string" }
               - { label: "Preço (R$)", name: "preco", widget: "number", value_type: "int" }
-              - label: "Alérgenos"
-                name: "alerg"
-                widget: "list"
-                required: false
-                field: { label: "Alérgeno", name: "item", widget: "string" }
-              - { label: "Descrição", name: "desc", widget: "text" }
-              - label: "Poema"
-                name: "poema"
-                widget: "list"
-                required: false
-                field: { label: "Linha", name: "linha", widget: "string" }
               - { label: "Foto", name: "photo", widget: "image", required: false }
               - label: "Tag"
                 name: "tag"
@@ -83,11 +87,57 @@ collections:
                   - { label: "Veggie", value: "Veggie" }
                   - { label: "Vegano", value: "Vegano" }
                   - { label: "Novo", value: "Novo" }
+              - label: "Alérgenos"
+                name: "alerg"
+                widget: "list"
+                required: false
+                field: { label: "Alérgeno", name: "item", widget: "string" }
+              - label: "Tipo (badge)"
+                name: "tipo"
+                widget: "object"
+                fields:
+                  - { label: "🇧🇷 Português", name: "pt", widget: "string" }
+                  - { label: "🇬🇧 English",    name: "en", widget: "string" }
+                  - { label: "🇪🇸 Español",    name: "es", widget: "string" }
+              - label: "Nome do prato"
+                name: "nome"
+                widget: "object"
+                fields:
+                  - { label: "🇧🇷 Português", name: "pt", widget: "string" }
+                  - { label: "🇬🇧 English",    name: "en", widget: "string" }
+                  - { label: "🇪🇸 Español",    name: "es", widget: "string" }
+              - label: "Descrição"
+                name: "desc"
+                widget: "object"
+                fields:
+                  - { label: "🇧🇷 Português", name: "pt", widget: "text" }
+                  - { label: "🇬🇧 English",    name: "en", widget: "text" }
+                  - { label: "🇪🇸 Español",    name: "es", widget: "text" }
+              - label: "Poema"
+                name: "poema"
+                widget: "object"
+                fields:
+                  - label: "🇧🇷 Português"
+                    name: "pt"
+                    widget: "list"
+                    required: false
+                    field: { label: "Linha", name: "linha", widget: "string" }
+                  - label: "🇬🇧 English"
+                    name: "en"
+                    widget: "list"
+                    required: false
+                    field: { label: "Line", name: "linha", widget: "string" }
+                  - label: "🇪🇸 Español"
+                    name: "es"
+                    widget: "list"
+                    required: false
+                    field: { label: "Línea", name: "linha", widget: "string" }
 
-          - label: "Bebidas"
+          # ---------------- BEBIDAS ----------------
+          - label: "Bebidas (drinks, chopp, sucos)"
             name: "bebidas"
             widget: "list"
-            summary: "{{fields.nome}} — R$ {{fields.preco}}"
+            summary: "{{fields.nome.pt}} — R$ {{fields.preco}}"
             fields:
               - { label: "ID único", name: "id", widget: "string" }
               - label: "Seção"
@@ -102,17 +152,10 @@ collections:
                   - { label: "Chopp", value: "chopp" }
                   - { label: "Cervejas artesanais", value: "cervejas" }
                   - { label: "Sucos & soft", value: "soft" }
-              - { label: "Nome", name: "nome", widget: "string" }
               - { label: "Preço (R$)", name: "preco", widget: "number", value_type: "int" }
               - { label: "Volume em ml", name: "ml", widget: "number", required: false, value_type: "int" }
-              - { label: "Descrição", name: "desc", widget: "text" }
-              - label: "Poema"
-                name: "poema"
-                widget: "list"
-                required: false
-                field: { label: "Linha", name: "linha", widget: "string" }
               - { label: "Tag", name: "tag", widget: "string", required: false }
-              - label: "Base"
+              - label: "Base (filtro)"
                 name: "base"
                 widget: "select"
                 options:
@@ -124,37 +167,98 @@ collections:
                   - { label: "Rum", value: "Rum" }
                   - { label: "Campari", value: "Campari" }
                   - { label: "Aperol", value: "Aperol" }
-                  - { label: "Zero", value: "Zero" }
+                  - { label: "Zero (sem álcool)", value: "Zero" }
                   - { label: "Cerveja", value: "Cerveja" }
-                  - { label: "Soft", value: "Soft" }
+                  - { label: "Soft / suco", value: "Soft" }
               - { label: "Foto", name: "photo", widget: "image", required: false }
               - label: "Alérgenos"
                 name: "alerg"
                 widget: "list"
                 required: false
                 field: { label: "Alérgeno", name: "item", widget: "string" }
+              - label: "Nome"
+                name: "nome"
+                widget: "object"
+                fields:
+                  - { label: "🇧🇷 Português", name: "pt", widget: "string" }
+                  - { label: "🇬🇧 English",    name: "en", widget: "string" }
+                  - { label: "🇪🇸 Español",    name: "es", widget: "string" }
+              - label: "Descrição (ingredientes)"
+                name: "desc"
+                widget: "object"
+                fields:
+                  - { label: "🇧🇷 Português", name: "pt", widget: "text" }
+                  - { label: "🇬🇧 English",    name: "en", widget: "text" }
+                  - { label: "🇪🇸 Español",    name: "es", widget: "text" }
+              - label: "Poema"
+                name: "poema"
+                widget: "object"
+                fields:
+                  - label: "🇧🇷 Português"
+                    name: "pt"
+                    widget: "list"
+                    required: false
+                    field: { label: "Linha", name: "linha", widget: "string" }
+                  - label: "🇬🇧 English"
+                    name: "en"
+                    widget: "list"
+                    required: false
+                    field: { label: "Line", name: "linha", widget: "string" }
+                  - label: "🇪🇸 Español"
+                    name: "es"
+                    widget: "list"
+                    required: false
+                    field: { label: "Línea", name: "linha", widget: "string" }
 
+          # ---------------- VINHOS ----------------
           - label: "Vinhos"
             name: "vinhos"
             widget: "list"
-            summary: "{{fields.nome}} — R$ {{fields.preco}}"
+            summary: "{{fields.nome.pt}} — R$ {{fields.preco}}"
             fields:
               - { label: "ID único", name: "id", widget: "string" }
-              - { label: "Grupo", name: "grupo", widget: "string", required: false }
-              - { label: "Nome", name: "nome", widget: "string" }
               - { label: "Preço (R$)", name: "preco", widget: "number", value_type: "int" }
               - { label: "Volume em ml", name: "ml", widget: "number", required: false, value_type: "int" }
-              - { label: "Descrição", name: "desc", widget: "text" }
+              - label: "Grupo"
+                name: "grupo"
+                widget: "object"
+                required: false
+                fields:
+                  - { label: "🇧🇷 Português", name: "pt", widget: "string" }
+                  - { label: "🇬🇧 English",    name: "en", widget: "string" }
+                  - { label: "🇪🇸 Español",    name: "es", widget: "string" }
+              - label: "Nome"
+                name: "nome"
+                widget: "object"
+                fields:
+                  - { label: "🇧🇷 Português", name: "pt", widget: "string" }
+                  - { label: "🇬🇧 English",    name: "en", widget: "string" }
+                  - { label: "🇪🇸 Español",    name: "es", widget: "string" }
+              - label: "Descrição (notas)"
+                name: "desc"
+                widget: "object"
+                fields:
+                  - { label: "🇧🇷 Português", name: "pt", widget: "text" }
+                  - { label: "🇬🇧 English",    name: "en", widget: "text" }
+                  - { label: "🇪🇸 Español",    name: "es", widget: "text" }
 
-          - label: "Complementos"
+          # ---------------- EXTRAS ----------------
+          - label: "Complementos (bacon, picles, molhos)"
             name: "extras"
             widget: "list"
-            summary: "{{fields.item}} — R$ {{fields.preco}}"
+            summary: "{{fields.item.pt}} — R$ {{fields.preco}}"
             fields:
-              - { label: "Item", name: "item", widget: "string" }
               - { label: "Preço (R$)", name: "preco", widget: "number", value_type: "int" }
+              - label: "Item"
+                name: "item"
+                widget: "object"
+                fields:
+                  - { label: "🇧🇷 Português", name: "pt", widget: "string" }
+                  - { label: "🇬🇧 English",    name: "en", widget: "string" }
+                  - { label: "🇪🇸 Español",    name: "es", widget: "string" }
 
-          - label: "Seções do menu"
+          # ---------------- SEÇÕES ----------------
+          - label: "Títulos das seções do menu"
             name: "secoes"
             widget: "object"
             fields:
@@ -163,12 +267,36 @@ collections:
                 widget: "list"
                 fields:
                   - { label: "ID interno", name: "id", widget: "string" }
-                  - { label: "Nome visível", name: "nome", widget: "string" }
-                  - { label: "Subtítulo", name: "subtitle", widget: "string" }
+                  - label: "Nome"
+                    name: "nome"
+                    widget: "object"
+                    fields:
+                      - { label: "🇧🇷 Português", name: "pt", widget: "string" }
+                      - { label: "🇬🇧 English",    name: "en", widget: "string" }
+                      - { label: "🇪🇸 Español",    name: "es", widget: "string" }
+                  - label: "Subtítulo"
+                    name: "subtitle"
+                    widget: "object"
+                    fields:
+                      - { label: "🇧🇷 Português", name: "pt", widget: "string" }
+                      - { label: "🇬🇧 English",    name: "en", widget: "string" }
+                      - { label: "🇪🇸 Español",    name: "es", widget: "string" }
               - label: "Seções de bebidas"
                 name: "drinks"
                 widget: "list"
                 fields:
                   - { label: "ID interno", name: "id", widget: "string" }
-                  - { label: "Nome visível", name: "nome", widget: "string" }
-                  - { label: "Subtítulo", name: "subtitle", widget: "string" }
+                  - label: "Nome"
+                    name: "nome"
+                    widget: "object"
+                    fields:
+                      - { label: "🇧🇷 Português", name: "pt", widget: "string" }
+                      - { label: "🇬🇧 English",    name: "en", widget: "string" }
+                      - { label: "🇪🇸 Español",    name: "es", widget: "string" }
+                  - label: "Subtítulo"
+                    name: "subtitle"
+                    widget: "object"
+                    fields:
+                      - { label: "🇧🇷 Português", name: "pt", widget: "string" }
+                      - { label: "🇬🇧 English",    name: "en", widget: "string" }
+                      - { label: "🇪🇸 Español",    name: "es", widget: "string" }

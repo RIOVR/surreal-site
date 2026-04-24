@@ -1,1201 +1,2703 @@
 {
   "info": {
-    "name": "Surreal Bar",
-    "tagline": "Um portal sensorial",
-    "address": "Botafogo · Rio de Janeiro",
-    "instagram": "@surrealrio",
-    "site": "www.surrealexperience.com"
+    "name": "Surreal",
+    "tagline": {
+      "pt": "Um portal sensorial",
+      "en": "A sensory portal",
+      "es": "Un portal sensorial"
+    },
+    "address": {
+      "pt": "Botafogo · Rio de Janeiro",
+      "en": "Botafogo · Rio de Janeiro, Brazil",
+      "es": "Botafogo · Río de Janeiro, Brasil"
+    },
+    "instagram": "@surrealbar.rj",
+    "site": "www.surrealrio.com"
   },
   "menu": [
     {
-      "alerg": [
-        "glúten",
-        "lactose"
-      ],
-      "preco": 43,
-      "desc": "Croquetta de couve-flor com queijo meia cura e kimchi, coberta por peixe curado na beterraba com um toque cítrico e maionese de sriracha.",
-      "photo": "assets/photo-croquettes.jpg",
-      "tipo": "Entrada",
-      "nome": "Flor Carnívora",
-      "poema": [
-        "Ela parece inofensiva.",
-        "Mas carrega fome, cor e contraste.",
-        "Uma flor quente que se alimenta de carne crua."
-      ],
-      "tag": "Assinatura",
       "id": "flor-carnivora",
-      "secao": "entradas"
-    },
-    {
+      "secao": "entradas",
+      "tipo": {
+        "pt": "Entrada",
+        "en": "Starter",
+        "es": "Entrada"
+      },
+      "nome": {
+        "pt": "Flor Carnívora",
+        "en": "Carnivorous Flower",
+        "es": "Flor Carnívora"
+      },
+      "preco": 43,
       "alerg": [
+        "glúten",
         "lactose"
       ],
-      "preco": 59,
-      "desc": "Peixe curado na beterraba, sour cream, aioli de abacate e azeite verde, servido com chips de batata doce roxa.",
-      "photo": "assets/photo-ceviche.jpg",
-      "tipo": "Entrada",
-      "nome": "La La Land",
-      "poema": [
-        "O peixe tá rosa, o azeite é verde, a batata é roxa.",
-        "Colorido como um musical, fresco como um sonho.",
-        "Você morde e acorda."
-      ],
-      "tag": null,
+      "desc": {
+        "pt": "Croquetta de couve-flor com queijo meia cura e kimchi, coberta por peixe curado na beterraba com um toque cítrico e maionese de sriracha.",
+        "en": "Cauliflower croquette with semi-cured cheese and kimchi, topped with beet-cured fish, a citrus touch and sriracha mayo.",
+        "es": "Croqueta de coliflor con queso semicurado y kimchi, cubierta con pescado curado en remolacha, un toque cítrico y mayonesa de sriracha."
+      },
+      "poema": {
+        "pt": [
+          "Ela parece inofensiva.",
+          "Mas carrega fome, cor e contraste.",
+          "Uma flor quente que se alimenta de carne crua."
+        ],
+        "en": [
+          "It looks harmless.",
+          "But it carries hunger, color and contrast.",
+          "A warm flower that feeds on raw flesh."
+        ],
+        "es": [
+          "Parece inofensiva.",
+          "Pero carga hambre, color y contraste.",
+          "Una flor caliente que se alimenta de carne cruda."
+        ]
+      },
+      "photo": "assets/photo-croquettes.jpg",
+      "tag": "Assinatura"
+    },
+    {
       "id": "la-la-land",
-      "secao": "entradas"
-    },
-    {
+      "secao": "entradas",
+      "tipo": {
+        "pt": "Entrada",
+        "en": "Starter",
+        "es": "Entrada"
+      },
+      "nome": {
+        "pt": "La La Land",
+        "en": "La La Land",
+        "es": "La La Land"
+      },
+      "preco": 59,
       "alerg": [
-        "glúten",
         "lactose"
       ],
-      "preco": 109,
-      "desc": "Bife Ancho Cara Preta (250g), servido com molho roti e alecrim em chamas. Acompanha porção de pão caseiro ou batata rústica.",
-      "photo": "assets/photo-ancho.jpg",
-      "tipo": "Teatro",
-      "nome": "Ancho em Chamas",
-      "poema": [
-        "Sinta o sabor vibrante do fogo e da brasa."
-      ],
-      "tag": "Teatro",
-      "id": "ancho-em-chamas",
-      "secao": "entradas"
-    },
-    {
-      "alerg": [
-        "glúten"
-      ],
-      "preco": 45,
-      "desc": "Pedaços de sobrecoxa de frango marinados, ultra crocantes e suculentos. Servidos com a nossa deliciosa maionese da casa.",
-      "photo": null,
-      "tipo": "Entrada",
-      "nome": "Los Pollos Hermanos",
-      "poema": [
-        "Sabor e crocância que vão te deixar viciado."
-      ],
-      "tag": null,
-      "id": "pollos-hermanos",
-      "secao": "entradas"
-    },
-    {
-      "alerg": [
-        "glúten",
-        "lactose"
-      ],
-      "preco": 62,
-      "desc": "Steak tartar de filé mignon cortado na ponta da faca, marinado com mostarda dijon, alcaparras e uma seleção de especiarias. Acompanha pão caseiro.",
-      "photo": "assets/jardim.jpg",
-      "tipo": "Entrada",
-      "nome": "O Jardim da Carne",
-      "poema": [
-        "Sedutor, cru e vibrante,",
-        "como um jardim proibido."
-      ],
-      "tag": "Chef",
-      "id": "jardim-da-carne",
-      "secao": "entradas"
-    },
-    {
-      "alerg": [
-        "glúten",
-        "lactose"
-      ],
-      "preco": 45,
-      "desc": "Cubos de peixe branco grelhado com vinagrete de banana, tomate, cebola roxa e picles de manga, acompanhados de uma crocante massa de pastel. (opção vegetariana disponível)",
+      "desc": {
+        "pt": "Peixe curado na beterraba, sour cream, aioli de abacate e azeite verde, servido com chips de batata doce roxa.",
+        "en": "Beet-cured fish, sour cream, avocado aioli and green olive oil, served with purple sweet potato chips.",
+        "es": "Pescado curado en remolacha, sour cream, alioli de aguacate y aceite de oliva verde, con chips de batata morada."
+      },
+      "poema": {
+        "pt": [
+          "O peixe tá rosa, o azeite é verde, a batata é roxa.",
+          "Colorido como um musical, fresco como um sonho.",
+          "Você morde e acorda."
+        ],
+        "en": [
+          "The fish is pink, the oil is green, the potato is purple.",
+          "Colorful as a musical, fresh as a dream.",
+          "You bite and wake up."
+        ],
+        "es": [
+          "El pescado es rosa, el aceite es verde, la papa es morada.",
+          "Colorido como un musical, fresco como un sueño.",
+          "Muerdes y despiertas."
+        ]
+      },
       "photo": "assets/photo-ceviche.jpg",
-      "tipo": "Entrada",
-      "nome": "Tropikáos",
-      "poema": [
-        "Doce, ácido, fresco e frito.",
-        "Inesperado, colorido e feliz demais pra fazer sentido.",
-        "Come com a mão, come sorrindo e não tenta entender — só vai."
-      ],
-      "tag": null,
-      "id": "tropikaos",
-      "secao": "entradas"
+      "tag": null
     },
     {
+      "id": "ancho-em-chamas",
+      "secao": "entradas",
+      "tipo": {
+        "pt": "Teatro",
+        "en": "Theater",
+        "es": "Teatro"
+      },
+      "nome": {
+        "pt": "Ancho em Chamas",
+        "en": "Ancho in Flames",
+        "es": "Ancho en Llamas"
+      },
+      "preco": 109,
       "alerg": [
         "glúten",
         "lactose"
       ],
-      "preco": 43,
-      "desc": "Porção de bolinhas de queijo crocantes por fora e cremosas por dentro, servida com geleia de goiaba com pimenta. (8 unidades)",
-      "photo": "assets/arquivox.jpg",
-      "tipo": "Entrada",
-      "nome": "Arquivo Cheese X",
-      "poema": [
-        "Classificado. Não recomendado pra quem tem medo do prazer.",
-        "Derrete, explode e desaparece — sem deixar rastros.",
-        "Dizem que é só queijo. Mas quem provou sabe: tem algo ali."
-      ],
-      "tag": null,
-      "id": "arquivo-cheese",
-      "secao": "entradas"
+      "desc": {
+        "pt": "Bife Ancho Cara Preta (250g), servido com molho roti e alecrim em chamas. Acompanha porção de pão caseiro ou batata rústica.",
+        "en": "Cara Preta Ancho steak (250g), served with roti sauce and flaming rosemary. Comes with house bread or rustic potatoes.",
+        "es": "Bife Ancho Cara Preta (250g), servido con salsa roti y romero en llamas. Acompaña pan casero o papas rústicas."
+      },
+      "poema": {
+        "pt": [
+          "Sinta o sabor vibrante do fogo e da brasa."
+        ],
+        "en": [
+          "Feel the vibrant flavor of fire and ember."
+        ],
+        "es": [
+          "Siente el sabor vibrante del fuego y la brasa."
+        ]
+      },
+      "photo": "assets/photo-ancho.jpg",
+      "tag": "Teatro"
     },
     {
+      "id": "pollos-hermanos",
+      "secao": "entradas",
+      "tipo": {
+        "pt": "Entrada",
+        "en": "Starter",
+        "es": "Entrada"
+      },
+      "nome": {
+        "pt": "Los Pollos Hermanos",
+        "en": "Los Pollos Hermanos",
+        "es": "Los Pollos Hermanos"
+      },
+      "preco": 45,
       "alerg": [
         "glúten"
       ],
-      "preco": 47,
-      "desc": "Batatas crinkle crocantes, maionese de pimenta Sriracha, gergelim torrado, cebolinha e alga nori.",
-      "photo": "assets/dragonfries2.jpg",
-      "tipo": "Entrada",
-      "nome": "Dragon Fries",
-      "poema": [
-        "Picantes como o fogo de um dragão.",
-        "Crocam, queimam e desaparecem sem deixar rastro."
-      ],
-      "tag": null,
-      "id": "dragon-fries",
-      "secao": "entradas"
+      "desc": {
+        "pt": "Pedaços de sobrecoxa de frango marinados, ultra crocantes e suculentos. Servidos com a nossa deliciosa maionese da casa.",
+        "en": "Marinated chicken thigh pieces, ultra crispy and juicy. Served with our delicious house mayo.",
+        "es": "Trozos de muslo de pollo marinados, ultra crujientes y jugosos. Servidos con nuestra deliciosa mayonesa de la casa."
+      },
+      "poema": {
+        "pt": [
+          "Sabor e crocância que vão te deixar viciado."
+        ],
+        "en": [
+          "Flavor and crunch that will get you hooked."
+        ],
+        "es": [
+          "Sabor y crujiente que te dejarán adicto."
+        ]
+      },
+      "photo": null,
+      "tag": null
     },
     {
+      "id": "jardim-da-carne",
+      "secao": "entradas",
+      "tipo": {
+        "pt": "Entrada",
+        "en": "Starter",
+        "es": "Entrada"
+      },
+      "nome": {
+        "pt": "O Jardim da Carne",
+        "en": "The Meat Garden",
+        "es": "El Jardín de la Carne"
+      },
+      "preco": 62,
       "alerg": [
         "glúten",
         "lactose"
       ],
-      "preco": 55,
-      "desc": "Blend Angus Cara Preta de 180g, queijo meia cura derretido, cogumelos, bacon crocante e maionese trufada, servido no pão brioche macio.",
-      "photo": "assets/surrealburger.jpg",
-      "tipo": "Burger",
-      "nome": "Surreal Burger",
-      "poema": [
-        "A carne sonhava ser estrela.",
-        "O cogumelo chamou o queijo pra derreter.",
-        "O bacon caiu no sonho. A trufa guiou tudo.",
-        "Nada faz sentido. Tudo faz vontade."
-      ],
-      "tag": "Clássico",
-      "id": "surreal-burger",
-      "secao": "sanduiches"
+      "desc": {
+        "pt": "Steak tartar de filé mignon cortado na ponta da faca, marinado com mostarda dijon, alcaparras e uma seleção de especiarias. Acompanha pão caseiro.",
+        "en": "Hand-cut filet mignon tartare, marinated with Dijon mustard, capers and a selection of spices. Served with house bread.",
+        "es": "Steak tartar de solomillo cortado a cuchillo, marinado con mostaza Dijon, alcaparras y especias selectas. Con pan casero."
+      },
+      "poema": {
+        "pt": [
+          "Sedutor, cru e vibrante,",
+          "como um jardim proibido."
+        ],
+        "en": [
+          "Seductive, raw and vibrant,",
+          "like a forbidden garden."
+        ],
+        "es": [
+          "Seductor, crudo y vibrante,",
+          "como un jardín prohibido."
+        ]
+      },
+      "photo": "assets/photo-tartare.jpg",
+      "tag": "Chef"
     },
     {
-      "alerg": [
-        "glúten",
-        "lactose"
-      ],
-      "preco": 55,
-      "desc": "Dupla camada de smash Angus (2x90g), cheddar derretido, picles de jalapeño, alface crocante, cebola caramelizada e maionese surreal.",
-      "photo": "assets/popart.jpg",
-      "tipo": "Burger",
-      "nome": "Pop Art Burger",
-      "poema": [
-        "Uma mordida e você vira exposição."
-      ],
-      "tag": null,
-      "id": "pop-art",
-      "secao": "sanduiches"
-    },
-    {
-      "alerg": [
-        "glúten",
-        "lactose"
-      ],
-      "preco": 43,
-      "desc": "Smash burger com duas carnes angus, cheddar derretido, maionese surreal e pão brioche selado na manteiga.",
-      "photo": "assets/smashme.jpg",
-      "tipo": "Burger",
-      "nome": "Smash me Baby",
-      "poema": [
-        "Me amassa, me sela, me devora.",
-        "Suculência em dose dupla com gosto de \"quero mais\".",
-        "Smash me, baby — uma mordida de cada vez."
-      ],
-      "tag": null,
-      "id": "smash-me-baby",
-      "secao": "sanduiches"
-    },
-    {
-      "alerg": [
-        "glúten",
-        "lactose"
-      ],
-      "preco": 43,
-      "desc": "Dois mini sanduíches de costela defumada, maionese da casa, queijo meia cura derretido e vinagrete de agrião.",
-      "photo": "assets/photo-rib-fiction.jpg",
-      "tipo": "Mini",
-      "nome": "Rib Fiction",
-      "poema": [
-        "Ele entra defumando tudo,",
-        "derrete o queijo com o olhar",
-        "e ainda dá tempo de provocar o agrião.",
-        "Ele sabe que é um bad motherfucker."
-      ],
-      "tag": "Chef",
-      "id": "rib-fiction",
-      "secao": "sanduiches"
-    },
-    {
-      "alerg": [
-        "glúten",
-        "lactose"
-      ],
-      "preco": 42,
-      "desc": "Linguiça de costela, maionese da casa, mostarda, vinagrete e broto de coentro, servido no pão de leite.",
-      "photo": "assets/dalidog.jpg",
-      "tipo": "Hot dog",
-      "nome": "Dalí Dog",
-      "poema": [
-        "O tempo derrete e a fome também.",
-        "Um delírio gastronômico digno de museu."
-      ],
-      "tag": null,
-      "id": "dali-dog",
-      "secao": "sanduiches"
-    },
-    {
-      "alerg": [
-        "glúten",
-        "lactose"
-      ],
+      "id": "tropikaos",
+      "secao": "entradas",
+      "tipo": {
+        "pt": "Entrada",
+        "en": "Starter",
+        "es": "Entrada"
+      },
+      "nome": {
+        "pt": "Tropikáos",
+        "en": "Tropikaos",
+        "es": "Tropikaos"
+      },
       "preco": 45,
-      "desc": "Dois mini sanduíches com peixe frito crocante, acompanhados de vinagrete de banana e picles de manga.",
-      "photo": "assets/delirio.jpg",
-      "tipo": "Mini",
-      "nome": "O Delírio Tropical",
-      "poema": [
-        "Surreal como o calor de fevereiro.",
-        "Uma mordida e o verão derrete na boca."
+      "alerg": [
+        "glúten",
+        "lactose"
       ],
-      "tag": null,
-      "id": "delirio-tropical",
-      "secao": "sanduiches"
+      "desc": {
+        "pt": "Cubos de peixe branco grelhado com vinagrete de banana, tomate, cebola roxa e picles de manga, acompanhados de uma crocante massa de pastel. (opção vegetariana disponível)",
+        "en": "Grilled white fish cubes with banana, tomato, red onion and mango pickle vinaigrette, served with crunchy pastel dough. (vegetarian option available)",
+        "es": "Cubos de pescado blanco a la plancha con vinagreta de plátano, tomate, cebolla morada y pickles de mango, con masa crujiente de pastel. (opción vegetariana disponible)"
+      },
+      "poema": {
+        "pt": [
+          "Doce, ácido, fresco e frito.",
+          "Inesperado, colorido e feliz demais pra fazer sentido.",
+          "Come com a mão, come sorrindo e não tenta entender — só vai."
+        ],
+        "en": [
+          "Sweet, sour, fresh and fried.",
+          "Unexpected, colorful and too happy to make sense.",
+          "Eat with your hands, smile as you go — don't try to understand, just dive in."
+        ],
+        "es": [
+          "Dulce, ácido, fresco y frito.",
+          "Inesperado, colorido y demasiado feliz para tener sentido.",
+          "Cómelo con las manos, sonriendo y sin intentar entender — solo ve."
+        ]
+      },
+      "photo": null,
+      "tag": null
     },
     {
+      "id": "arquivo-cheese",
+      "secao": "entradas",
+      "tipo": {
+        "pt": "Entrada",
+        "en": "Starter",
+        "es": "Entrada"
+      },
+      "nome": {
+        "pt": "Arquivo Cheese X",
+        "en": "Archive Cheese X",
+        "es": "Archivo Cheese X"
+      },
+      "preco": 43,
+      "alerg": [
+        "glúten",
+        "lactose"
+      ],
+      "desc": {
+        "pt": "Porção de bolinhas de queijo crocantes por fora e cremosas por dentro, servida com geleia de goiaba com pimenta. (8 unidades)",
+        "en": "Cheese balls crispy outside, creamy inside, served with guava-pepper jam. (8 units)",
+        "es": "Bolitas de queso crujientes por fuera y cremosas por dentro, servidas con mermelada de guayaba con pimienta. (8 unidades)"
+      },
+      "poema": {
+        "pt": [
+          "Classificado. Não recomendado pra quem tem medo do prazer.",
+          "Derrete, explode e desaparece — sem deixar rastros.",
+          "Dizem que é só queijo. Mas quem provou sabe: tem algo ali."
+        ],
+        "en": [
+          "Classified. Not recommended for those afraid of pleasure.",
+          "Melts, explodes and disappears — leaving no trace.",
+          "They say it's just cheese. But those who tried know: there's something there."
+        ],
+        "es": [
+          "Clasificado. No recomendado para quienes temen al placer.",
+          "Se derrite, explota y desaparece — sin dejar rastro.",
+          "Dicen que es solo queso. Pero quien lo probó sabe: hay algo ahí."
+        ]
+      },
+      "photo": null,
+      "tag": null
+    },
+    {
+      "id": "dragon-fries",
+      "secao": "entradas",
+      "tipo": {
+        "pt": "Entrada",
+        "en": "Starter",
+        "es": "Entrada"
+      },
+      "nome": {
+        "pt": "Dragon Fries",
+        "en": "Dragon Fries",
+        "es": "Dragon Fries"
+      },
+      "preco": 47,
+      "alerg": [
+        "glúten"
+      ],
+      "desc": {
+        "pt": "Batatas crinkle crocantes, maionese de pimenta Sriracha, gergelim torrado, cebolinha e alga nori.",
+        "en": "Crispy crinkle fries, sriracha mayo, toasted sesame, scallions and nori seaweed.",
+        "es": "Papas crinkle crujientes, mayonesa de sriracha, sésamo tostado, cebollín y alga nori."
+      },
+      "poema": {
+        "pt": [
+          "Picantes como o fogo de um dragão.",
+          "Crocam, queimam e desaparecem sem deixar rastro."
+        ],
+        "en": [
+          "Spicy as dragon's fire.",
+          "They crunch, burn and disappear without a trace."
+        ],
+        "es": [
+          "Picantes como el fuego de un dragón.",
+          "Crujen, queman y desaparecen sin dejar rastro."
+        ]
+      },
+      "photo": null,
+      "tag": null
+    },
+    {
+      "id": "surreal-burger",
+      "secao": "sanduiches",
+      "tipo": {
+        "pt": "Burger",
+        "en": "Burger",
+        "es": "Hamburguesa"
+      },
+      "nome": {
+        "pt": "Surreal Burger",
+        "en": "Surreal Burger",
+        "es": "Surreal Burger"
+      },
+      "preco": 55,
+      "alerg": [
+        "glúten",
+        "lactose"
+      ],
+      "desc": {
+        "pt": "Blend Angus Cara Preta de 180g, queijo meia cura derretido, cogumelos, bacon crocante e maionese trufada, servido no pão brioche macio.",
+        "en": "180g Cara Preta Angus blend, melted semi-cured cheese, mushrooms, crispy bacon and truffle mayo on a soft brioche bun.",
+        "es": "Blend Angus Cara Preta de 180g, queso semicurado derretido, champiñones, bacon crujiente y mayonesa trufada, en pan brioche suave."
+      },
+      "poema": {
+        "pt": [
+          "A carne sonhava ser estrela.",
+          "O cogumelo chamou o queijo pra derreter.",
+          "O bacon caiu no sonho. A trufa guiou tudo.",
+          "Nada faz sentido. Tudo faz vontade."
+        ],
+        "en": [
+          "The meat dreamed of being a star.",
+          "The mushroom called the cheese to melt.",
+          "The bacon fell into the dream. The truffle guided it all.",
+          "Nothing makes sense. Everything makes you want."
+        ],
+        "es": [
+          "La carne soñaba con ser estrella.",
+          "El hongo llamó al queso a derretirse.",
+          "El bacon cayó en el sueño. La trufa lo guió todo.",
+          "Nada tiene sentido. Todo da ganas."
+        ]
+      },
+      "photo": "assets/photo-rib-fiction.jpg",
+      "tag": "Clássico"
+    },
+    {
+      "id": "pop-art",
+      "secao": "sanduiches",
+      "tipo": {
+        "pt": "Burger",
+        "en": "Burger",
+        "es": "Hamburguesa"
+      },
+      "nome": {
+        "pt": "Pop Art Burger",
+        "en": "Pop Art Burger",
+        "es": "Pop Art Burger"
+      },
+      "preco": 55,
+      "alerg": [
+        "glúten",
+        "lactose"
+      ],
+      "desc": {
+        "pt": "Dupla camada de smash Angus (2x90g), cheddar derretido, picles de jalapeño, alface crocante, cebola caramelizada e maionese surreal.",
+        "en": "Double-layer smash Angus (2x90g), melted cheddar, jalapeño pickles, crisp lettuce, caramelized onion and Surreal mayo.",
+        "es": "Doble capa de smash Angus (2x90g), cheddar derretido, pickles de jalapeño, lechuga crujiente, cebolla caramelizada y mayonesa Surreal."
+      },
+      "poema": {
+        "pt": [
+          "Uma mordida e você vira exposição."
+        ],
+        "en": [
+          "One bite and you become an exhibit."
+        ],
+        "es": [
+          "Un bocado y te vuelves exposición."
+        ]
+      },
+      "photo": null,
+      "tag": null
+    },
+    {
+      "id": "smash-me-baby",
+      "secao": "sanduiches",
+      "tipo": {
+        "pt": "Burger",
+        "en": "Burger",
+        "es": "Hamburguesa"
+      },
+      "nome": {
+        "pt": "Smash me Baby",
+        "en": "Smash me Baby",
+        "es": "Smash me Baby"
+      },
+      "preco": 43,
+      "alerg": [
+        "glúten",
+        "lactose"
+      ],
+      "desc": {
+        "pt": "Smash burger com duas carnes angus, cheddar derretido, maionese surreal e pão brioche selado na manteiga.",
+        "en": "Smash burger with two Angus patties, melted cheddar, Surreal mayo and a brioche bun seared in butter.",
+        "es": "Smash burger con dos carnes Angus, cheddar derretido, mayonesa Surreal y pan brioche sellado en mantequilla."
+      },
+      "poema": {
+        "pt": [
+          "Me amassa, me sela, me devora.",
+          "Suculência em dose dupla com gosto de \"quero mais\".",
+          "Smash me, baby — uma mordida de cada vez."
+        ],
+        "en": [
+          "Smash me, seal me, devour me.",
+          "Double-dose juiciness with a \"more please\" aftertaste.",
+          "Smash me, baby — one bite at a time."
+        ],
+        "es": [
+          "Apriétame, séllame, devórame.",
+          "Jugosidad en doble dosis con gusto a \"quiero más\".",
+          "Smash me, baby — un mordisco a la vez."
+        ]
+      },
+      "photo": null,
+      "tag": null
+    },
+    {
+      "id": "rib-fiction",
+      "secao": "sanduiches",
+      "tipo": {
+        "pt": "Mini",
+        "en": "Mini",
+        "es": "Mini"
+      },
+      "nome": {
+        "pt": "Rib Fiction",
+        "en": "Rib Fiction",
+        "es": "Rib Fiction"
+      },
+      "preco": 43,
+      "alerg": [
+        "glúten",
+        "lactose"
+      ],
+      "desc": {
+        "pt": "Dois mini sanduíches de costela defumada, maionese da casa, queijo meia cura derretido e vinagrete de agrião.",
+        "en": "Two mini smoked rib sandwiches, house mayo, melted semi-cured cheese and watercress vinaigrette.",
+        "es": "Dos mini sándwiches de costilla ahumada, mayonesa de la casa, queso semicurado derretido y vinagreta de berros."
+      },
+      "poema": {
+        "pt": [
+          "Ele entra defumando tudo,",
+          "derrete o queijo com o olhar",
+          "e ainda dá tempo de provocar o agrião.",
+          "Ele sabe que é um bad motherfucker."
+        ],
+        "en": [
+          "He walks in smoking everything,",
+          "melts the cheese with a glance",
+          "and still has time to tease the watercress.",
+          "He knows he's a bad motherfucker."
+        ],
+        "es": [
+          "Entra ahumándolo todo,",
+          "derrite el queso con la mirada",
+          "y aún tiene tiempo de provocar al berro.",
+          "Sabe que es un bad motherfucker."
+        ]
+      },
+      "photo": "assets/photo-rib-fiction.jpg",
+      "tag": "Chef"
+    },
+    {
+      "id": "dali-dog",
+      "secao": "sanduiches",
+      "tipo": {
+        "pt": "Hot dog",
+        "en": "Hot dog",
+        "es": "Hot dog"
+      },
+      "nome": {
+        "pt": "Dalí Dog",
+        "en": "Dalí Dog",
+        "es": "Dalí Dog"
+      },
+      "preco": 42,
+      "alerg": [
+        "glúten",
+        "lactose"
+      ],
+      "desc": {
+        "pt": "Linguiça de costela, maionese da casa, mostarda, vinagrete e broto de coentro, servido no pão de leite.",
+        "en": "Rib sausage, house mayo, mustard, vinaigrette and cilantro sprouts, served on a milk bun.",
+        "es": "Salchicha de costilla, mayonesa de la casa, mostaza, vinagreta y brotes de cilantro, en pan de leche."
+      },
+      "poema": {
+        "pt": [
+          "O tempo derrete e a fome também.",
+          "Um delírio gastronômico digno de museu."
+        ],
+        "en": [
+          "Time melts and so does hunger.",
+          "A gastronomic delirium worthy of a museum."
+        ],
+        "es": [
+          "El tiempo se derrite y el hambre también.",
+          "Un delirio gastronómico digno de museo."
+        ]
+      },
+      "photo": null,
+      "tag": null
+    },
+    {
+      "id": "delirio-tropical",
+      "secao": "sanduiches",
+      "tipo": {
+        "pt": "Mini",
+        "en": "Mini",
+        "es": "Mini"
+      },
+      "nome": {
+        "pt": "O Delírio Tropical",
+        "en": "Tropical Delirium",
+        "es": "Delirio Tropical"
+      },
+      "preco": 45,
+      "alerg": [
+        "glúten",
+        "lactose"
+      ],
+      "desc": {
+        "pt": "Dois mini sanduíches com peixe frito crocante, acompanhados de vinagrete de banana e picles de manga.",
+        "en": "Two mini sandwiches with crispy fried fish, banana vinaigrette and mango pickles.",
+        "es": "Dos mini sándwiches con pescado frito crujiente, vinagreta de plátano y pickles de mango."
+      },
+      "poema": {
+        "pt": [
+          "Surreal como o calor de fevereiro.",
+          "Uma mordida e o verão derrete na boca."
+        ],
+        "en": [
+          "Surreal as a February heat.",
+          "One bite and summer melts in your mouth."
+        ],
+        "es": [
+          "Surreal como el calor de febrero.",
+          "Un mordisco y el verano se derrite en la boca."
+        ]
+      },
+      "photo": null,
+      "tag": null
+    },
+    {
+      "id": "ceci-nest-pas",
+      "secao": "sanduiches",
+      "tipo": {
+        "pt": "Veggie",
+        "en": "Veggie",
+        "es": "Veggie"
+      },
+      "nome": {
+        "pt": "Ceci n'est pas un hamburger",
+        "en": "Ceci n'est pas un hamburger",
+        "es": "Ceci n'est pas un hamburger"
+      },
+      "preco": 55,
       "alerg": [
         "glúten",
         "lactose",
         "veggie"
       ],
-      "preco": 55,
-      "desc": "Isso não é um hambúrguer: feito de fibra de caju, cogumelos frescos e aioli de abacate.",
-      "photo": "assets/naoeumburger.jpg",
-      "tipo": "Veggie",
-      "nome": "Ceci n'est pas un hamburger",
-      "poema": [
-        "Não é carne. Não é ilusão.",
-        "Com gosto de brasa, textura de engano",
-        "e vontade de repetir."
-      ],
-      "tag": "Veggie",
-      "id": "ceci-nest-pas",
-      "secao": "sanduiches"
-    },
-    {
-      "alerg": [
-        "glúten",
-        "lactose"
-      ],
-      "preco": 79,
-      "desc": "Filé Mignon servido com arroz à piamontese com queijo meia cura, molho roti e batata rústica.",
-      "photo": "assets/poderoso2.jpg",
-      "tipo": "Prato",
-      "nome": "Poderoso Chefão",
-      "poema": [
-        "Macio como um acerto de contas bem feito.",
-        "Uma proposta que você não pode recusar."
-      ],
-      "tag": null,
-      "id": "poderoso-chefao",
-      "secao": "principais"
-    },
-    {
-      "alerg": [
-        "glúten",
-        "lactose"
-      ],
-      "preco": 69,
-      "desc": "Frango crocante empanado na farinha Panko, arroz cremoso de limão e batatas rústicas.",
-      "photo": "assets/milanesa.jpg",
-      "tipo": "Prato",
-      "nome": "Querida, Empanei o Frango",
-      "poema": [
-        "Não encolhi, não — empanei,",
-        "e ficou gigante na crocância,",
-        "imenso no sabor e absurdamente cremoso no limão.",
-        "Servido com uma pitada de nostalgia bem temperada."
-      ],
-      "tag": null,
-      "id": "querida-empanei",
-      "secao": "principais"
-    },
-    {
-      "alerg": [
-        "glúten",
-        "lactose"
-      ],
-      "preco": 66,
-      "desc": "Linguini envolto em um cremoso molho trufado com cogumelos salteados e Parmesão. Acrescente Ancho por +R$ 30.",
+      "desc": {
+        "pt": "Isso não é um hambúrguer: feito de fibra de caju, cogumelos frescos e aioli de abacate.",
+        "en": "This is not a burger: made of cashew fiber, fresh mushrooms and avocado aioli.",
+        "es": "Esto no es una hamburguesa: hecha de fibra de anacardo, champiñones frescos y alioli de aguacate."
+      },
+      "poema": {
+        "pt": [
+          "Não é carne. Não é ilusão.",
+          "Com gosto de brasa, textura de engano",
+          "e vontade de repetir."
+        ],
+        "en": [
+          "Not meat. Not an illusion.",
+          "Tastes like ember, feels like deception",
+          "and leaves you wanting more."
+        ],
+        "es": [
+          "No es carne. No es ilusión.",
+          "Con gusto a brasa, textura de engaño",
+          "y ganas de repetir."
+        ]
+      },
       "photo": null,
-      "tipo": "Massa",
-      "nome": "Mushroom Kingdom",
-      "poema": [
-        "Um reino escondido sob a terra, onde cogumelos mandam no sabor.",
-        "É trufa, é textura, é um abraço da floresta no seu prato.",
-        "Você pisa nesse reino com o garfo… e não quer mais sair."
-      ],
-      "tag": null,
-      "id": "mushroom-kingdom",
-      "secao": "principais"
+      "tag": "Veggie"
     },
     {
+      "id": "poderoso-chefao",
+      "secao": "principais",
+      "tipo": {
+        "pt": "Prato",
+        "en": "Main",
+        "es": "Plato"
+      },
+      "nome": {
+        "pt": "Poderoso Chefão",
+        "en": "The Godfather",
+        "es": "El Padrino"
+      },
+      "preco": 79,
       "alerg": [
         "glúten",
         "lactose"
       ],
-      "preco": 59,
-      "desc": "Salada Caesar com frango: alface crocante, croutons dourados, parmesão ralado, molho Caesar com especiarias e tiras de frango grelhado.",
-      "photo": "assets/verdefome.jpg",
-      "tipo": "Salada",
-      "nome": "Verde de Fome",
-      "poema": [
-        "Parece leve, mas vem faminta.",
-        "Croca, tempera, envolve — e devora por dentro."
-      ],
-      "tag": null,
-      "id": "verde-de-fome",
-      "secao": "principais"
+      "desc": {
+        "pt": "Filé Mignon servido com arroz à piamontese com queijo meia cura, molho roti e batata rústica.",
+        "en": "Filet mignon served with Piedmontese rice with semi-cured cheese, roti sauce and rustic potatoes.",
+        "es": "Solomillo servido con arroz piamontés con queso semicurado, salsa roti y papas rústicas."
+      },
+      "poema": {
+        "pt": [
+          "Macio como um acerto de contas bem feito.",
+          "Uma proposta que você não pode recusar."
+        ],
+        "en": [
+          "Soft as a well-settled score.",
+          "An offer you can't refuse."
+        ],
+        "es": [
+          "Suave como un ajuste de cuentas bien hecho.",
+          "Una oferta que no puedes rechazar."
+        ]
+      },
+      "photo": null,
+      "tag": null
     },
     {
+      "id": "querida-empanei",
+      "secao": "principais",
+      "tipo": {
+        "pt": "Prato",
+        "en": "Main",
+        "es": "Plato"
+      },
+      "nome": {
+        "pt": "Querida, Empanei o Frango",
+        "en": "Honey, I Breaded the Chicken",
+        "es": "Querida, Empané el Pollo"
+      },
+      "preco": 69,
+      "alerg": [
+        "glúten",
+        "lactose"
+      ],
+      "desc": {
+        "pt": "Frango crocante empanado na farinha Panko, arroz cremoso de limão e batatas rústicas.",
+        "en": "Crispy panko-breaded chicken, creamy lemon rice and rustic potatoes.",
+        "es": "Pollo crujiente empanado en panko, arroz cremoso al limón y papas rústicas."
+      },
+      "poema": {
+        "pt": [
+          "Não encolhi, não — empanei,",
+          "e ficou gigante na crocância,",
+          "imenso no sabor e absurdamente cremoso no limão.",
+          "Servido com uma pitada de nostalgia bem temperada."
+        ],
+        "en": [
+          "I didn't shrink — I breaded,",
+          "and it got giant in crunch,",
+          "huge in flavor and absurdly creamy in lemon.",
+          "Served with a pinch of well-seasoned nostalgia."
+        ],
+        "es": [
+          "No encogí, no — empané,",
+          "y quedó gigante en crocante,",
+          "inmenso en sabor y absurdamente cremoso en el limón.",
+          "Servido con una pizca de nostalgia bien sazonada."
+        ]
+      },
+      "photo": null,
+      "tag": null
+    },
+    {
+      "id": "mushroom-kingdom",
+      "secao": "principais",
+      "tipo": {
+        "pt": "Massa",
+        "en": "Pasta",
+        "es": "Pasta"
+      },
+      "nome": {
+        "pt": "Mushroom Kingdom",
+        "en": "Mushroom Kingdom",
+        "es": "Mushroom Kingdom"
+      },
+      "preco": 66,
+      "alerg": [
+        "glúten",
+        "lactose"
+      ],
+      "desc": {
+        "pt": "Linguini envolto em um cremoso molho trufado com cogumelos salteados e Parmesão. Acrescente Ancho por +R$ 30.",
+        "en": "Linguine wrapped in creamy truffle sauce with sautéed mushrooms and Parmesan. Add Ancho steak for R$ 30.",
+        "es": "Linguini envuelto en salsa cremosa de trufa con champiñones salteados y parmesano. Añade Ancho por R$ 30."
+      },
+      "poema": {
+        "pt": [
+          "Um reino escondido sob a terra, onde cogumelos mandam no sabor.",
+          "É trufa, é textura, é um abraço da floresta no seu prato.",
+          "Você pisa nesse reino com o garfo… e não quer mais sair."
+        ],
+        "en": [
+          "A hidden kingdom where mushrooms rule the flavor.",
+          "It's truffle, texture, a forest's hug on your plate.",
+          "You step into this realm with a fork... and never want to leave."
+        ],
+        "es": [
+          "Un reino escondido bajo la tierra, donde los hongos mandan en el sabor.",
+          "Es trufa, textura, un abrazo del bosque en el plato.",
+          "Pisas ese reino con el tenedor... y no quieres irte."
+        ]
+      },
+      "photo": null,
+      "tag": null
+    },
+    {
+      "id": "verde-de-fome",
+      "secao": "principais",
+      "tipo": {
+        "pt": "Salada",
+        "en": "Salad",
+        "es": "Ensalada"
+      },
+      "nome": {
+        "pt": "Verde de Fome",
+        "en": "Green With Hunger",
+        "es": "Verde de Hambre"
+      },
+      "preco": 59,
+      "alerg": [
+        "glúten",
+        "lactose"
+      ],
+      "desc": {
+        "pt": "Salada Caesar com frango: alface crocante, croutons dourados, parmesão ralado, molho Caesar com especiarias e tiras de frango grelhado.",
+        "en": "Caesar salad with chicken: crisp lettuce, golden croutons, grated parmesan, spiced Caesar dressing and strips of grilled chicken.",
+        "es": "Ensalada César con pollo: lechuga crujiente, crutones dorados, parmesano rallado, aderezo César con especias y tiras de pollo a la plancha."
+      },
+      "poema": {
+        "pt": [
+          "Parece leve, mas vem faminta.",
+          "Croca, tempera, envolve — e devora por dentro."
+        ],
+        "en": [
+          "Looks light, but comes hungry.",
+          "It crunches, seasons, enfolds — and devours from within."
+        ],
+        "es": [
+          "Parece liviana, pero viene hambrienta.",
+          "Cruje, sazona, envuelve — y devora desde adentro."
+        ]
+      },
+      "photo": null,
+      "tag": null
+    },
+    {
+      "id": "carne-vegana",
+      "secao": "principais",
+      "tipo": {
+        "pt": "Vegano",
+        "en": "Vegan",
+        "es": "Vegano"
+      },
+      "nome": {
+        "pt": "Carne Vegana de Fibra de Caju",
+        "en": "Cashew-Fiber Vegan Meat",
+        "es": "Carne Vegana de Fibra de Anacardo"
+      },
+      "preco": 69,
       "alerg": [
         "glúten",
         "vegano"
       ],
-      "preco": 69,
-      "desc": "Fibra de caju transformada em carne, acompanhada de arroz de tomate, aioli de abacate e salada do dia.",
-      "photo": "assets/carnedecaju.jpg",
-      "tipo": "Vegano",
-      "nome": "Carne de Caju",
-      "poema": [
-        "Nem carne, nem fruta.   ",
-        "Coisa de morena tropicana.",
-        "Pura brasilidade em forma de prato."
-      ],
-      "tag": "Vegano",
-      "id": "carne-vegana",
-      "secao": "principais"
+      "desc": {
+        "pt": "Fibra de caju transformada em carne, acompanhada de arroz de tomate, aioli de abacate e salada do dia.",
+        "en": "Cashew fiber turned into meat, served with tomato rice, avocado aioli and salad of the day.",
+        "es": "Fibra de anacardo transformada en carne, acompañada de arroz de tomate, alioli de aguacate y ensalada del día."
+      },
+      "poema": {
+        "pt": [
+          "Uma reinvenção da natureza,",
+          "onde a fibra do caju se torna carne,",
+          "desafiando convenções e despertando os sentidos."
+        ],
+        "en": [
+          "A reinvention of nature,",
+          "where cashew fiber becomes meat,",
+          "defying conventions and awakening the senses."
+        ],
+        "es": [
+          "Una reinvención de la naturaleza,",
+          "donde la fibra del anacardo se vuelve carne,",
+          "desafiando convenciones y despertando los sentidos."
+        ]
+      },
+      "photo": null,
+      "tag": "Vegano"
     },
     {
-      "alerg": [
-        "glúten",
-        "lactose"
-      ],
-      "preco": 39,
-      "desc": "Banana, doce de leite, chantilly leve e farofa crocante de biscoito.",
-      "photo": "assets/banoffee.png.jpg",
-      "tipo": "Doce",
-      "nome": "Banoffee Surreal",
-      "poema": [
-        "Doce na medida, cremosa no ponto.",
-        "É sobremesa, é conforto, é um abraço de açúcar.",
-        "Você dá a primeira colher achando que conhece",
-        "mas ela vira e diz: \"Surpreendi?\""
-      ],
-      "tag": null,
       "id": "banoffee",
-      "secao": "sobremesas"
-    },
-    {
+      "secao": "sobremesas",
+      "tipo": {
+        "pt": "Doce",
+        "en": "Dessert",
+        "es": "Postre"
+      },
+      "nome": {
+        "pt": "Banoffee Surreal",
+        "en": "Surreal Banoffee",
+        "es": "Banoffee Surreal"
+      },
+      "preco": 39,
       "alerg": [
         "glúten",
         "lactose"
       ],
-      "preco": 39,
-      "desc": "Torta em camadas de caramelo de missô, chocolate meio amargo e base crocante de biscoito de castanha de caju e gergelim.",
-      "photo": "assets/temsal.jpg",
-      "tipo": "Doce",
-      "nome": "Tem Sal no meu Doce?",
-      "poema": [
-        "Sim, tem sal no seu doce.",
-        "E você vai amar não saber",
-        "se isso é um elogio ou um aviso."
-      ],
-      "tag": "Novo",
+      "desc": {
+        "pt": "Banana, doce de leite, chantilly leve e farofa crocante de biscoito.",
+        "en": "Banana, dulce de leche, light whipped cream and crunchy cookie crumble.",
+        "es": "Plátano, dulce de leche, crema chantilly suave y crumble crujiente de galleta."
+      },
+      "poema": {
+        "pt": [
+          "Doce na medida, cremosa no ponto.",
+          "É sobremesa, é conforto, é um abraço de açúcar.",
+          "Você dá a primeira colher achando que conhece",
+          "mas ela vira e diz: \"Surpreendi?\""
+        ],
+        "en": [
+          "Just the right sweet, creamy at the perfect point.",
+          "It's dessert, it's comfort, it's a sugar hug.",
+          "You take the first spoonful thinking you know it,",
+          "but it turns to you and says: \"Surprised?\""
+        ],
+        "es": [
+          "Dulce en su justa medida, cremosa en su punto.",
+          "Es postre, es consuelo, es un abrazo de azúcar.",
+          "Pruebas la primera cucharada creyendo que la conoces,",
+          "y ella se vuelve y dice: \"¿Sorprendido?\""
+        ]
+      },
+      "photo": null,
+      "tag": null
+    },
+    {
       "id": "sal-no-doce",
-      "secao": "sobremesas"
-    },
-    {
+      "secao": "sobremesas",
+      "tipo": {
+        "pt": "Doce",
+        "en": "Dessert",
+        "es": "Postre"
+      },
+      "nome": {
+        "pt": "Tem Sal no meu Doce?",
+        "en": "Is There Salt in My Sweet?",
+        "es": "¿Hay Sal en Mi Dulce?"
+      },
+      "preco": 39,
       "alerg": [
         "glúten",
         "lactose"
       ],
-      "preco": 39,
-      "desc": "Bolo de chocolate crocante por fora e cremoso por dentro, servido com calda de chocolate branco assado e sorvete de creme.",
-      "photo": "assets/fantasticobolo.jpg",
-      "tipo": "Doce",
-      "nome": "O Fantástico Bolo de Chocolate",
-      "poema": [
-        "Quando você provar esse bolo, vai se sentir como se tivesse ganhado o bilhete dourado.",
-        "É tão gostoso que você vai sair cantando:",
-        "\"Oompa Loompa dumpa di du…\""
-      ],
-      "tag": null,
+      "desc": {
+        "pt": "Torta em camadas de caramelo de missô, chocolate meio amargo e base crocante de biscoito de castanha de caju e gergelim.",
+        "en": "Layered pie of miso caramel, dark chocolate and a crunchy base of cashew-sesame cookie.",
+        "es": "Tarta en capas de caramelo de miso, chocolate negro y base crujiente de galleta de anacardo y sésamo."
+      },
+      "poema": {
+        "pt": [
+          "Sim, tem sal no seu doce.",
+          "E você vai amar não saber",
+          "se isso é um elogio ou um aviso."
+        ],
+        "en": [
+          "Yes, there's salt in your sweet.",
+          "And you'll love not knowing",
+          "if it's a compliment or a warning."
+        ],
+        "es": [
+          "Sí, hay sal en tu dulce.",
+          "Y vas a amar no saber",
+          "si es un elogio o una advertencia."
+        ]
+      },
+      "photo": null,
+      "tag": "Novo"
+    },
+    {
       "id": "fantastico-bolo",
-      "secao": "sobremesas"
+      "secao": "sobremesas",
+      "tipo": {
+        "pt": "Doce",
+        "en": "Dessert",
+        "es": "Postre"
+      },
+      "nome": {
+        "pt": "O Fantástico Bolo de Chocolate",
+        "en": "The Fantastic Chocolate Cake",
+        "es": "El Fantástico Pastel de Chocolate"
+      },
+      "preco": 39,
+      "alerg": [
+        "glúten",
+        "lactose"
+      ],
+      "desc": {
+        "pt": "Bolo de chocolate crocante por fora e cremoso por dentro, servido com calda de chocolate branco assado e sorvete de creme.",
+        "en": "Chocolate cake crispy outside and creamy inside, served with roasted white chocolate sauce and vanilla ice cream.",
+        "es": "Pastel de chocolate crujiente por fuera y cremoso por dentro, con salsa de chocolate blanco tostado y helado de vainilla."
+      },
+      "poema": {
+        "pt": [
+          "Quando você provar esse bolo, vai se sentir como se tivesse ganhado o bilhete dourado.",
+          "É tão gostoso que você vai sair cantando:",
+          "\"Oompa Loompa dumpa di du…\""
+        ],
+        "en": [
+          "When you try this cake, you'll feel like you won the golden ticket.",
+          "It's so good you'll walk out singing:",
+          "\"Oompa Loompa dumpa di du...\""
+        ],
+        "es": [
+          "Cuando pruebes este pastel, te sentirás como si hubieras ganado el boleto dorado.",
+          "Es tan bueno que saldrás cantando:",
+          "\"Oompa Loompa dumpa di du...\""
+        ]
+      },
+      "photo": null,
+      "tag": null
     }
   ],
   "bebidas": [
     {
-      "preco": 42,
-      "desc": "Gin, concentrado de pêssego, maracujá e um toque de frutas vermelhas, finalizado com espuma de gengibre.",
-      "base": "Gin",
-      "nome": "Kill Bill",
-      "poema": [
-        "Ela sorri, mas veio pra matar.",
-        "Frutada, ácida, sedutora — e com gengibre na lâmina.",
-        "O coquetel mais letal. Beba devagar,",
-        "ou acorde na cena seguinte sem lembrar o que te atingiu."
-      ],
-      "tag": "Autoral",
       "id": "kill-bill",
       "secao": "leves",
-      "ml": 280
+      "nome": {
+        "pt": "Kill Bill",
+        "en": "Kill Bill",
+        "es": "Kill Bill"
+      },
+      "preco": 42,
+      "ml": 280,
+      "desc": {
+        "pt": "Gin, concentrado de pêssego, maracujá e um toque de frutas vermelhas, finalizado com espuma de gengibre.",
+        "en": "Gin, peach concentrate, passion fruit and a touch of red berries, finished with ginger foam.",
+        "es": "Gin, concentrado de durazno, maracuyá y un toque de frutas rojas, con espuma de jengibre."
+      },
+      "poema": {
+        "pt": [
+          "Ela sorri, mas veio pra matar.",
+          "Frutada, ácida, sedutora — e com gengibre na lâmina.",
+          "O coquetel mais letal. Beba devagar,",
+          "ou acorde na cena seguinte sem lembrar o que te atingiu."
+        ],
+        "en": [
+          "She smiles, but she came to kill.",
+          "Fruity, acidic, seductive — with ginger on the blade.",
+          "The most lethal cocktail. Drink slowly,",
+          "or wake up in the next scene not remembering what hit you."
+        ],
+        "es": [
+          "Ella sonríe, pero vino a matar.",
+          "Afrutada, ácida, seductora — y con jengibre en la hoja.",
+          "El cóctel más letal. Bebe despacio,",
+          "o despierta en la siguiente escena sin saber qué te golpeó."
+        ]
+      },
+      "tag": "Autoral",
+      "base": "Gin"
     },
     {
-      "alerg": [
-        "lactose"
-      ],
-      "preco": 38,
-      "desc": "Gin, chocolate branco, pistache, maracujá, pimenta e vermute.",
-      "base": "Gin",
-      "nome": "Branca como a neve",
-      "poema": [
-        "Doce, cremosa, sensual.",
-        "Um conto de fadas com final etílico."
-      ],
-      "tag": null,
       "id": "branca-neve",
       "secao": "leves",
-      "ml": 100
-    },
-    {
-      "preco": 35,
-      "desc": "Vodka, cordial de limão, suco de maçã verde e Sour Mix.",
-      "base": "Vodka",
-      "nome": "A Força",
-      "poema": [
-        "Sabedoria, frescor e potência, ele carrega.",
-        "Depois do primeiro gole,",
-        "a Força está em você também."
-      ],
-      "tag": null,
-      "id": "a-forca",
-      "secao": "leves",
-      "ml": 160
-    },
-    {
-      "preco": 42,
-      "desc": "Vodka, Aperol, cordial de limão, soda de melancia e frutas vermelhas, finalizado com espuma de gengibre.",
-      "base": "Vodka",
-      "nome": "Watermelon Sugar",
-      "poema": [
-        "Doce como um refrão grudado na língua.",
-        "Watermelon sugar, high —",
-        "derrete no beijo, arrepia no gole,",
-        "e quando você vê… já tá cantando com o copo na mão."
-      ],
-      "tag": "Pop",
-      "id": "watermelon-sugar",
-      "secao": "leves",
-      "ml": 350
-    },
-    {
-      "preco": 42,
-      "desc": "Jack Daniel's N7, Campari, suco de abacaxi e purê de grapefruit.",
-      "base": "Whisky",
-      "nome": "Espinhos e Flores",
-      "poema": [
-        "Entre a dor e a beleza, acidez e doçura.",
-        "Inspirado em Frida Kahlo, para beber de coração aberto."
-      ],
-      "tag": "Autoral",
-      "id": "espinhos-flores",
-      "secao": "intensos",
-      "ml": 160
-    },
-    {
-      "preco": 42,
-      "desc": "Jack Daniel's N7, xarope de lichia, limão-cravo, finalizado com um toque de vinho Malbec.",
-      "base": "Whisky",
-      "photo": "assets/photo-drink1.jpg",
-      "nome": "Memória Derretida",
-      "poema": [
-        "Um drink que brinca com o tempo",
-        "e desafia os sentidos.",
-        "Inspirado em Salvador Dalí,",
-        "servido em estado de sonho."
-      ],
-      "tag": "Assinatura",
-      "id": "memoria-derretida",
-      "secao": "intensos",
-      "ml": 160
-    },
-    {
+      "nome": {
+        "pt": "Branca como a neve",
+        "en": "White as Snow",
+        "es": "Blanca como la Nieve"
+      },
       "preco": 38,
-      "desc": "Campari, vermute de jabuticaba, purê de jabuticaba, limão e licor de café.",
-      "base": "Campari",
-      "nome": "Pantera Negra",
-      "poema": [
-        "Anda devagar, mas ataca sem aviso.",
-        "Fruta sombria, café que sussurra, amargor que arranha.",
-        "Você não domina a Pantera."
-      ],
+      "ml": 100,
+      "desc": {
+        "pt": "Gin, chocolate branco, pistache, maracujá, pimenta e vermute.",
+        "en": "Gin, white chocolate, pistachio, passion fruit, pepper and vermouth.",
+        "es": "Gin, chocolate blanco, pistacho, maracuyá, pimienta y vermut."
+      },
+      "poema": {
+        "pt": [
+          "Doce, cremosa, sensual.",
+          "Um conto de fadas com final etílico."
+        ],
+        "en": [
+          "Sweet, creamy, sensual.",
+          "A fairy tale with a boozy ending."
+        ],
+        "es": [
+          "Dulce, cremosa, sensual.",
+          "Un cuento de hadas con final etílico."
+        ]
+      },
       "tag": null,
-      "id": "pantera-negra",
-      "secao": "intensos",
-      "ml": 120
-    },
-    {
-      "preco": 38,
-      "desc": "Gin infusionado com tangerina, Campari com um toque de cardamomo e vermute branco.",
       "base": "Gin",
-      "nome": "Venere Negroni",
-      "poema": [
-        "Amarga com elegância, cítrica com intenção.",
-        "É Vênus embriagada — e você, só mais um mortal encantado."
-      ],
-      "tag": null,
-      "id": "venere-negroni",
-      "secao": "intensos",
-      "ml": 90
-    },
-    {
-      "preco": 38,
-      "desc": "El Jimador, Aperol, purê de toranja, limão e agave.",
-      "base": "Tequila",
-      "nome": "Tequila is the new Black",
-      "poema": [
-        "Sofisticado, mas com fogo na alma.",
-        "Amargo com estilo, ácido com vontade.",
-        "Tequila é o novo pretinho básico."
-      ],
-      "tag": null,
-      "id": "tequila-black",
-      "secao": "intensos",
-      "ml": 160
-    },
-    {
       "alerg": [
         "lactose"
-      ],
-      "preco": 22,
-      "desc": "Água de coco, purê de mirtilo com especiarias e espuma de coco.",
-      "base": "Zero",
-      "nome": "Like a Virgin",
-      "poema": [
-        "Puro? Talvez.",
-        "Inocente? Só na primeira olhada.",
-        "Doce na entrada, cítrica no meio",
-        "e com final cremoso que pega de surpresa.",
-        "Um \"virgin drink\" com intenções nada santas."
-      ],
-      "tag": "Sem álcool",
+      ]
+    },
+    {
+      "id": "a-forca",
+      "secao": "leves",
+      "nome": {
+        "pt": "A Força",
+        "en": "The Force",
+        "es": "La Fuerza"
+      },
+      "preco": 35,
+      "ml": 160,
+      "desc": {
+        "pt": "Vodka, cordial de limão, suco de maçã verde e Sour Mix.",
+        "en": "Vodka, lime cordial, green apple juice and Sour Mix.",
+        "es": "Vodka, cordial de lima, zumo de manzana verde y Sour Mix."
+      },
+      "poema": {
+        "pt": [
+          "Sabedoria, frescor e potência, ele carrega.",
+          "Depois do primeiro gole,",
+          "a Força está em você também."
+        ],
+        "en": [
+          "Wisdom, freshness and power, it carries.",
+          "After the first sip,",
+          "the Force is with you too."
+        ],
+        "es": [
+          "Sabiduría, frescor y potencia, lleva consigo.",
+          "Tras el primer sorbo,",
+          "la Fuerza está contigo también."
+        ]
+      },
+      "tag": null,
+      "base": "Vodka"
+    },
+    {
+      "id": "watermelon-sugar",
+      "secao": "leves",
+      "nome": {
+        "pt": "Watermelon Sugar",
+        "en": "Watermelon Sugar",
+        "es": "Watermelon Sugar"
+      },
+      "preco": 42,
+      "ml": 350,
+      "desc": {
+        "pt": "Vodka, Aperol, cordial de limão, soda de melancia e frutas vermelhas, finalizado com espuma de gengibre.",
+        "en": "Vodka, Aperol, lime cordial, watermelon soda and red berries, finished with ginger foam.",
+        "es": "Vodka, Aperol, cordial de lima, soda de sandía y frutas rojas, con espuma de jengibre."
+      },
+      "poema": {
+        "pt": [
+          "Doce como um refrão grudado na língua.",
+          "Watermelon sugar, high —",
+          "derrete no beijo, arrepia no gole,",
+          "e quando você vê… já tá cantando com o copo na mão."
+        ],
+        "en": [
+          "Sweet as a chorus stuck on your tongue.",
+          "Watermelon sugar, high —",
+          "melts in the kiss, shivers in the sip,",
+          "and before you know, you're singing with the glass in hand."
+        ],
+        "es": [
+          "Dulce como un estribillo pegado a la lengua.",
+          "Watermelon sugar, high —",
+          "se derrite en el beso, eriza en el trago,",
+          "y cuando te das cuenta, ya estás cantando con la copa en la mano."
+        ]
+      },
+      "tag": "Pop",
+      "base": "Vodka"
+    },
+    {
+      "id": "espinhos-flores",
+      "secao": "intensos",
+      "nome": {
+        "pt": "Espinhos e Flores",
+        "en": "Thorns and Flowers",
+        "es": "Espinas y Flores"
+      },
+      "preco": 42,
+      "ml": 160,
+      "desc": {
+        "pt": "Jack Daniel's N7, Campari, suco de abacaxi e purê de grapefruit.",
+        "en": "Jack Daniel's N7, Campari, pineapple juice and grapefruit purée.",
+        "es": "Jack Daniel's N7, Campari, zumo de piña y puré de pomelo."
+      },
+      "poema": {
+        "pt": [
+          "Entre a dor e a beleza, acidez e doçura.",
+          "Inspirado em Frida Kahlo, para beber de coração aberto."
+        ],
+        "en": [
+          "Between pain and beauty, acidity and sweetness.",
+          "Inspired by Frida Kahlo, to drink with an open heart."
+        ],
+        "es": [
+          "Entre el dolor y la belleza, acidez y dulzura.",
+          "Inspirado en Frida Kahlo, para beber con el corazón abierto."
+        ]
+      },
+      "tag": "Autoral",
+      "base": "Whisky"
+    },
+    {
+      "id": "memoria-derretida",
+      "secao": "intensos",
+      "nome": {
+        "pt": "Memória Derretida",
+        "en": "Melted Memory",
+        "es": "Memoria Derretida"
+      },
+      "preco": 42,
+      "ml": 160,
+      "desc": {
+        "pt": "Jack Daniel's N7, xarope de lichia, limão-cravo, finalizado com um toque de vinho Malbec.",
+        "en": "Jack Daniel's N7, lychee syrup, clove-lemon, finished with a touch of Malbec wine.",
+        "es": "Jack Daniel's N7, jarabe de lychee, limón-clavo, con un toque de vino Malbec."
+      },
+      "poema": {
+        "pt": [
+          "Um drink que brinca com o tempo",
+          "e desafia os sentidos.",
+          "Inspirado em Salvador Dalí,",
+          "servido em estado de sonho."
+        ],
+        "en": [
+          "A drink that plays with time",
+          "and defies the senses.",
+          "Inspired by Salvador Dalí,",
+          "served in a dream state."
+        ],
+        "es": [
+          "Un trago que juega con el tiempo",
+          "y desafía los sentidos.",
+          "Inspirado en Salvador Dalí,",
+          "servido en estado de sueño."
+        ]
+      },
+      "tag": "Assinatura",
+      "base": "Whisky",
+      "photo": "assets/photo-drink1.jpg"
+    },
+    {
+      "id": "pantera-negra",
+      "secao": "intensos",
+      "nome": {
+        "pt": "Pantera Negra",
+        "en": "Black Panther",
+        "es": "Pantera Negra"
+      },
+      "preco": 38,
+      "ml": 120,
+      "desc": {
+        "pt": "Campari, vermute de jabuticaba, purê de jabuticaba, limão e licor de café.",
+        "en": "Campari, jabuticaba vermouth, jabuticaba purée, lemon and coffee liqueur.",
+        "es": "Campari, vermut de jabuticaba, puré de jabuticaba, limón y licor de café."
+      },
+      "poema": {
+        "pt": [
+          "Anda devagar, mas ataca sem aviso.",
+          "Fruta sombria, café que sussurra, amargor que arranha.",
+          "Você não domina a Pantera."
+        ],
+        "en": [
+          "She moves slowly, but strikes without warning.",
+          "Shadowy fruit, whispering coffee, scratching bitterness.",
+          "You don't tame the Panther."
+        ],
+        "es": [
+          "Anda despacio, pero ataca sin aviso.",
+          "Fruta sombría, café que susurra, amargor que araña.",
+          "No dominas a la Pantera."
+        ]
+      },
+      "tag": null,
+      "base": "Campari"
+    },
+    {
+      "id": "venere-negroni",
+      "secao": "intensos",
+      "nome": {
+        "pt": "Venere Negroni",
+        "en": "Venere Negroni",
+        "es": "Venere Negroni"
+      },
+      "preco": 38,
+      "ml": 90,
+      "desc": {
+        "pt": "Gin infusionado com tangerina, Campari com um toque de cardamomo e vermute branco.",
+        "en": "Tangerine-infused gin, Campari with a hint of cardamom, and white vermouth.",
+        "es": "Gin infusionado con mandarina, Campari con un toque de cardamomo y vermut blanco."
+      },
+      "poema": {
+        "pt": [
+          "Amarga com elegância, cítrica com intenção.",
+          "É Vênus embriagada — e você, só mais um mortal encantado."
+        ],
+        "en": [
+          "Bitter with elegance, citrus with intent.",
+          "It's Venus drunk — and you, just another enchanted mortal."
+        ],
+        "es": [
+          "Amarga con elegancia, cítrica con intención.",
+          "Es Venus embriagada — y tú, un mortal más encantado."
+        ]
+      },
+      "tag": null,
+      "base": "Gin"
+    },
+    {
+      "id": "tequila-black",
+      "secao": "intensos",
+      "nome": {
+        "pt": "Tequila is the new Black",
+        "en": "Tequila is the new Black",
+        "es": "Tequila is the new Black"
+      },
+      "preco": 38,
+      "ml": 160,
+      "desc": {
+        "pt": "El Jimador, Aperol, purê de toranja, limão e agave.",
+        "en": "El Jimador, Aperol, grapefruit purée, lemon and agave.",
+        "es": "El Jimador, Aperol, puré de pomelo, limón y agave."
+      },
+      "poema": {
+        "pt": [
+          "Sofisticado, mas com fogo na alma.",
+          "Amargo com estilo, ácido com vontade.",
+          "Tequila é o novo pretinho básico."
+        ],
+        "en": [
+          "Sophisticated, but with fire in the soul.",
+          "Bitter with style, acid with will.",
+          "Tequila is the new little black dress."
+        ],
+        "es": [
+          "Sofisticado, pero con fuego en el alma.",
+          "Amargo con estilo, ácido con intención.",
+          "Tequila es el nuevo negro básico."
+        ]
+      },
+      "tag": null,
+      "base": "Tequila"
+    },
+    {
       "id": "like-a-virgin",
       "secao": "sem-alcool",
-      "ml": 350
+      "nome": {
+        "pt": "Like a Virgin",
+        "en": "Like a Virgin",
+        "es": "Like a Virgin"
+      },
+      "preco": 22,
+      "ml": 350,
+      "desc": {
+        "pt": "Água de coco, purê de mirtilo com especiarias e espuma de coco.",
+        "en": "Coconut water, spiced blueberry purée and coconut foam.",
+        "es": "Agua de coco, puré de arándano con especias y espuma de coco."
+      },
+      "poema": {
+        "pt": [
+          "Puro? Talvez.",
+          "Inocente? Só na primeira olhada.",
+          "Doce na entrada, cítrica no meio",
+          "e com final cremoso que pega de surpresa.",
+          "Um \"virgin drink\" com intenções nada santas."
+        ],
+        "en": [
+          "Pure? Maybe.",
+          "Innocent? Only at first glance.",
+          "Sweet on entry, citrus in the middle",
+          "and a creamy finish that catches you by surprise.",
+          "A \"virgin drink\" with nothing but holy intentions."
+        ],
+        "es": [
+          "¿Puro? Tal vez.",
+          "¿Inocente? Solo a primera vista.",
+          "Dulce al entrar, cítrico en el medio",
+          "y con final cremoso que sorprende.",
+          "Un \"virgin drink\" con intenciones nada santas."
+        ]
+      },
+      "tag": "Sem álcool",
+      "base": "Zero",
+      "alerg": [
+        "lactose"
+      ]
     },
     {
-      "preco": 22,
-      "desc": "Chá de hibisco, xarope de canela, suco de cranberry e limão tahiti.",
-      "base": "Zero",
-      "nome": "Stranger Things",
-      "poema": [
-        "Docemente esquisito.",
-        "Escuro, ácido, perfumado —",
-        "como um segredo vindo do outro lado.",
-        "Beba com cuidado: coisas estranhas podem acontecer."
-      ],
-      "tag": "Sem álcool",
       "id": "stranger-things",
       "secao": "sem-alcool",
-      "ml": 350
+      "nome": {
+        "pt": "Stranger Things",
+        "en": "Stranger Things",
+        "es": "Stranger Things"
+      },
+      "preco": 22,
+      "ml": 350,
+      "desc": {
+        "pt": "Chá de hibisco, xarope de canela, suco de cranberry e limão tahiti.",
+        "en": "Hibiscus tea, cinnamon syrup, cranberry juice and Tahiti lime.",
+        "es": "Té de hibisco, jarabe de canela, zumo de arándano y lima Tahití."
+      },
+      "poema": {
+        "pt": [
+          "Docemente esquisito.",
+          "Escuro, ácido, perfumado —",
+          "como um segredo vindo do outro lado.",
+          "Beba com cuidado: coisas estranhas podem acontecer."
+        ],
+        "en": [
+          "Sweetly strange.",
+          "Dark, acidic, fragrant —",
+          "like a secret from the other side.",
+          "Drink carefully: strange things can happen."
+        ],
+        "es": [
+          "Dulcemente extraño.",
+          "Oscuro, ácido, perfumado —",
+          "como un secreto del otro lado.",
+          "Bebe con cuidado: cosas raras pueden pasar."
+        ]
+      },
+      "tag": "Sem álcool",
+      "base": "Zero"
     },
     {
-      "preco": 22,
-      "desc": "Suco de abacaxi, suco de limão siciliano, xarope de coco e lasca de coco caramelizado.",
-      "base": "Zero",
-      "nome": "Pineapple Express",
-      "poema": [
-        "Uma viagem na cabeça.",
-        "Doce, ácido, cremoso — e perigosamente refrescante.",
-        "Embarque imediato, sem escala pra realidade."
-      ],
-      "tag": "Sem álcool",
       "id": "pineapple-express",
       "secao": "sem-alcool",
-      "ml": 350
+      "nome": {
+        "pt": "Pineapple Express",
+        "en": "Pineapple Express",
+        "es": "Pineapple Express"
+      },
+      "preco": 22,
+      "ml": 350,
+      "desc": {
+        "pt": "Suco de abacaxi, suco de limão siciliano, xarope de coco e lasca de coco caramelizado.",
+        "en": "Pineapple juice, Sicilian lemon juice, coconut syrup and caramelized coconut shavings.",
+        "es": "Zumo de piña, zumo de limón siciliano, jarabe de coco y virutas de coco caramelizado."
+      },
+      "poema": {
+        "pt": [
+          "Uma viagem na cabeça.",
+          "Doce, ácido, cremoso — e perigosamente refrescante.",
+          "Embarque imediato, sem escala pra realidade."
+        ],
+        "en": [
+          "A trip in your head.",
+          "Sweet, acidic, creamy — and dangerously refreshing.",
+          "Boarding now, no stops to reality."
+        ],
+        "es": [
+          "Un viaje en la cabeza.",
+          "Dulce, ácido, cremoso — y peligrosamente refrescante.",
+          "Embarque inmediato, sin escalas a la realidad."
+        ]
+      },
+      "tag": "Sem álcool",
+      "base": "Zero"
     },
     {
-      "preco": 22,
-      "desc": "Hortelã, limão siciliano, xarope de amêndoa e água com gás.",
-      "base": "Zero",
-      "nome": "Twist n' Fizz",
-      "poema": [
-        "Refrescante e elegante.",
-        "Cítrico, leve, borbulhante —",
-        "um sopro de frescor que torce a rotina",
-        "e devolve o brilho do dia."
-      ],
-      "tag": "Sem álcool",
       "id": "twist-fizz",
       "secao": "sem-alcool",
-      "ml": 350
+      "nome": {
+        "pt": "Twist n' Fizz",
+        "en": "Twist n' Fizz",
+        "es": "Twist n' Fizz"
+      },
+      "preco": 22,
+      "ml": 350,
+      "desc": {
+        "pt": "Hortelã, limão siciliano, xarope de amêndoa e água com gás.",
+        "en": "Mint, Sicilian lemon, almond syrup and sparkling water.",
+        "es": "Menta, limón siciliano, jarabe de almendra y agua con gas."
+      },
+      "poema": {
+        "pt": [
+          "Refrescante e elegante.",
+          "Cítrico, leve, borbulhante —",
+          "um sopro de frescor que torce a rotina",
+          "e devolve o brilho do dia."
+        ],
+        "en": [
+          "Refreshing and elegant.",
+          "Citrus, light, bubbly —",
+          "a gust of freshness that twists the routine",
+          "and brings back the day's shine."
+        ],
+        "es": [
+          "Refrescante y elegante.",
+          "Cítrico, ligero, burbujeante —",
+          "un soplo de frescor que tuerce la rutina",
+          "y devuelve el brillo del día."
+        ]
+      },
+      "tag": "Sem álcool",
+      "base": "Zero"
     },
     {
-      "preco": 22,
-      "desc": "Manga spicy, suco de limão, pimenta e água com gás.",
-      "base": "Zero",
-      "nome": "Miss Sunshine",
-      "poema": [
-        "Doce com atitude.",
-        "Picante, vibrante, ensolarado —",
-        "um raio de sol que aquece",
-        "e surpreende a cada gole."
-      ],
-      "tag": "Sem álcool",
       "id": "miss-sunshine",
       "secao": "sem-alcool",
-      "ml": 350
+      "nome": {
+        "pt": "Miss Sunshine",
+        "en": "Miss Sunshine",
+        "es": "Miss Sunshine"
+      },
+      "preco": 22,
+      "ml": 350,
+      "desc": {
+        "pt": "Manga spicy, suco de limão, pimenta e água com gás.",
+        "en": "Spicy mango, lemon juice, pepper and sparkling water.",
+        "es": "Mango picante, zumo de limón, pimienta y agua con gas."
+      },
+      "poema": {
+        "pt": [
+          "Doce com atitude.",
+          "Picante, vibrante, ensolarado —",
+          "um raio de sol que aquece",
+          "e surpreende a cada gole."
+        ],
+        "en": [
+          "Sweet with attitude.",
+          "Spicy, vibrant, sunny —",
+          "a sunbeam that warms",
+          "and surprises with every sip."
+        ],
+        "es": [
+          "Dulce con actitud.",
+          "Picante, vibrante, soleado —",
+          "un rayo de sol que calienta",
+          "y sorprende en cada trago."
+        ]
+      },
+      "tag": "Sem álcool",
+      "base": "Zero"
     },
     {
-      "preco": 25,
-      "desc": "Mate, suco de maçã e maçã verde.",
-      "base": "Zero",
-      "nome": "Rabo de Galo (zero)",
-      "poema": [
-        "Brasileiro na alma, refrescante na essência.",
-        "Tradicional e inovador ao mesmo tempo."
-      ],
-      "tag": "Sem álcool",
       "id": "rabo-galo-zero",
       "secao": "classicos-zero",
-      "ml": null
+      "nome": {
+        "pt": "Rabo de Galo (zero)",
+        "en": "Rabo de Galo (zero)",
+        "es": "Rabo de Galo (zero)"
+      },
+      "preco": 25,
+      "ml": null,
+      "desc": {
+        "pt": "Mate, suco de maçã e maçã verde.",
+        "en": "Mate, apple juice and green apple.",
+        "es": "Mate, zumo de manzana y manzana verde."
+      },
+      "poema": {
+        "pt": [
+          "Brasileiro na alma, refrescante na essência.",
+          "Tradicional e inovador ao mesmo tempo."
+        ],
+        "en": [
+          "Brazilian at heart, refreshing in essence.",
+          "Traditional and innovative at once."
+        ],
+        "es": [
+          "Brasileño en el alma, refrescante en esencia.",
+          "Tradicional e innovador a la vez."
+        ]
+      },
+      "tag": "Sem álcool",
+      "base": "Zero"
     },
     {
-      "preco": 25,
-      "desc": "Suco de maçã, mate, óleos essenciais de laranja, cereja e toque de açúcar.",
-      "base": "Zero",
-      "nome": "Old Fashioned (zero)",
-      "poema": [
-        "Robusto, aromático, atemporal.",
-        "O clássico dos clássicos — reimaginado sem perder a alma."
-      ],
-      "tag": "Sem álcool",
       "id": "old-fashioned-zero",
       "secao": "classicos-zero",
-      "ml": null
+      "nome": {
+        "pt": "Old Fashioned (zero)",
+        "en": "Old Fashioned (zero)",
+        "es": "Old Fashioned (zero)"
+      },
+      "preco": 25,
+      "ml": null,
+      "desc": {
+        "pt": "Suco de maçã, mate, óleos essenciais de laranja, cereja e toque de açúcar.",
+        "en": "Apple juice, mate, essential orange oils, cherry and a touch of sugar.",
+        "es": "Zumo de manzana, mate, aceites esenciales de naranja, cereza y un toque de azúcar."
+      },
+      "poema": {
+        "pt": [
+          "Robusto, aromático, atemporal.",
+          "O clássico dos clássicos — reimaginado sem perder a alma."
+        ],
+        "en": [
+          "Robust, aromatic, timeless.",
+          "The classic of classics — reimagined without losing its soul."
+        ],
+        "es": [
+          "Robusto, aromático, atemporal.",
+          "El clásico de los clásicos — reimaginado sin perder el alma."
+        ]
+      },
+      "tag": "Sem álcool",
+      "base": "Zero"
     },
     {
-      "preco": 25,
-      "desc": "Suco de maçã, limão siciliano, mel e suco de gengibre.",
-      "base": "Zero",
-      "nome": "Penicillin (zero)",
-      "poema": [
-        "Doce, picante, curativo.",
-        "Um gole que aquece, acalma e surpreende",
-        "como um elixir moderno."
-      ],
-      "tag": "Sem álcool",
       "id": "penicillin-zero",
       "secao": "classicos-zero",
-      "ml": null
+      "nome": {
+        "pt": "Penicillin (zero)",
+        "en": "Penicillin (zero)",
+        "es": "Penicillin (zero)"
+      },
+      "preco": 25,
+      "ml": null,
+      "desc": {
+        "pt": "Suco de maçã, limão siciliano, mel e suco de gengibre.",
+        "en": "Apple juice, Sicilian lemon, honey and ginger juice.",
+        "es": "Zumo de manzana, limón siciliano, miel y zumo de jengibre."
+      },
+      "poema": {
+        "pt": [
+          "Doce, picante, curativo.",
+          "Um gole que aquece, acalma e surpreende",
+          "como um elixir moderno."
+        ],
+        "en": [
+          "Sweet, spicy, healing.",
+          "A sip that warms, calms and surprises",
+          "like a modern elixir."
+        ],
+        "es": [
+          "Dulce, picante, curativo.",
+          "Un sorbo que calienta, calma y sorprende",
+          "como un elixir moderno."
+        ]
+      },
+      "tag": "Sem álcool",
+      "base": "Zero"
     },
     {
-      "preco": 40,
-      "desc": "Gin, Campari, vermute tinto.",
-      "base": "Gin",
-      "nome": "Negroni",
-      "poema": [],
-      "tag": null,
       "id": "negroni",
       "secao": "classicos",
-      "ml": 90
+      "nome": {
+        "pt": "Negroni",
+        "en": "Negroni",
+        "es": "Negroni"
+      },
+      "preco": 40,
+      "ml": 90,
+      "desc": {
+        "pt": "Gin, Campari, vermute tinto.",
+        "en": "Gin, Campari, red vermouth.",
+        "es": "Gin, Campari, vermut rojo."
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Gin"
     },
     {
-      "preco": 42,
-      "desc": "Jack Daniel's N7, Campari, vermute tinto.",
-      "base": "Whisky",
-      "nome": "Boulevardier",
-      "poema": [],
-      "tag": null,
       "id": "boulevardier",
       "secao": "classicos",
-      "ml": 90
+      "nome": {
+        "pt": "Boulevardier",
+        "en": "Boulevardier",
+        "es": "Boulevardier"
+      },
+      "preco": 42,
+      "ml": 90,
+      "desc": {
+        "pt": "Jack Daniel's N7, Campari, vermute tinto.",
+        "en": "Jack Daniel's N7, Campari, red vermouth.",
+        "es": "Jack Daniel's N7, Campari, vermut rojo."
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Whisky"
     },
     {
-      "preco": 35,
-      "desc": "Vodka, soda de gengibre, limão siciliano e espuma cítrica de gengibre.",
-      "base": "Vodka",
-      "nome": "Moscow Mule",
-      "poema": [],
-      "tag": null,
       "id": "moscow-mule",
       "secao": "classicos",
-      "ml": 170
+      "nome": {
+        "pt": "Moscow Mule",
+        "en": "Moscow Mule",
+        "es": "Moscow Mule"
+      },
+      "preco": 35,
+      "ml": 170,
+      "desc": {
+        "pt": "Vodka, soda de gengibre, limão siciliano e espuma cítrica de gengibre.",
+        "en": "Vodka, ginger soda, Sicilian lemon and citrus-ginger foam.",
+        "es": "Vodka, soda de jengibre, limón siciliano y espuma cítrica de jengibre."
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Vodka"
     },
     {
-      "preco": 28,
-      "desc": "Rum prata, suco de limão, hortelã, água gaseificada e bitter.",
-      "base": "Rum",
-      "nome": "Mojito",
-      "poema": [],
-      "tag": null,
       "id": "mojito",
       "secao": "classicos",
-      "ml": 300
+      "nome": {
+        "pt": "Mojito",
+        "en": "Mojito",
+        "es": "Mojito"
+      },
+      "preco": 28,
+      "ml": 300,
+      "desc": {
+        "pt": "Rum prata, suco de limão, hortelã, água gaseificada e bitter.",
+        "en": "White rum, lemon juice, mint, sparkling water and bitter.",
+        "es": "Ron blanco, zumo de limón, menta, agua con gas y amargo."
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Rum"
     },
     {
-      "preco": 38,
-      "desc": "Gin, limão siciliano, açúcar e bitter.",
-      "base": "Gin",
-      "nome": "Fitzgerald",
-      "poema": [],
-      "tag": null,
       "id": "fitzgerald",
       "secao": "classicos",
-      "ml": 160
+      "nome": {
+        "pt": "Fitzgerald",
+        "en": "Fitzgerald",
+        "es": "Fitzgerald"
+      },
+      "preco": 38,
+      "ml": 160,
+      "desc": {
+        "pt": "Gin, limão siciliano, açúcar e bitter.",
+        "en": "Gin, Sicilian lemon, sugar and bitter.",
+        "es": "Gin, limón siciliano, azúcar y amargo."
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Gin"
     },
     {
-      "preco": 35,
-      "desc": "Aperol, água com gás, espumante e rodela de laranja.",
-      "base": "Aperol",
-      "nome": "Aperol Spritz",
-      "poema": [],
-      "tag": null,
       "id": "aperol-spritz",
       "secao": "classicos",
-      "ml": 300
+      "nome": {
+        "pt": "Aperol Spritz",
+        "en": "Aperol Spritz",
+        "es": "Aperol Spritz"
+      },
+      "preco": 35,
+      "ml": 300,
+      "desc": {
+        "pt": "Aperol, água com gás, espumante e rodela de laranja.",
+        "en": "Aperol, sparkling water, sparkling wine and orange slice.",
+        "es": "Aperol, agua con gas, espumante y rodaja de naranja."
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Aperol"
     },
     {
-      "preco": 35,
-      "desc": "Cachaça, vermute tinto, Cynar, bitter e laranja.",
-      "base": "Cachaça",
-      "nome": "Rabo de Galo",
-      "poema": [],
-      "tag": null,
       "id": "rabo-galo",
       "secao": "classicos",
-      "ml": 160
+      "nome": {
+        "pt": "Rabo de Galo",
+        "en": "Rabo de Galo",
+        "es": "Rabo de Galo"
+      },
+      "preco": 35,
+      "ml": 160,
+      "desc": {
+        "pt": "Cachaça, vermute tinto, Cynar, bitter e laranja.",
+        "en": "Cachaça, red vermouth, Cynar, bitter and orange.",
+        "es": "Cachaza, vermut rojo, Cynar, amargo y naranja."
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Cachaça"
     },
     {
-      "preco": 42,
-      "desc": "Gentleman Jack, limão siciliano, mel, gengibre e Laphroaig Single Malt.",
-      "base": "Whisky",
-      "nome": "Penicillin",
-      "poema": [],
-      "tag": null,
       "id": "penicillin",
       "secao": "classicos",
-      "ml": 160
+      "nome": {
+        "pt": "Penicillin",
+        "en": "Penicillin",
+        "es": "Penicillin"
+      },
+      "preco": 42,
+      "ml": 160,
+      "desc": {
+        "pt": "Gentleman Jack, limão siciliano, mel, gengibre e Laphroaig Single Malt.",
+        "en": "Gentleman Jack, Sicilian lemon, honey, ginger and Laphroaig Single Malt.",
+        "es": "Gentleman Jack, limón siciliano, miel, jengibre y Laphroaig Single Malt."
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Whisky"
     },
     {
-      "preco": 42,
-      "desc": "Jack Daniel's N7, bitter, óleos essenciais de laranja, cereja e toque de açúcar.",
-      "base": "Whisky",
-      "nome": "Old Fashioned",
-      "poema": [],
-      "tag": null,
       "id": "old-fashioned",
       "secao": "classicos",
-      "ml": 80
+      "nome": {
+        "pt": "Old Fashioned",
+        "en": "Old Fashioned",
+        "es": "Old Fashioned"
+      },
+      "preco": 42,
+      "ml": 80,
+      "desc": {
+        "pt": "Jack Daniel's N7, bitter, óleos essenciais de laranja, cereja e toque de açúcar.",
+        "en": "Jack Daniel's N7, bitter, essential orange oils, cherry and a touch of sugar.",
+        "es": "Jack Daniel's N7, amargo, aceites esenciales de naranja, cereza y un toque de azúcar."
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Whisky"
     },
     {
-      "preco": 30,
-      "desc": "Morango, Maracujá ou Limão.",
-      "base": "Cachaça",
-      "nome": "Caipirinha, Caipivodka ou Caipisake",
-      "poema": [],
-      "tag": null,
       "id": "caipirinha",
       "secao": "classicos",
-      "ml": 200
+      "nome": {
+        "pt": "Caipirinha, Caipivodka ou Caipisake",
+        "en": "Caipirinha, Caipivodka or Caipisake",
+        "es": "Caipiriña, Caipivodka o Caipisake"
+      },
+      "preco": 30,
+      "ml": 200,
+      "desc": {
+        "pt": "Morango, Maracujá ou Limão.",
+        "en": "Strawberry, passion fruit or lime.",
+        "es": "Fresa, maracuyá o lima."
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Cachaça"
     },
     {
-      "preco": 35,
-      "desc": "Gin e água tônica harmonizada com limão siciliano e zimbro.",
-      "base": "Gin",
-      "nome": "Gin Tônica",
-      "poema": [],
-      "tag": null,
       "id": "gin-tonica",
       "secao": "classicos",
-      "ml": 350
+      "nome": {
+        "pt": "Gin Tônica",
+        "en": "Gin & Tonic",
+        "es": "Gin Tónica"
+      },
+      "preco": 35,
+      "ml": 350,
+      "desc": {
+        "pt": "Gin e água tônica harmonizada com limão siciliano e zimbro.",
+        "en": "Gin and tonic water harmonized with Sicilian lemon and juniper.",
+        "es": "Gin y tónica armonizados con limón siciliano y enebro."
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Gin"
     },
     {
-      "preco": 14,
-      "desc": "German Pilsen · IBU 12 · 5,0%",
-      "base": "Cerveja",
-      "nome": "Chopp Odin Pilsen",
-      "poema": [],
-      "tag": null,
       "id": "odin-pilsen",
       "secao": "chopp",
-      "ml": 300
+      "nome": {
+        "pt": "Chopp Odin Pilsen",
+        "en": "Odin Pilsen Draft",
+        "es": "Chopp Odin Pilsen"
+      },
+      "preco": 14,
+      "ml": 300,
+      "desc": {
+        "pt": "German Pilsen · IBU 12 · 5,0%",
+        "en": "German Pilsen · IBU 12 · 5.0%",
+        "es": "Pilsen Alemana · IBU 12 · 5,0%"
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Cerveja"
     },
     {
-      "preco": 16,
-      "desc": "IPA · IBU 39 · 8,3%",
-      "base": "Cerveja",
-      "nome": "Chopp Odin Session IPA",
-      "poema": [],
-      "tag": null,
       "id": "odin-ipa",
       "secao": "chopp",
-      "ml": 300
+      "nome": {
+        "pt": "Chopp Odin Session IPA",
+        "en": "Odin Session IPA Draft",
+        "es": "Chopp Odin Session IPA"
+      },
+      "preco": 16,
+      "ml": 300,
+      "desc": {
+        "pt": "IPA · IBU 39 · 8,3%",
+        "en": "IPA · IBU 39 · 8.3%",
+        "es": "IPA · IBU 39 · 8,3%"
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Cerveja"
     },
     {
-      "preco": 25,
-      "desc": "American Blonde Ale · IBU 18 · 5,0%",
-      "base": "Cerveja",
-      "nome": "Hocus Pocus Orange",
-      "poema": [],
-      "tag": null,
       "id": "hp-orange",
       "secao": "cervejas",
-      "ml": 500
+      "nome": {
+        "pt": "Hocus Pocus Orange",
+        "en": "Hocus Pocus Orange",
+        "es": "Hocus Pocus Orange"
+      },
+      "preco": 25,
+      "ml": 500,
+      "desc": {
+        "pt": "American Blonde Ale · IBU 18 · 5,0%",
+        "en": "American Blonde Ale · IBU 18 · 5.0%",
+        "es": "American Blonde Ale · IBU 18 · 5,0%"
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Cerveja"
     },
     {
-      "preco": 30,
-      "desc": "Belgian Golden Strong Ale · IBU 25 · 8,5%",
-      "base": "Cerveja",
-      "nome": "Hocus Pocus Magic",
-      "poema": [],
-      "tag": null,
       "id": "hp-magic",
       "secao": "cervejas",
-      "ml": 500
+      "nome": {
+        "pt": "Hocus Pocus Magic",
+        "en": "Hocus Pocus Magic",
+        "es": "Hocus Pocus Magic"
+      },
+      "preco": 30,
+      "ml": 500,
+      "desc": {
+        "pt": "Belgian Golden Strong Ale · IBU 25 · 8,5%",
+        "en": "Belgian Golden Strong Ale · IBU 25 · 8.5%",
+        "es": "Belgian Golden Strong Ale · IBU 25 · 8,5%"
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Cerveja"
     },
     {
-      "preco": 33,
-      "desc": "American IPA · IBU 80 · 7,0%",
-      "base": "Cerveja",
-      "nome": "Hocus Pocus Interstellar",
-      "poema": [],
-      "tag": null,
       "id": "hp-interstellar",
       "secao": "cervejas",
-      "ml": 500
+      "nome": {
+        "pt": "Hocus Pocus Interstellar",
+        "en": "Hocus Pocus Interstellar",
+        "es": "Hocus Pocus Interstellar"
+      },
+      "preco": 33,
+      "ml": 500,
+      "desc": {
+        "pt": "American IPA · IBU 80 · 7,0%",
+        "en": "American IPA · IBU 80 · 7.0%",
+        "es": "American IPA · IBU 80 · 7,0%"
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Cerveja"
     },
     {
-      "preco": 33,
-      "desc": "Belgian Tripel · IBU 25 · 7,5%",
-      "base": "Cerveja",
-      "nome": "Odin Tripel",
-      "poema": [],
-      "tag": null,
       "id": "odin-tripel",
       "secao": "cervejas",
-      "ml": 600
+      "nome": {
+        "pt": "Odin Tripel",
+        "en": "Odin Tripel",
+        "es": "Odin Tripel"
+      },
+      "preco": 33,
+      "ml": 600,
+      "desc": {
+        "pt": "Belgian Tripel · IBU 25 · 7,5%",
+        "en": "Belgian Tripel · IBU 25 · 7.5%",
+        "es": "Belgian Tripel · IBU 25 · 7,5%"
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Cerveja"
     },
     {
-      "preco": 33,
-      "desc": "Imperial Stout · IBU 50 · 10,0%",
-      "base": "Cerveja",
-      "nome": "Odin Stout",
-      "poema": [],
-      "tag": null,
       "id": "odin-stout",
       "secao": "cervejas",
-      "ml": 600
+      "nome": {
+        "pt": "Odin Stout",
+        "en": "Odin Stout",
+        "es": "Odin Stout"
+      },
+      "preco": 33,
+      "ml": 600,
+      "desc": {
+        "pt": "Imperial Stout · IBU 50 · 10,0%",
+        "en": "Imperial Stout · IBU 50 · 10.0%",
+        "es": "Imperial Stout · IBU 50 · 10,0%"
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Cerveja"
     },
     {
-      "preco": 14,
-      "desc": "Heineken · Stella Pure Gold · Spaten · Estrella Galicia · Heineken Zero",
-      "base": "Cerveja",
-      "nome": "Long neck",
-      "poema": [],
-      "tag": null,
       "id": "longneck",
       "secao": "cervejas",
-      "ml": 330
+      "nome": {
+        "pt": "Long neck",
+        "en": "Long neck",
+        "es": "Long neck"
+      },
+      "preco": 14,
+      "ml": 330,
+      "desc": {
+        "pt": "Heineken · Stella Pure Gold · Spaten · Estrella Galicia · Heineken Zero",
+        "en": "Heineken · Stella Pure Gold · Spaten · Estrella Galicia · Heineken Zero",
+        "es": "Heineken · Stella Pure Gold · Spaten · Estrella Galicia · Heineken Zero"
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Cerveja"
     },
     {
-      "preco": 20,
-      "desc": "Intenso, aromático e naturalmente doce, sem açúcar ou aditivos.",
-      "base": "Soft",
-      "nome": "Suco de Uva Bordô Orgânico",
-      "poema": [],
-      "tag": null,
       "id": "uva-bordo",
       "secao": "soft",
-      "ml": 150
+      "nome": {
+        "pt": "Suco de Uva Bordô Orgânico",
+        "en": "Organic Bordô Grape Juice",
+        "es": "Jugo de Uva Bordó Orgánico"
+      },
+      "preco": 20,
+      "ml": 150,
+      "desc": {
+        "pt": "Intenso, aromático e naturalmente doce, sem açúcar ou aditivos.",
+        "en": "Intense, aromatic and naturally sweet, no added sugar or additives.",
+        "es": "Intenso, aromático y naturalmente dulce, sin azúcar ni aditivos."
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Soft"
     },
     {
-      "preco": 20,
-      "desc": "Leve, perfumado e refrescante. Traz notas florais e frutadas.",
-      "base": "Soft",
-      "nome": "Suco de Uva Niagara Orgânico",
-      "poema": [],
-      "tag": null,
       "id": "uva-niagara",
       "secao": "soft",
-      "ml": 150
+      "nome": {
+        "pt": "Suco de Uva Niagara Orgânico",
+        "en": "Organic Niagara Grape Juice",
+        "es": "Jugo de Uva Niagara Orgánico"
+      },
+      "preco": 20,
+      "ml": 150,
+      "desc": {
+        "pt": "Leve, perfumado e refrescante. Traz notas florais e frutadas.",
+        "en": "Light, fragrant and refreshing. Floral and fruity notes.",
+        "es": "Ligero, perfumado y refrescante. Notas florales y frutales."
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Soft"
     },
     {
-      "preco": 12,
-      "desc": "Laranja · Limão · Maracujá",
-      "base": "Soft",
-      "nome": "Sucos naturais",
-      "poema": [],
-      "tag": null,
       "id": "suco-natural",
       "secao": "soft",
-      "ml": 280
+      "nome": {
+        "pt": "Sucos naturais",
+        "en": "Natural juices",
+        "es": "Jugos naturales"
+      },
+      "preco": 12,
+      "ml": 280,
+      "desc": {
+        "pt": "Laranja · Limão · Maracujá",
+        "en": "Orange · Lemon · Passion fruit",
+        "es": "Naranja · Limón · Maracuyá"
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Soft"
     },
     {
-      "preco": 9,
-      "desc": "Coca · Coca Zero · Guaraná · Guaraná Zero · Sprite",
-      "base": "Soft",
-      "nome": "Refrigerantes",
-      "poema": [],
-      "tag": null,
       "id": "refrigerante",
       "secao": "soft",
-      "ml": 330
+      "nome": {
+        "pt": "Refrigerantes",
+        "en": "Soft drinks",
+        "es": "Refrescos"
+      },
+      "preco": 9,
+      "ml": 330,
+      "desc": {
+        "pt": "Coca · Coca Zero · Guaraná · Guaraná Zero · Sprite",
+        "en": "Coke · Coke Zero · Guaraná · Guaraná Zero · Sprite",
+        "es": "Coca · Coca Zero · Guaraná · Guaraná Zero · Sprite"
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Soft"
     },
     {
-      "preco": 12,
-      "desc": "Natural · Limão · Maracujá",
-      "base": "Soft",
-      "nome": "Mate da Casa",
-      "poema": [],
-      "tag": null,
       "id": "mate-casa",
       "secao": "soft",
-      "ml": 280
+      "nome": {
+        "pt": "Mate da Casa",
+        "en": "House Mate",
+        "es": "Mate de la Casa"
+      },
+      "preco": 12,
+      "ml": 280,
+      "desc": {
+        "pt": "Natural · Limão · Maracujá",
+        "en": "Natural · Lemon · Passion fruit",
+        "es": "Natural · Limón · Maracuyá"
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Soft"
     },
     {
-      "preco": 9,
-      "desc": "Comum · Zero",
-      "base": "Soft",
-      "nome": "Água Tônica",
-      "poema": [],
-      "tag": null,
       "id": "tonica",
       "secao": "soft",
-      "ml": 220
+      "nome": {
+        "pt": "Água Tônica",
+        "en": "Tonic Water",
+        "es": "Agua Tónica"
+      },
+      "preco": 9,
+      "ml": 220,
+      "desc": {
+        "pt": "Comum · Zero",
+        "en": "Regular · Zero",
+        "es": "Normal · Zero"
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Soft"
     },
     {
-      "preco": 9,
-      "desc": "Sem gás · Com gás",
-      "base": "Soft",
-      "nome": "Água Prata",
-      "poema": [],
-      "tag": null,
       "id": "agua",
       "secao": "soft",
-      "ml": 220
+      "nome": {
+        "pt": "Água Prata",
+        "en": "Prata Water",
+        "es": "Agua Prata"
+      },
+      "preco": 9,
+      "ml": 220,
+      "desc": {
+        "pt": "Sem gás · Com gás",
+        "en": "Still · Sparkling",
+        "es": "Sin gas · Con gas"
+      },
+      "poema": {
+        "pt": [],
+        "en": [],
+        "es": []
+      },
+      "tag": null,
+      "base": "Soft"
     }
   ],
   "vinhos": [
     {
       "id": "taca",
       "grupo": null,
-      "nome": "Taça de Vinho Branco ou Tinto",
+      "nome": {
+        "pt": "Taça de Vinho Branco ou Tinto",
+        "en": "Glass of White or Red Wine",
+        "es": "Copa de Vino Blanco o Tinto"
+      },
       "preco": 35,
       "ml": null,
-      "desc": "Consulte o rótulo disponível com os atendentes."
+      "desc": {
+        "pt": "Consulte o rótulo disponível com os atendentes.",
+        "en": "Ask the staff about the label currently available.",
+        "es": "Consulte la etiqueta disponible con el personal."
+      }
     },
     {
       "id": "malbec-reserva",
-      "grupo": "Expresso Bodeguero Tinto",
-      "nome": "Malbec Reserva 2023",
+      "grupo": {
+        "pt": "Expresso Bodeguero Tinto",
+        "en": "Expresso Bodeguero Red",
+        "es": "Expresso Bodeguero Tinto"
+      },
+      "nome": {
+        "pt": "Malbec Reserva 2023",
+        "en": "Malbec Reserve 2023",
+        "es": "Malbec Reserva 2023"
+      },
       "preco": 199,
       "ml": 750,
-      "desc": "Corpo médio a encorpado, taninos macios, frutas negras maduras e baunilha."
+      "desc": {
+        "pt": "Corpo médio a encorpado, taninos macios, frutas negras maduras e baunilha.",
+        "en": "Medium to full body, soft tannins, ripe dark fruit and vanilla.",
+        "es": "Cuerpo medio a pleno, taninos suaves, frutas negras maduras y vainilla."
+      }
     },
     {
       "id": "cabernet-franc",
-      "grupo": "Expresso Bodeguero Tinto",
-      "nome": "Cabernet Franc Reserva 2023",
+      "grupo": {
+        "pt": "Expresso Bodeguero Tinto",
+        "en": "Expresso Bodeguero Red",
+        "es": "Expresso Bodeguero Tinto"
+      },
+      "nome": {
+        "pt": "Cabernet Franc Reserva 2023",
+        "en": "Cabernet Franc Reserve 2023",
+        "es": "Cabernet Franc Reserva 2023"
+      },
       "preco": 169,
       "ml": 750,
-      "desc": "Frutas vermelhas frescas, pimentão suave e leve toque de tabaco."
+      "desc": {
+        "pt": "Frutas vermelhas frescas, pimentão suave e leve toque de tabaco.",
+        "en": "Fresh red fruits, gentle bell pepper and a light tobacco note.",
+        "es": "Frutas rojas frescas, pimiento suave y leve toque de tabaco."
+      }
     },
     {
       "id": "malbec-2024",
-      "grupo": "Expresso Bodeguero Tinto",
-      "nome": "Malbec 2024",
+      "grupo": {
+        "pt": "Expresso Bodeguero Tinto",
+        "en": "Expresso Bodeguero Red",
+        "es": "Expresso Bodeguero Tinto"
+      },
+      "nome": {
+        "pt": "Malbec 2024",
+        "en": "Malbec 2024",
+        "es": "Malbec 2024"
+      },
       "preco": 109,
       "ml": 750,
-      "desc": "Frutado e descomplicado. Leve especiaria, corpo médio."
+      "desc": {
+        "pt": "Frutado e descomplicado. Leve especiaria, corpo médio.",
+        "en": "Fruity and uncomplicated. Light spice, medium body.",
+        "es": "Afrutado y sencillo. Especia ligera, cuerpo medio."
+      }
     },
     {
       "id": "cabernet-2024",
-      "grupo": "Expresso Bodeguero Tinto",
-      "nome": "Cabernet Sauvignon 2024",
+      "grupo": {
+        "pt": "Expresso Bodeguero Tinto",
+        "en": "Expresso Bodeguero Red",
+        "es": "Expresso Bodeguero Tinto"
+      },
+      "nome": {
+        "pt": "Cabernet Sauvignon 2024",
+        "en": "Cabernet Sauvignon 2024",
+        "es": "Cabernet Sauvignon 2024"
+      },
       "preco": 109,
       "ml": 750,
-      "desc": "Amora, pimenta preta e toque herbal. Estruturado."
+      "desc": {
+        "pt": "Amora, pimenta preta e toque herbal. Estruturado.",
+        "en": "Blackberry, black pepper and herbal notes. Structured.",
+        "es": "Mora, pimienta negra y toque herbal. Estructurado."
+      }
     },
     {
       "id": "chardonnay",
-      "grupo": "Expresso Bodeguero Branco",
-      "nome": "Chardonnay 2023",
+      "grupo": {
+        "pt": "Expresso Bodeguero Branco",
+        "en": "Expresso Bodeguero White",
+        "es": "Expresso Bodeguero Blanco"
+      },
+      "nome": {
+        "pt": "Chardonnay 2023",
+        "en": "Chardonnay 2023",
+        "es": "Chardonnay 2023"
+      },
       "preco": 109,
       "ml": 750,
-      "desc": "Fresco e untuoso. Abacaxi, manga, toque amanteigado e floral."
+      "desc": {
+        "pt": "Fresco e untuoso. Abacaxi, manga, toque amanteigado e floral.",
+        "en": "Fresh and unctuous. Pineapple, mango, buttery and floral touches.",
+        "es": "Fresco y untuoso. Piña, mango, toque amantecado y floral."
+      }
     },
     {
       "id": "torrontes",
-      "grupo": "Expresso Bodeguero Branco",
-      "nome": "Torrontés 2024",
+      "grupo": {
+        "pt": "Expresso Bodeguero Branco",
+        "en": "Expresso Bodeguero White",
+        "es": "Expresso Bodeguero Blanco"
+      },
+      "nome": {
+        "pt": "Torrontés 2024",
+        "en": "Torrontés 2024",
+        "es": "Torrontés 2024"
+      },
       "preco": 109,
       "ml": 750,
-      "desc": "Jasmim, rosas brancas, cítricas tropicais. Leve e vibrante."
+      "desc": {
+        "pt": "Jasmim, rosas brancas, cítricas tropicais. Leve e vibrante.",
+        "en": "Jasmine, white roses, tropical citrus. Light and vibrant.",
+        "es": "Jazmín, rosas blancas, cítricos tropicales. Ligero y vibrante."
+      }
     },
     {
       "id": "rose-malbec",
-      "grupo": "Expresso Bodeguero Rosé",
-      "nome": "Rosé Malbec 2025",
+      "grupo": {
+        "pt": "Expresso Bodeguero Rosé",
+        "en": "Expresso Bodeguero Rosé",
+        "es": "Expresso Bodeguero Rosé"
+      },
+      "nome": {
+        "pt": "Rosé Malbec 2025",
+        "en": "Rosé Malbec 2025",
+        "es": "Rosé Malbec 2025"
+      },
       "preco": 140,
       "ml": 750,
-      "desc": "Cereja, amora, sutil floral. Acidez equilibrada."
+      "desc": {
+        "pt": "Cereja, amora, sutil floral. Acidez equilibrada.",
+        "en": "Cherry, blackberry, subtle floral. Balanced acidity.",
+        "es": "Cereza, mora, floral sutil. Acidez equilibrada."
+      }
     },
     {
       "id": "carmenere",
-      "grupo": "Três Palácios Tinto",
-      "nome": "Carmenère Reserva 2018",
+      "grupo": {
+        "pt": "Três Palácios Tinto",
+        "en": "Três Palácios Red",
+        "es": "Três Palácios Tinto"
+      },
+      "nome": {
+        "pt": "Carmenère Reserva 2018",
+        "en": "Carmenère Reserve 2018",
+        "es": "Carmenère Reserva 2018"
+      },
       "preco": 179,
       "ml": 750,
-      "desc": "Ameixa madura, pimenta negra, ervas frescas."
+      "desc": {
+        "pt": "Ameixa madura, pimenta negra, ervas frescas.",
+        "en": "Ripe plum, black pepper, fresh herbs.",
+        "es": "Ciruela madura, pimienta negra, hierbas frescas."
+      }
     },
     {
       "id": "pinot-noir",
-      "grupo": "Três Palácios Tinto",
-      "nome": "Pinot Noir Reserva 2021",
+      "grupo": {
+        "pt": "Três Palácios Tinto",
+        "en": "Três Palácios Red",
+        "es": "Três Palácios Tinto"
+      },
+      "nome": {
+        "pt": "Pinot Noir Reserva 2021",
+        "en": "Pinot Noir Reserve 2021",
+        "es": "Pinot Noir Reserva 2021"
+      },
       "preco": 179,
       "ml": 750,
-      "desc": "Morango, cereja, toque terroso. Corpo leve a médio."
+      "desc": {
+        "pt": "Morango, cereja, toque terroso. Corpo leve a médio.",
+        "en": "Strawberry, cherry, earthy touch. Light to medium body.",
+        "es": "Fresa, cereza, toque terroso. Cuerpo ligero a medio."
+      }
     },
     {
       "id": "cab-reserva",
-      "grupo": "Três Palácios Tinto",
-      "nome": "Cabernet Sauvignon Reserva 2019",
+      "grupo": {
+        "pt": "Três Palácios Tinto",
+        "en": "Três Palácios Red",
+        "es": "Três Palácios Tinto"
+      },
+      "nome": {
+        "pt": "Cabernet Sauvignon Reserva 2019",
+        "en": "Cabernet Sauvignon Reserve 2019",
+        "es": "Cabernet Sauvignon Reserva 2019"
+      },
       "preco": 169,
       "ml": 750,
-      "desc": "Frutas negras, café e especiarias. Incorporado."
+      "desc": {
+        "pt": "Frutas negras, café e especiarias. Incorporado.",
+        "en": "Dark fruits, coffee and spices. Integrated.",
+        "es": "Frutas negras, café y especias. Integrado."
+      }
     },
     {
       "id": "chard-reserva",
-      "grupo": "Três Palácios Branco",
-      "nome": "Chardonnay Reserva 2023",
+      "grupo": {
+        "pt": "Três Palácios Branco",
+        "en": "Três Palácios White",
+        "es": "Três Palácios Blanco"
+      },
+      "nome": {
+        "pt": "Chardonnay Reserva 2023",
+        "en": "Chardonnay Reserve 2023",
+        "es": "Chardonnay Reserva 2023"
+      },
       "preco": 141,
       "ml": 750,
-      "desc": "Maçã madura, damasco, baunilha. Textura cremosa."
+      "desc": {
+        "pt": "Maçã madura, damasco, baunilha. Textura cremosa.",
+        "en": "Ripe apple, apricot, vanilla. Creamy texture.",
+        "es": "Manzana madura, albaricoque, vainilla. Textura cremosa."
+      }
     },
     {
       "id": "sauv-blanc",
-      "grupo": "Três Palácios Branco",
-      "nome": "Sauvignon Blanc Reserva 2023",
+      "grupo": {
+        "pt": "Três Palácios Branco",
+        "en": "Três Palácios White",
+        "es": "Três Palácios Blanco"
+      },
+      "nome": {
+        "pt": "Sauvignon Blanc Reserva 2023",
+        "en": "Sauvignon Blanc Reserve 2023",
+        "es": "Sauvignon Blanc Reserva 2023"
+      },
       "preco": 141,
       "ml": 750,
-      "desc": "Maracujá, lima, ervas frescas. Corpo leve a médio."
+      "desc": {
+        "pt": "Maracujá, lima, ervas frescas. Corpo leve a médio.",
+        "en": "Passion fruit, lime, fresh herbs. Light to medium body.",
+        "es": "Maracuyá, lima, hierbas frescas. Cuerpo ligero a medio."
+      }
     }
   ],
   "secoes": {
     "comidas": [
       {
         "id": "entradas",
-        "nome": "Entradas",
-        "subtitle": "A primeira travessia."
+        "nome": {
+          "pt": "Entradas",
+          "en": "Starters",
+          "es": "Entradas"
+        },
+        "subtitle": {
+          "pt": "A primeira travessia.",
+          "en": "The first crossing.",
+          "es": "La primera travesía."
+        }
       },
       {
         "id": "sanduiches",
-        "nome": "Sanduíches",
-        "subtitle": "Surrealismo entre pães."
+        "nome": {
+          "pt": "Sanduíches",
+          "en": "Sandwiches",
+          "es": "Sándwiches"
+        },
+        "subtitle": {
+          "pt": "Surrealismo entre pães.",
+          "en": "Surrealism between breads.",
+          "es": "Surrealismo entre panes."
+        }
       },
       {
         "id": "principais",
-        "nome": "Pratos principais",
-        "subtitle": "Cena completa. Fome inteira."
+        "nome": {
+          "pt": "Pratos principais",
+          "en": "Main courses",
+          "es": "Platos principales"
+        },
+        "subtitle": {
+          "pt": "Cena completa. Fome inteira.",
+          "en": "Full scene. Full hunger.",
+          "es": "Escena completa. Hambre entera."
+        }
       },
       {
         "id": "sobremesas",
-        "nome": "Sobremesas",
-        "subtitle": "O delírio doce."
+        "nome": {
+          "pt": "Sobremesas",
+          "en": "Desserts",
+          "es": "Postres"
+        },
+        "subtitle": {
+          "pt": "O delírio doce.",
+          "en": "The sweet delirium.",
+          "es": "El delirio dulce."
+        }
       }
     ],
     "drinks": [
       {
         "id": "leves",
-        "nome": "Leves, pops & perigosos",
-        "subtitle": "Fáceis de beber. Difíceis de esquecer."
+        "nome": {
+          "pt": "Leves, pops & perigosos",
+          "en": "Light, pop & dangerous",
+          "es": "Ligeros, pops y peligrosos"
+        },
+        "subtitle": {
+          "pt": "Fáceis de beber. Difíceis de esquecer.",
+          "en": "Easy to drink. Hard to forget.",
+          "es": "Fáciles de beber. Difíciles de olvidar."
+        }
       },
       {
         "id": "intensos",
-        "nome": "Intensos, amargos & envolventes",
-        "subtitle": "Personalidade em dose dupla."
+        "nome": {
+          "pt": "Intensos, amargos & envolventes",
+          "en": "Intense, bitter & enveloping",
+          "es": "Intensos, amargos y envolventes"
+        },
+        "subtitle": {
+          "pt": "Personalidade em dose dupla.",
+          "en": "Personality in double dose.",
+          "es": "Personalidad en dosis doble."
+        }
       },
       {
         "id": "sem-alcool",
-        "nome": "Sem álcool, com personalidade",
-        "subtitle": "Zero graus, cem por cento intenção."
+        "nome": {
+          "pt": "Sem álcool, com personalidade",
+          "en": "Alcohol-free, full of personality",
+          "es": "Sin alcohol, con personalidad"
+        },
+        "subtitle": {
+          "pt": "Zero graus, cem por cento intenção.",
+          "en": "Zero proof, one hundred percent intent.",
+          "es": "Cero grados, cien por ciento intención."
+        }
       },
       {
         "id": "classicos-zero",
-        "nome": "Clássicos zero álcool",
-        "subtitle": "A mesma alma, outro caminho."
+        "nome": {
+          "pt": "Clássicos zero álcool",
+          "en": "Zero-alcohol classics",
+          "es": "Clásicos sin alcohol"
+        },
+        "subtitle": {
+          "pt": "A mesma alma, outro caminho.",
+          "en": "Same soul, different path.",
+          "es": "La misma alma, otro camino."
+        }
       },
       {
         "id": "classicos",
-        "nome": "Drinks clássicos",
-        "subtitle": "Do jeito que deve ser."
+        "nome": {
+          "pt": "Drinks clássicos",
+          "en": "Classic cocktails",
+          "es": "Cócteles clásicos"
+        },
+        "subtitle": {
+          "pt": "Do jeito que deve ser.",
+          "en": "The way they should be.",
+          "es": "Como deben ser."
+        }
       },
       {
         "id": "chopp",
-        "nome": "Direto da torneira",
-        "subtitle": "Chopps da Odin."
+        "nome": {
+          "pt": "Direto da torneira",
+          "en": "Straight from the tap",
+          "es": "Directo del grifo"
+        },
+        "subtitle": {
+          "pt": "Chopps da Odin.",
+          "en": "Odin drafts.",
+          "es": "Cañas de Odin."
+        }
       },
       {
         "id": "cervejas",
-        "nome": "Cervejas artesanais",
-        "subtitle": "Garrafa, copo, alegria."
+        "nome": {
+          "pt": "Cervejas artesanais",
+          "en": "Craft beers",
+          "es": "Cervezas artesanales"
+        },
+        "subtitle": {
+          "pt": "Garrafa, copo, alegria.",
+          "en": "Bottle, glass, joy.",
+          "es": "Botella, vaso, alegría."
+        }
       },
       {
         "id": "soft",
-        "nome": "Sucos & soft",
-        "subtitle": "Pausa líquida."
+        "nome": {
+          "pt": "Sucos & soft",
+          "en": "Juices & soft",
+          "es": "Jugos y refrescos"
+        },
+        "subtitle": {
+          "pt": "Pausa líquida.",
+          "en": "Liquid pause.",
+          "es": "Pausa líquida."
+        }
       }
     ]
   },
   "extras": [
     {
-      "item": "Bacon",
+      "item": {
+        "pt": "Bacon",
+        "en": "Bacon",
+        "es": "Bacon"
+      },
       "preco": 7
     },
     {
-      "item": "Picles de pepino",
+      "item": {
+        "pt": "Picles de pepino",
+        "en": "Pickled cucumber",
+        "es": "Pepinillos"
+      },
       "preco": 4
     },
     {
-      "item": "Picles de jalapeño",
+      "item": {
+        "pt": "Picles de jalapeño",
+        "en": "Pickled jalapeño",
+        "es": "Jalapeño en pickle"
+      },
       "preco": 5
     },
     {
-      "item": "Maionese Surreal",
+      "item": {
+        "pt": "Maionese Surreal",
+        "en": "Surreal mayo",
+        "es": "Mayonesa Surreal"
+      },
       "preco": 4
     },
     {
-      "item": "Maionese de Sriracha",
+      "item": {
+        "pt": "Maionese de Sriracha",
+        "en": "Sriracha mayo",
+        "es": "Mayonesa de Sriracha"
+      },
       "preco": 4
     },
     {
-      "item": "Cebola caramelizada",
+      "item": {
+        "pt": "Cebola caramelizada",
+        "en": "Caramelized onion",
+        "es": "Cebolla caramelizada"
+      },
       "preco": 4
     },
     {
-      "item": "Batata frita",
+      "item": {
+        "pt": "Batata frita",
+        "en": "French fries",
+        "es": "Papas fritas"
+      },
       "preco": 12
     }
   ],
   "provocacoes": [
-    "Beba com todos os sentidos.",
-    "Ir além da comida e da bebida.",
-    "Um sonho lúcido em Botafogo.",
-    "No bad vibes. Keep smiling.",
-    "Sabor, arte e emoção.",
-    "Memória viva."
+    {
+      "pt": "Beba com todos os sentidos.",
+      "en": "Drink with all your senses.",
+      "es": "Bebe con todos los sentidos."
+    },
+    {
+      "pt": "Ir além da comida e da bebida.",
+      "en": "Going beyond food and drink.",
+      "es": "Ir más allá de la comida y la bebida."
+    },
+    {
+      "pt": "Um sonho lúcido em Botafogo.",
+      "en": "A lucid dream in Botafogo.",
+      "es": "Un sueño lúcido en Botafogo."
+    },
+    {
+      "pt": "No bad vibes. Keep smiling.",
+      "en": "No bad vibes. Keep smiling.",
+      "es": "No bad vibes. Keep smiling."
+    },
+    {
+      "pt": "Sabor, arte e emoção.",
+      "en": "Flavor, art and emotion.",
+      "es": "Sabor, arte y emoción."
+    },
+    {
+      "pt": "Memória viva.",
+      "en": "Living memory.",
+      "es": "Memoria viva."
+    }
   ]
 }

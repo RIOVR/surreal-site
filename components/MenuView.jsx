@@ -3,9 +3,10 @@
 const MenuView = ({ openDish, openDrink, initialTab = 'comidas', density = 'editorial', onChangeTab }) => {
   const [tab, setTab] = React.useState(initialTab);
   const isMobile = useIsMobile();
+  const { lang } = useLang();
   React.useEffect(() => { setTab(initialTab); }, [initialTab]);
 
-  const changeTab = (t) => { setTab(t); onChangeTab && onChangeTab(t); };
+  const changeTab = (tv) => { setTab(tv); onChangeTab && onChangeTab(tv); };
 
   return (
     <section id="menu" data-screen-label="Menu" style={{
@@ -26,11 +27,11 @@ const MenuView = ({ openDish, openDrink, initialTab = 'comidas', density = 'edit
         alignItems: 'center', justifyContent: 'center',
       }}>
         <TabSwitch active={tab === 'comidas'} onClick={() => changeTab('comidas')} accent="red">
-          Comidas
+          {uiT('comidas', lang)}
         </TabSwitch>
         <span style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', color: 'var(--fg-faint)', fontSize: 18 }}>×</span>
         <TabSwitch active={tab === 'drinks'} onClick={() => changeTab('drinks')} accent="magenta">
-          Bebidas
+          {uiT('bebidas', lang)}
         </TabSwitch>
       </div>
 
@@ -69,18 +70,21 @@ const ComidasView = ({ openDish, density }) => {
   const [filter, setFilter] = React.useState('all');
   const [search, setSearch] = React.useState('');
   const isMobile = useIsMobile();
+  const { lang } = useLang();
 
   const filters = [
-    { id: 'all', label: 'Tudo' },
-    { id: 'chef', label: 'Chef' },
-    { id: 'veggie', label: 'Veggie' },
-    { id: 'teatro', label: 'Teatro' },
+    { id: 'all', label: uiT('filterAll', lang) },
+    { id: 'chef', label: uiT('filterChef', lang) },
+    { id: 'veggie', label: uiT('filterVeggie', lang) },
+    { id: 'teatro', label: uiT('filterTeatro', lang) },
   ];
 
   const match = (d) => {
     if (search) {
       const q = search.toLowerCase();
-      if (!d.nome.toLowerCase().includes(q) && !d.desc.toLowerCase().includes(q)) return false;
+      const nomeStr = (t(d.nome, lang) || '').toLowerCase();
+      const descStr = (t(d.desc, lang) || '').toLowerCase();
+      if (!nomeStr.includes(q) && !descStr.includes(q)) return false;
     }
     if (filter === 'all') return true;
     if (filter === 'chef') return d.tag === 'Chef' || d.tag === 'Assinatura';
@@ -100,20 +104,19 @@ const ComidasView = ({ openDish, density }) => {
         marginBottom: isMobile ? 32 : 40,
       }}>
         <div>
-          <Eyebrow color="red">Cardápio · Comidas 2026</Eyebrow>
+          <Eyebrow color="red">{uiT('cardapioComidas', lang)}</Eyebrow>
           <h2 style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(40px, 9vw, 88px)',
             lineHeight: 0.92,
             color: 'var(--bone)',
             margin: '16px 0 12px',
-          }}>O que se come por aqui.</h2>
+          }}>{uiT('headlineComidas', lang)}</h2>
           <p style={{
             fontFamily: 'var(--font-serif)', fontStyle: 'italic',
             fontSize: isMobile ? 17 : 20, color: 'var(--fg-muted)', maxWidth: 520, margin: 0,
           }}>
-            Cozinha autoral brasileira com licença poética.
-            Toque um prato pra ouvir o poema inteiro.
+            {uiT('subComidas', lang)}
           </p>
         </div>
 
@@ -133,7 +136,7 @@ const ComidasView = ({ openDish, density }) => {
             <input
               value={search}
               onChange={e => setSearch(e.target.value)}
-              placeholder="buscar um prato..."
+              placeholder={uiT('buscarPrato', lang)}
               style={{
                 background: 'transparent', border: 'none', outline: 'none',
                 color: 'var(--bone)', flex: 1,
@@ -160,7 +163,7 @@ const ComidasView = ({ openDish, density }) => {
         return (
           <React.Fragment key={sec.id}>
             <div id={`sec-${sec.id}`} style={{ marginBottom: sec.id === 'sanduiches' ? 24 : 88 }}>
-              <SectionHeader num={`0${idx + 1}`} title={sec.nome} subtitle={sec.subtitle} color="red" />
+              <SectionHeader num={`0${idx + 1}`} title={t(sec.nome, lang)} subtitle={t(sec.subtitle, lang)} color="red" />
               {density === 'editorial' ? (
                 <div style={{
                   display: 'grid',
@@ -187,24 +190,24 @@ const ComidasView = ({ openDish, density }) => {
                 background: 'var(--ink-80)',
               }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12, flexWrap: 'wrap', marginBottom: 6 }}>
-                  <Eyebrow color="ember">Deixe seu sanduíche ainda mais surreal</Eyebrow>
+                  <Eyebrow color="ember">{uiT('extraTitle', lang)}</Eyebrow>
                   <span style={{
                     fontFamily: 'var(--font-serif)', fontStyle: 'italic',
                     fontSize: 13, color: 'var(--fg-muted)',
-                  }}>complementos adicionais</span>
+                  }}>{uiT('extraSub', lang)}</span>
                 </div>
                 <div style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
                   gap: 14, marginTop: 14,
                 }}>
-                  {window.SURREAL.extras.map(x => (
-                    <div key={x.item} style={{
+                  {window.SURREAL.extras.map((x, xi) => (
+                    <div key={xi} style={{
                       display: 'flex', alignItems: 'baseline', gap: 8,
                       paddingBottom: 8, borderBottom: '1px dotted var(--border)',
                     }}>
                       <span style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--bone)' }}>
-                        {x.item}
+                        {t(x.item, lang)}
                       </span>
                       <Leader />
                       <Price value={x.preco} style={{ fontSize: 13 }} />
@@ -227,6 +230,7 @@ const BebidasView = ({ openDrink, density }) => {
   const vinhos = window.SURREAL.vinhos;
   const [base, setBase] = React.useState('all');
   const isMobile = useIsMobile();
+  const { lang } = useLang();
 
   const bases = ['all', 'Gin', 'Vodka', 'Whisky', 'Tequila', 'Cachaça', 'Rum', 'Zero', 'Cerveja', 'Soft'];
   const filtered = base === 'all' ? bebidas : bebidas.filter(b => b.base === base);
@@ -241,20 +245,19 @@ const BebidasView = ({ openDrink, density }) => {
         marginBottom: isMobile ? 28 : 32,
       }}>
         <div>
-          <Eyebrow color="magenta">Cardápio · Bebidas 2026</Eyebrow>
+          <Eyebrow color="magenta">{uiT('cardapioBebidas', lang)}</Eyebrow>
           <h2 style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(40px, 9vw, 88px)',
             lineHeight: 0.92,
             color: 'var(--bone)',
             margin: '16px 0 12px',
-          }}>Entre o real e o imaginado.</h2>
+          }}>{uiT('headlineBebidas', lang)}</h2>
           <p style={{
             fontFamily: 'var(--font-serif)', fontStyle: 'italic',
             fontSize: isMobile ? 17 : 20, color: 'var(--fg-muted)', maxWidth: 640, margin: 0,
           }}>
-            No Surreal, a coquetelaria não acompanha a comida.
-            Ela divide o protagonismo.
+            {uiT('subBebidas', lang)}
           </p>
         </div>
       </div>
@@ -267,7 +270,7 @@ const BebidasView = ({ openDrink, density }) => {
       }}>
         {bases.map(b => (
           <Chip key={b} active={base === b} onClick={() => setBase(b)} color="magenta">
-            {b === 'all' ? 'Tudo' : b}
+            {b === 'all' ? uiT('filterAll', lang) : b}
           </Chip>
         ))}
       </div>
@@ -280,8 +283,8 @@ const BebidasView = ({ openDrink, density }) => {
           <div key={sec.id} id={`bsec-${sec.id}`} style={{ marginBottom: 80 }}>
             <SectionHeader
               num={`0${idx + 1}`}
-              title={sec.nome}
-              subtitle={sec.subtitle}
+              title={t(sec.nome, lang)}
+              subtitle={t(sec.subtitle, lang)}
               color="magenta"
             />
             {isAutoral ? (
@@ -307,7 +310,7 @@ const BebidasView = ({ openDrink, density }) => {
 
       {/* Wine list */}
       <div id="vinhos" style={{ marginTop: 56, marginBottom: 40 }}>
-        <SectionHeader num="09" title="Carta de vinhos" subtitle="Por taça ou garrafa." color="magenta" />
+        <SectionHeader num="09" title={uiT('cartaVinhos', lang)} subtitle={uiT('cartaVinhosSub', lang)} color="magenta" />
         <WineList vinhos={vinhos} />
       </div>
     </div>
@@ -348,6 +351,10 @@ const SectionHeader = ({ num, title, subtitle, color = 'red' }) => {
 const DishCard = ({ dish, onClick }) => {
   const [h, setH] = React.useState(false);
   const placeholder = !dish.photo;
+  const { lang } = useLang();
+  const nome = t(dish.nome, lang);
+  const tipo = t(dish.tipo, lang);
+  const poemaArr = t(dish.poema, lang) || [];
   return (
     <button
       onClick={() => onClick(dish)}
@@ -367,8 +374,8 @@ const DishCard = ({ dish, onClick }) => {
         background: placeholder ? 'var(--ink-80)' : 'var(--ink)',
         border: '1px solid var(--border)',
       }}>
-        {placeholder ? <PlaceholderArt name={dish.nome} /> :
-          <img src={dish.photo} alt={dish.nome}
+        {placeholder ? <PlaceholderArt name={nome} /> :
+          <img src={dish.photo} alt={nome}
                style={{ width: '100%', height: '100%', objectFit: 'cover',
                         filter: h ? 'brightness(1.08)' : 'brightness(1)',
                         transition: 'filter 320ms' }} />
@@ -392,28 +399,30 @@ const DishCard = ({ dish, onClick }) => {
           background: 'rgba(0,0,0,0.6)', color: 'var(--bone)',
           border: '1px solid var(--border)',
           letterSpacing: '0.12em',
-        }}>{dish.tipo}</span>
+        }}>{tipo}</span>
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, alignItems: 'baseline' }}>
         <div style={{
           fontFamily: 'var(--font-serif)', fontStyle: 'italic',
           fontSize: 22, lineHeight: 1.08, color: 'var(--bone)',
-        }}>{dish.nome}</div>
+        }}>{nome}</div>
         <Price value={dish.preco} />
       </div>
-      {dish.poema && dish.poema[0] && (
+      {poemaArr[0] && (
         <div style={{
           fontFamily: 'var(--font-serif)', fontStyle: 'italic',
           fontSize: 13, color: 'var(--fg-muted)',
           lineHeight: 1.5,
-        }}>"{dish.poema[0]}"</div>
+        }}>"{poemaArr[0]}"</div>
       )}
     </button>
   );
 };
 
 // Compact row variant (list density)
-const DishRow = ({ dish, onClick, last }) => (
+const DishRow = ({ dish, onClick, last }) => {
+  const { lang } = useLang();
+  return (
   <button onClick={() => onClick(dish)} style={{
     background: 'transparent', border: 'none',
     textAlign: 'left', cursor: 'pointer',
@@ -426,25 +435,30 @@ const DishRow = ({ dish, onClick, last }) => (
       fontFamily: 'var(--font-mono)', fontSize: 11,
       color: 'var(--fg-faint)', letterSpacing: '0.15em',
       minWidth: 48,
-    }}>{dish.tipo}</span>
+    }}>{t(dish.tipo, lang)}</span>
     <div>
       <div style={{
         fontFamily: 'var(--font-serif)', fontStyle: 'italic',
         fontSize: 20, color: 'var(--bone)',
         marginBottom: 4,
-      }}>{dish.nome} {dish.tag && <Tag color="ember">{dish.tag}</Tag>}</div>
+      }}>{t(dish.nome, lang)} {dish.tag && <Tag color="ember">{dish.tag}</Tag>}</div>
       <div style={{
         fontFamily: 'var(--font-body)', fontSize: 13,
         color: 'var(--fg-muted)', lineHeight: 1.5,
-      }}>{dish.desc}</div>
+      }}>{t(dish.desc, lang)}</div>
     </div>
     <Price value={dish.preco} />
   </button>
-);
+  );
+};
 
 // ---------- Drink card (autoral) ----------
 const DrinkCard = ({ drink, onClick }) => {
   const [h, setH] = React.useState(false);
+  const { lang } = useLang();
+  const nome = t(drink.nome, lang);
+  const desc = t(drink.desc, lang);
+  const poemaArr = t(drink.poema, lang) || [];
   return (
     <button
       onClick={() => onClick(drink)}
@@ -483,25 +497,27 @@ const DrinkCard = ({ drink, onClick }) => {
         fontFamily: 'var(--font-display)',
         fontSize: 28, lineHeight: 0.98,
         color: 'var(--bone)',
-      }}>{drink.nome}</div>
+      }}>{nome}</div>
       <div style={{
         fontFamily: 'var(--font-body)', fontSize: 12,
         color: 'var(--fg-muted)', lineHeight: 1.5,
-      }}>{drink.desc}</div>
-      {drink.poema && drink.poema[0] && (
+      }}>{desc}</div>
+      {poemaArr[0] && (
         <div style={{
           fontFamily: 'var(--font-serif)', fontStyle: 'italic',
           fontSize: 13, color: 'var(--neon-magenta-soft, #FF3DA0)',
           opacity: 0.88, lineHeight: 1.45,
           marginTop: 'auto', paddingTop: 8,
-        }}>"{drink.poema[0]}"</div>
+        }}>"{poemaArr[0]}"</div>
       )}
     </button>
   );
 };
 
 // Drink classic row
-const DrinkRow = ({ drink, last, onClick }) => (
+const DrinkRow = ({ drink, last, onClick }) => {
+  const { lang } = useLang();
+  return (
   <div onClick={onClick ? () => onClick(drink) : undefined} style={{
     display: 'grid', gridTemplateColumns: '1fr auto', gap: 18,
     padding: '16px 0',
@@ -514,7 +530,7 @@ const DrinkRow = ({ drink, last, onClick }) => (
         <span style={{
           fontFamily: 'var(--font-serif)', fontStyle: 'italic',
           fontSize: 18, color: 'var(--bone)',
-        }}>{drink.nome}</span>
+        }}>{t(drink.nome, lang)}</span>
         {drink.ml && <span style={{
           fontFamily: 'var(--font-mono)', fontSize: 10,
           color: 'var(--fg-faint)', letterSpacing: '0.1em',
@@ -523,41 +539,48 @@ const DrinkRow = ({ drink, last, onClick }) => (
       {drink.desc && <div style={{
         fontFamily: 'var(--font-body)', fontSize: 13,
         color: 'var(--fg-muted)', marginTop: 4,
-      }}>{drink.desc}</div>}
+      }}>{t(drink.desc, lang)}</div>}
     </div>
     <Price value={drink.preco} />
   </div>
-);
+  );
+};
 
 // ---------- Wine list ----------
 const WineList = ({ vinhos }) => {
-  const byGroup = {};
   const isMobile = useIsMobile();
+  const { lang } = useLang();
+
+  // Agrupa por grupo (traduzindo o label do grupo)
+  const byGroup = {};
   vinhos.forEach(v => {
-    const g = v.grupo || 'Por taça';
-    if (!byGroup[g]) byGroup[g] = [];
-    byGroup[g].push(v);
+    const key = v.grupo ? JSON.stringify(v.grupo) : 'porTaca';
+    if (!byGroup[key]) byGroup[key] = { grupoRaw: v.grupo, items: [] };
+    byGroup[key].items.push(v);
   });
+
   return (
     <div style={{
       display: 'grid',
       gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(360px, 1fr))',
       gap: isMobile ? 28 : 40,
     }}>
-      {Object.entries(byGroup).map(([g, list]) => (
-        <div key={g}>
-          <Eyebrow color="ember">{g}</Eyebrow>
+      {Object.entries(byGroup).map(([key, { grupoRaw, items }]) => {
+        const groupLabel = grupoRaw ? t(grupoRaw, lang) : uiT('porTaca', lang);
+        return (
+        <div key={key}>
+          <Eyebrow color="ember">{groupLabel}</Eyebrow>
           <div style={{ marginTop: 14 }}>
-            {list.map((v, i) => (
+            {items.map((v, i) => (
               <div key={v.id} style={{
                 padding: '14px 0',
-                borderBottom: i === list.length - 1 ? 'none' : '1px solid var(--border)',
+                borderBottom: i === items.length - 1 ? 'none' : '1px solid var(--border)',
               }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
                   <span style={{
                     fontFamily: 'var(--font-serif)', fontStyle: 'italic',
                     fontSize: 16, color: 'var(--bone)',
-                  }}>{v.nome}</span>
+                  }}>{t(v.nome, lang)}</span>
                   <Leader />
                   <Price value={v.preco} style={{ fontSize: 13 }} />
                 </div>
@@ -565,20 +588,23 @@ const WineList = ({ vinhos }) => {
                   fontFamily: 'var(--font-body)', fontSize: 12,
                   color: 'var(--fg-muted)', marginTop: 4,
                   lineHeight: 1.45,
-                }}>{v.desc}</div>
+                }}>{t(v.desc, lang)}</div>
               </div>
             ))}
           </div>
         </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
 
 // ---------- Placeholder art when photo is missing ----------
 const PlaceholderArt = ({ name }) => {
+  const { lang } = useLang();
+  const safeName = typeof name === 'string' ? name : (name && (name.pt || name.en || name.es) || 'Surreal');
   // hash name to pick a treatment
-  const hash = name.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+  const hash = safeName.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
   const variants = [
     { bg: 'var(--surreal-red-ink)', ink: 'var(--bone)', glyph: '✦' },
     { bg: 'var(--wine)', ink: 'var(--ember-soft)', glyph: '◉' },
@@ -613,7 +639,7 @@ const PlaceholderArt = ({ name }) => {
         fontFamily: 'var(--font-body)', fontSize: 10,
         letterSpacing: '0.3em', textTransform: 'uppercase',
         opacity: 0.6, position: 'relative',
-      }}>foto em breve</span>
+      }}>{uiT('fotoEmBreve', lang)}</span>
     </div>
   );
 };

@@ -5,6 +5,7 @@ const Portal = ({ onEnter, mode, setMode }) => {
   const [prov, setProv] = React.useState(0);
   const provs = window.SURREAL.provocacoes;
   const isMobile = useIsMobile();
+  const { lang } = useLang();
   React.useEffect(() => {
     const i = setInterval(() => setProv(p => (p + 1) % provs.length), 3200);
     return () => clearInterval(i);
@@ -61,7 +62,7 @@ const Portal = ({ onEnter, mode, setMode }) => {
                style={{ height: isMobile ? 28 : 34, filter: 'invert(1)' }} />
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <Eyebrow color="magenta">DESDE 2019</Eyebrow>
+          <Eyebrow color="magenta">{uiT('desde', lang)}</Eyebrow>
           <span style={{ width: 1, height: 14, background: 'var(--border)' }} />
           <Eyebrow>Botafogo · RJ</Eyebrow>
         </div>
@@ -69,7 +70,7 @@ const Portal = ({ onEnter, mode, setMode }) => {
 
       <div style={{ position: 'relative', textAlign: 'center', maxWidth: 1100, zIndex: 2 }}>
         <div style={{ marginBottom: 26 }}>
-          <Eyebrow color="magenta" size="xs">Cardápio · Edição 7 anos</Eyebrow>
+          <Eyebrow color="magenta" size="xs">{uiT('edicao', lang)}</Eyebrow>
         </div>
 
         <h1 style={{
@@ -97,13 +98,13 @@ const Portal = ({ onEnter, mode, setMode }) => {
           position: 'relative',
         }}>
           <span key={prov} style={{ animation: 'fadeIn 600ms var(--ease-out-soft)' }}>
-            "{provs[prov]}"
+            "{t(provs[prov], lang)}"
           </span>
         </div>
 
         {/* Ato choice — instead of "book a table", user picks their hunger */}
         <div style={{ marginBottom: 28 }}>
-          <Eyebrow color="ember" size="xs">escolha seu ato</Eyebrow>
+          <Eyebrow color="ember" size="xs">{uiT('escolhaSeuAto', lang)}</Eyebrow>
         </div>
 
         <div style={{
@@ -120,22 +121,22 @@ const Portal = ({ onEnter, mode, setMode }) => {
         }}>
           <ActChoice
             num="I"
-            label="Quero comer"
-            sub="Entradas, sanduíches, pratos, doces"
+            label={uiT('queroComer', lang)}
+            sub={uiT('queroComerSub', lang)}
             color="red"
             onClick={() => onEnter('comidas')}
           />
           <ActChoice
             num="II"
-            label="Quero beber"
-            sub="Drinks autorais, clássicos, vinhos"
+            label={uiT('queroBeber', lang)}
+            sub={uiT('queroBeberSub', lang)}
             color="magenta"
             onClick={() => onEnter('drinks')}
           />
           <ActChoice
             num="III"
-            label="Surpreenda-me"
-            sub="Um prato e um drink ao acaso"
+            label={uiT('surpreendaMe', lang)}
+            sub={uiT('surpreendaMeSub', lang)}
             color="ember"
             onClick={() => onEnter('random')}
           />
@@ -166,7 +167,7 @@ const Portal = ({ onEnter, mode, setMode }) => {
             letterSpacing: '0.28em', textTransform: 'uppercase',
             color: 'var(--fg-muted)',
           }}>
-            ↓ desça devagar
+            {uiT('descaDevagar', lang)}
           </button>
         </div>
       </div>
@@ -196,9 +197,7 @@ const Portal = ({ onEnter, mode, setMode }) => {
           lineHeight: 1.4,
           textAlign: isMobile ? 'center' : 'left',
         }}>
-          {isMobile
-            ? 'ABERTO · SEG–QUI 12H–00H · SEX 12H–01H · SÁB 12H–01H · DOM 12H–00H'
-            : 'ABERTO · SEG–QUI: 12H-16H / 18H-00H · SEX: 12H-16H / 18H-01H · SAB: 12H-01H · DOM: 12H-00H'}
+          {isMobile ? uiT('aberto', lang) : uiT('abertoLong', lang)}
         </span>
       </div>
 

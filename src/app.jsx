@@ -64,11 +64,8 @@ const App = () => {
         density={cfg.density}
       />
       <Footer />
-      {showTop && (
-        <button className="float-back-top" onClick={backToPortal}>
-          ↑ portal
-        </button>
-      )}
+      <LangSwitcher />
+      {showTop && <BackTopButton onClick={backToPortal} />}
       <DishSheet
         item={sheet ? sheet.item : null}
         type={sheet ? sheet.type : 'dish'}
@@ -81,6 +78,15 @@ const App = () => {
         onClose={() => setTweaksOpen(false)}
       />
     </>
+  );
+};
+
+const BackTopButton = ({ onClick }) => {
+  const { lang } = useLang();
+  return (
+    <button className="float-back-top" onClick={onClick}>
+      {uiT('voltarPortal', lang)}
+    </button>
   );
 };
 
@@ -131,4 +137,8 @@ const DirectHero = ({ onPick }) => (
   </section>
 );
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <LangProvider>
+    <App />
+  </LangProvider>
+);
