@@ -3,7 +3,7 @@
     "name": "Surreal Bar",
     "tagline": {
       "pt": "Um portal sensorial",
-      "en": "A sensory portal",
+      "en": "A sensorial portal",
       "es": "Un portal sensorial"
     },
     "address": {
@@ -2193,7 +2193,11 @@
   "vinhos": [
     {
       "id": "taca",
-      "grupo": null,
+      "grupo": {
+        "pt": "taça de vinho",
+        "en": "glass of wine",
+        "es": "copa de vino"
+      },
       "nome": {
         "pt": "Taça de Vinho Branco ou Tinto",
         "en": "Glass of White or Red Wine",
