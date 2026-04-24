@@ -44,24 +44,14 @@ const Portal = ({ onEnter, mode, setMode }) => {
         pointerEvents: 'none',
       }} />
 
-      {/* Top chrome */}
+      {/* Top chrome — apenas "DESDE 2019" e "Botafogo · RJ" (logo agora fica no centro) */}
       <div style={{
         position: 'absolute',
         top: isMobile ? 16 : 28,
-        left: isMobile ? 16 : 28,
         right: isMobile ? 16 : 28,
-        display: 'flex',
-        alignItems: isMobile ? 'flex-start' : 'center',
-        justifyContent: 'space-between',
-        flexDirection: isMobile ? 'column' : 'row',
-        gap: isMobile ? 10 : 0,
         zIndex: 3,
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <img src="assets/logo-wordmark.png" alt="Surreal"
-               style={{ height: isMobile ? 28 : 34, filter: 'invert(1)' }} />
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? 10 : 16, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
           <Eyebrow color="magenta">{uiT('desde', lang)}</Eyebrow>
           <span style={{ width: 1, height: 14, background: 'var(--border)' }} />
           <Eyebrow>Botafogo · RJ</Eyebrow>
@@ -69,6 +59,11 @@ const Portal = ({ onEnter, mode, setMode }) => {
       </div>
 
       <div style={{ position: 'relative', textAlign: 'center', maxWidth: 1100, zIndex: 2 }}>
+        {/* Logo centralizada, acima do eyebrow */}
+        <div style={{ marginBottom: 18, display: 'flex', justifyContent: 'center' }}>
+          <img src="assets/logo-wordmark.png" alt="Surreal"
+               style={{ height: isMobile ? 50 : 72, filter: 'invert(1)' }} />
+        </div>
         <div style={{ marginBottom: 26 }}>
           <Eyebrow color="magenta" size="xs">{uiT('edicao', lang)}</Eyebrow>
         </div>
@@ -82,8 +77,8 @@ const Portal = ({ onEnter, mode, setMode }) => {
           textShadow: '0 0 48px rgba(230,0,126,.55)',
           letterSpacing: '-0.015em',
         }}>
-          <div>um menu</div>
-          <div style={{ color: 'var(--surreal-red)', fontStyle: 'italic' }}>surreal.</div>
+          <div>{uiT('h1part1', lang)}</div>
+          <div style={{ color: 'var(--surreal-red)', fontStyle: 'italic' }}>{uiT('h1part2', lang)}</div>
         </h1>
 
         <div style={{
