@@ -167,7 +167,7 @@ const PlaceholderBig = ({ glyph, accent }) => (
   }}>
     <div style={{
       position: 'absolute', inset: '-10%',
-      backgroundImage: 'url(assets/bolacha.jpg)',
+      backgroundImage: 'url(assets/bolacha.png)',
       backgroundSize: 'contain', backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       opacity: 0.18, filter: 'grayscale(1) contrast(1.2)',

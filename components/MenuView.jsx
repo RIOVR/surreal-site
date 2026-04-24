@@ -599,7 +599,7 @@ const PlaceholderArt = ({ name }) => {
       {/* faint spiral behind */}
       <div style={{
         position: 'absolute', inset: '-20%',
-        backgroundImage: 'url(assets/bolacha.jpg)',
+        backgroundImage: 'url(assets/bolacha.png)',
         backgroundSize: 'contain', backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         opacity: 0.1, filter: 'grayscale(1) contrast(1.2)',

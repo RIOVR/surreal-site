@@ -93,7 +93,7 @@ const DirectHero = ({ onPick }) => (
   }}>
     <div data-spiralbg style={{
       position: 'absolute', top: '-50%', right: '-25%', width: '90%', height: '200%',
-      backgroundImage: 'url(assets/bolacha.jpg)',
+      backgroundImage: 'url(assets/bolacha.png)',
       backgroundSize: 'contain', backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center', opacity: 0.08,
       filter: 'grayscale(1) contrast(1.3)',
