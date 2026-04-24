@@ -141,7 +141,25 @@ const Portal = ({ onEnter, mode, setMode }) => {
           />
         </div>
 
-        <div style={{ marginTop: 50, display: 'flex', justifyContent: 'center', gap: 20, flexWrap: 'wrap' }}>
+        <div style={{
+          marginTop: isMobile ? 36 : 50,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: isMobile ? 14 : 20,
+          flexWrap: 'wrap',
+        }}>
+          {/* Mascote só em mobile — centralizado, flutuando sobre o "desça devagar" */}
+          {isMobile && (
+            <img src="assets/mascot.png" alt="" aria-hidden
+                 style={{
+                   height: 68,
+                   opacity: 0.95,
+                   animation: 'floatY 4.5s ease-in-out infinite',
+                   marginBottom: 4,
+                 }} />
+          )}
           <button onClick={() => onEnter('comidas')} style={{
             background: 'transparent', border: 'none', cursor: 'pointer',
             fontFamily: 'var(--font-body)', fontSize: 11,
