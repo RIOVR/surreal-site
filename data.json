@@ -383,7 +383,7 @@
       ],
       "preco": 39,
       "desc": "Banana, doce de leite, chantilly leve e farofa crocante de biscoito.",
-      "photo": null,
+      "photo": "assets/banoffee.png.jpg",
       "tipo": "Doce",
       "nome": "Banoffee Surreal",
       "poema": [
