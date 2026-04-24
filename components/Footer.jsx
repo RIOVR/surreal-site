@@ -2,6 +2,7 @@
 
 const Footer = () => {
   const i = window.SURREAL.info;
+  const horarios = window.SURREAL.horarios || [];
   const { lang } = useLang();
   return (
     <section id="visit" data-screen-label="Footer" style={{
@@ -31,9 +32,13 @@ const Footer = () => {
             <Eyebrow color="magenta">{uiT('footerOnde', lang)}</Eyebrow>
             <div style={{ marginTop: 14, fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--bone)', lineHeight: 1.7 }}>
               <div>{t(i.address, lang)}</div>
-              <div style={{ color: 'var(--fg-muted)', marginTop: 8 }}>{uiT('footerSeg', lang)}</div>
-              <div style={{ color: 'var(--fg-muted)' }}>{uiT('footerSex', lang)}</div>
-              <div style={{ color: 'var(--fg-faint)' }}>{uiT('footerDom', lang)}</div>
+              <div style={{ marginTop: 10 }}>
+                {horarios.map((h, idx) => (
+                  <div key={idx} style={{ color: 'var(--fg-muted)' }}>
+                    {t(h.dias, lang)} · {h.horas}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           <div>

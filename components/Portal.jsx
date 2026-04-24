@@ -201,7 +201,15 @@ const Portal = ({ onEnter, mode, setMode }) => {
           lineHeight: 1.4,
           textAlign: isMobile ? 'center' : 'left',
         }}>
-          {isMobile ? uiT('aberto', lang) : uiT('abertoLong', lang)}
+          {(() => {
+            const hrs = window.SURREAL.horarios || [];
+            const pfx = uiT('abertoPrefix', lang);
+            // Desktop: "ABERTO · SEG–QUI: 12H-16H / 18H-00H · SEX: 12H-16H / 18H-01H · ..."
+            // Mobile: "ABERTO · SEG–QUI 12H–00H · SEX 12H–01H · ..." (mais compacto, sem ":")
+            const sep = isMobile ? ' ' : ': ';
+            const parts = hrs.map(h => `${t(h.dias, lang)}${sep}${h.horas}`);
+            return `${pfx} · ${parts.join(' · ')}`;
+          })()}
         </span>
       </div>
 
