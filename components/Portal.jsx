@@ -77,8 +77,17 @@ const Portal = ({ onEnter, mode, setMode }) => {
           textShadow: '0 0 48px rgba(230,0,126,.55)',
           letterSpacing: '-0.015em',
         }}>
-          <div>{uiT('h1part1', lang)}</div>
-          <div style={{ color: 'var(--surreal-red)', fontStyle: 'italic' }}>{uiT('h1part2', lang)}</div>
+          {lang === 'en' ? (
+            <>
+              <div>a <span style={{ color: 'var(--surreal-red)', fontStyle: 'italic' }}>surreal</span></div>
+              <div>menu.</div>
+            </>
+          ) : (
+            <>
+              <div>{uiT('h1part1', lang)}</div>
+              <div style={{ color: 'var(--surreal-red)', fontStyle: 'italic' }}>{uiT('h1part2', lang)}</div>
+            </>
+          )}
         </h1>
 
         <div style={{
