@@ -150,7 +150,7 @@ const DishSheet = ({ item, type = 'dish', onClose }) => {
               fontFamily: 'var(--font-body)', fontSize: 11,
               letterSpacing: '0.25em', textTransform: 'uppercase',
               fontWeight: 600, cursor: 'pointer',
-            }}>fechar travessia</button>
+            }}>voltar</button>
           </div>
         </div>
       </div>
