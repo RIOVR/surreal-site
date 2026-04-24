@@ -364,13 +364,13 @@
       ],
       "preco": 69,
       "desc": "Fibra de caju transformada em carne, acompanhada de arroz de tomate, aioli de abacate e salada do dia.",
-      "photo": null,
+      "photo": "assets/carnedecaju.jpg",
       "tipo": "Vegano",
       "nome": "Carne de Caju",
       "poema": [
-        "Uma reinvenção da natureza,",
-        "onde a fibra do caju se torna carne,",
-        "desafiando convenções e despertando os sentidos."
+        "Nem carne, nem fruta.   ",
+        "Coisa de morena tropicana.",
+        "Pura brasilidade em forma de prato."
       ],
       "tag": "Vegano",
       "id": "carne-vegana",
