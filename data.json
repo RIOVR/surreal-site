@@ -2230,7 +2230,8 @@
         "pt": "Corpo médio a encorpado, taninos macios, frutas negras maduras e baunilha.",
         "en": "Medium to full body, soft tannins, ripe dark fruit and vanilla.",
         "es": "Cuerpo medio a pleno, taninos suaves, frutas negras maduras y vainilla."
-      }
+      },
+      "pais": "Argentina"
     },
     {
       "id": "cabernet-franc",
@@ -2250,7 +2251,8 @@
         "pt": "Frutas vermelhas frescas, pimentão suave e leve toque de tabaco.",
         "en": "Fresh red fruits, gentle bell pepper and a light tobacco note.",
         "es": "Frutas rojas frescas, pimiento suave y leve toque de tabaco."
-      }
+      },
+      "pais": "Argentina"
     },
     {
       "id": "malbec-2024",
@@ -2270,7 +2272,8 @@
         "pt": "Frutado e descomplicado. Leve especiaria, corpo médio.",
         "en": "Fruity and uncomplicated. Light spice, medium body.",
         "es": "Afrutado y sencillo. Especia ligera, cuerpo medio."
-      }
+      },
+      "pais": "Argentina"
     },
     {
       "id": "cabernet-2024",
@@ -2290,7 +2293,8 @@
         "pt": "Amora, pimenta preta e toque herbal. Estruturado.",
         "en": "Blackberry, black pepper and herbal notes. Structured.",
         "es": "Mora, pimienta negra y toque herbal. Estructurado."
-      }
+      },
+      "pais": "Argentina"
     },
     {
       "id": "chardonnay",
@@ -2310,7 +2314,8 @@
         "pt": "Fresco e untuoso. Abacaxi, manga, toque amanteigado e floral.",
         "en": "Fresh and unctuous. Pineapple, mango, buttery and floral touches.",
         "es": "Fresco y untuoso. Piña, mango, toque amantecado y floral."
-      }
+      },
+      "pais": "Argentina"
     },
     {
       "id": "torrontes",
@@ -2330,7 +2335,8 @@
         "pt": "Jasmim, rosas brancas, cítricas tropicais. Leve e vibrante.",
         "en": "Jasmine, white roses, tropical citrus. Light and vibrant.",
         "es": "Jazmín, rosas blancas, cítricos tropicales. Ligero y vibrante."
-      }
+      },
+      "pais": "Argentina"
     },
     {
       "id": "rose-malbec",
@@ -2350,7 +2356,8 @@
         "pt": "Cereja, amora, sutil floral. Acidez equilibrada.",
         "en": "Cherry, blackberry, subtle floral. Balanced acidity.",
         "es": "Cereza, mora, floral sutil. Acidez equilibrada."
-      }
+      },
+      "pais": "Argentina"
     },
     {
       "id": "carmenere",
@@ -2370,7 +2377,8 @@
         "pt": "Ameixa madura, pimenta negra, ervas frescas.",
         "en": "Ripe plum, black pepper, fresh herbs.",
         "es": "Ciruela madura, pimienta negra, hierbas frescas."
-      }
+      },
+      "pais": "Chile"
     },
     {
       "id": "pinot-noir",
@@ -2390,7 +2398,8 @@
         "pt": "Morango, cereja, toque terroso. Corpo leve a médio.",
         "en": "Strawberry, cherry, earthy touch. Light to medium body.",
         "es": "Fresa, cereza, toque terroso. Cuerpo ligero a medio."
-      }
+      },
+      "pais": "Chile"
     },
     {
       "id": "cab-reserva",
@@ -2410,7 +2419,8 @@
         "pt": "Frutas negras, café e especiarias. Incorporado.",
         "en": "Dark fruits, coffee and spices. Integrated.",
         "es": "Frutas negras, café y especias. Integrado."
-      }
+      },
+      "pais": "Chile"
     },
     {
       "id": "chard-reserva",
@@ -2430,7 +2440,8 @@
         "pt": "Maçã madura, damasco, baunilha. Textura cremosa.",
         "en": "Ripe apple, apricot, vanilla. Creamy texture.",
         "es": "Manzana madura, albaricoque, vainilla. Textura cremosa."
-      }
+      },
+      "pais": "Chile"
     },
     {
       "id": "sauv-blanc",
@@ -2450,7 +2461,8 @@
         "pt": "Maracujá, lima, ervas frescas. Corpo leve a médio.",
         "en": "Passion fruit, lime, fresh herbs. Light to medium body.",
         "es": "Maracuyá, lima, hierbas frescas. Cuerpo ligero a medio."
-      }
+      },
+      "pais": "Chile"
     }
   ],
   "secoes": {
