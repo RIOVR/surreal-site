@@ -54,7 +54,7 @@
           "Una flor caliente que se alimenta de carne cruda."
         ]
       },
-      "tag": "Assinatura",
+      "tag": "Chef",
       "id": "flor-carnivora",
       "secao": "entradas"
     },
@@ -96,7 +96,7 @@
           "Muerdes y despiertas."
         ]
       },
-      "tag": null,
+      "tag": "Chef",
       "id": "la-la-land",
       "secao": "entradas"
     },
@@ -133,7 +133,7 @@
           "Siente el sabor vibrante del fuego y la brasa."
         ]
       },
-      "tag": "Teatro",
+      "tag": "Chef",
       "id": "ancho-em-chamas",
       "secao": "entradas"
     },
@@ -380,7 +380,7 @@
           "Nada tiene sentido. Todo da ganas."
         ]
       },
-      "tag": "Clássico",
+      "tag": "Chef",
       "id": "surreal-burger",
       "secao": "sanduiches"
     },
@@ -506,7 +506,7 @@
           "Sabe que es un bad motherfucker."
         ]
       },
-      "tag": "Chef",
+      "tag": "",
       "id": "rib-fiction",
       "secao": "sanduiches"
     },
