@@ -33,7 +33,7 @@
     /* ============ PAGE SETUP ============ */
     @page {
       size: A4 portrait;
-      margin: 14mm;
+      margin: 11mm 12mm;     /* margens menores → mais área útil */
     }
 
     * { box-sizing: border-box; }
@@ -213,19 +213,19 @@
 
     /* ============ INNER PAGE ============ */
     .inner {
-      padding: 14mm 14mm;
+      padding: 0;
     }
     .page-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      padding-bottom: 4mm;
-      margin-bottom: 7mm;
+      padding-bottom: 2mm;
+      margin-bottom: 4mm;
       border-bottom: 2px solid var(--ink);
     }
     .page-header h1 {
       font-family: "Herbus", sans-serif;
-      font-size: 38pt;
+      font-size: 28pt;          /* compactado de 38pt */
       line-height: 1;
       color: var(--ink);
       margin: 0;
@@ -234,7 +234,7 @@
     .page-header .subtitle {
       font-family: "Libre Caslon Text", serif;
       font-style: italic;
-      font-size: 11pt;
+      font-size: 10pt;
       color: var(--muted);
     }
 
@@ -244,14 +244,14 @@
       align-items: baseline;
       justify-content: space-between;
       gap: 4mm;
-      margin: 4mm 0 3mm;
-      padding-bottom: 1.5mm;
+      margin: 3mm 0 1.5mm;
+      padding-bottom: 1mm;
       border-bottom: 1px solid var(--border);
-      break-after: avoid;
+      break-after: avoid;        /* não deixa header órfão no fim de coluna */
     }
     .section-name {
       font-family: "Herbus", sans-serif;
-      font-size: 16pt;
+      font-size: 13pt;           /* compactado de 16pt */
       color: var(--red);
       line-height: 1;
       margin: 0;
@@ -260,7 +260,7 @@
     .section-subtitle {
       font-family: "Libre Caslon Text", serif;
       font-style: italic;
-      font-size: 9pt;
+      font-size: 8.5pt;
       color: var(--muted);
       flex-shrink: 0;
     }
@@ -268,7 +268,7 @@
     /* 2-column layout */
     .columns-2 {
       column-count: 2;
-      column-gap: 7mm;
+      column-gap: 6mm;
       column-rule: 1px dotted var(--border);
     }
     .columns-2 > * {
@@ -278,8 +278,8 @@
     /* Item (dish/drink) */
     .item {
       break-inside: avoid;
-      margin-bottom: 3mm;
-      padding-bottom: 2mm;
+      margin-bottom: 1.8mm;
+      padding-bottom: 1.2mm;
       border-bottom: 1px dotted var(--border);
     }
     .item:last-child {
@@ -290,15 +290,15 @@
       justify-content: space-between;
       align-items: baseline;
       gap: 3mm;
-      margin-bottom: 0.5mm;
+      margin-bottom: 0.3mm;
     }
     .item-name {
       font-family: "Libre Caslon Text", serif;
       font-style: italic;
       font-weight: 700;
-      font-size: 11.5pt;
+      font-size: 10.5pt;        /* compactado de 11.5pt */
       color: var(--ink);
-      line-height: 1.15;
+      line-height: 1.1;
     }
     .item-name .item-tag {
       display: inline-block;
@@ -337,10 +337,10 @@
     }
     .item-desc {
       font-family: "Inter", sans-serif;
-      font-size: 8.5pt;
-      line-height: 1.35;
+      font-size: 7.8pt;
+      line-height: 1.28;
       color: var(--muted);
-      margin: 0.5mm 0 0;
+      margin: 0.3mm 0 0;
     }
     .item-base {
       display: inline-block;
@@ -356,19 +356,19 @@
     /* Vinícola block */
     .vinicola {
       break-inside: avoid;
-      margin-bottom: 5mm;
+      margin-bottom: 4mm;
     }
     .vinicola-header {
       display: flex;
       align-items: baseline;
-      gap: 3mm;
-      padding-bottom: 1mm;
-      margin-bottom: 2mm;
+      gap: 2mm;
+      padding-bottom: 0.7mm;
+      margin-bottom: 1.5mm;
       border-bottom: 1px solid var(--ink);
     }
     .vinicola-name {
       font-family: "Herbus", sans-serif;
-      font-size: 14pt;
+      font-size: 12pt;
       color: var(--ink);
       line-height: 1;
       letter-spacing: -0.005em;
@@ -376,68 +376,69 @@
     .vinicola-pais {
       font-family: "Libre Caslon Text", serif;
       font-style: italic;
-      font-size: 10pt;
+      font-size: 9pt;
       color: var(--ember);
     }
     .vinicola-tipo {
       font-family: "Inter", sans-serif;
       font-weight: 700;
-      font-size: 7.5pt;
+      font-size: 7pt;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--red);
-      margin: 2mm 0 1.5mm;
+      margin: 1.5mm 0 1mm;
     }
 
     /* Extras (sanduíches) */
     .extras-box {
-      margin-top: 4mm;
-      padding: 4mm 5mm;
+      margin-top: 3mm;
+      padding: 2.5mm 4mm 1.5mm;
       border: 1px solid var(--border);
       border-radius: 2mm;
       background: transparent;
       break-inside: avoid;
     }
-    .extras-box .section-name { font-size: 12pt; }
-    .extras-box .columns-2 { column-rule: none; gap: 5mm; }
-    .extras-box .item { margin-bottom: 1mm; padding-bottom: 0; border-bottom: none; }
+    .extras-box .section-header { margin-top: 0; padding-bottom: 0.5mm; }
+    .extras-box .section-name { font-size: 11pt; }
+    .extras-box .columns-2 { column-rule: none; column-gap: 5mm; }
+    .extras-box .item { margin-bottom: 0.8mm; padding-bottom: 0; border-bottom: none; }
 
     /* Página final — info do bar */
     .footer-grid {
       display: grid;
       grid-template-columns: 1.2fr 1fr 1.2fr;
-      gap: 6mm;
-      margin-top: 10mm;
-      padding-top: 6mm;
+      gap: 5mm;
+      margin-top: 5mm;
+      padding-top: 4mm;
       border-top: 2px solid var(--ink);
     }
     .footer-block h3 {
       font-family: "Inter", sans-serif;
       font-weight: 700;
-      font-size: 8pt;
+      font-size: 7.5pt;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--red);
-      margin: 0 0 3mm;
+      margin: 0 0 2mm;
     }
     .footer-block p, .footer-block div {
       font-family: "Inter", sans-serif;
-      font-size: 9.5pt;
-      line-height: 1.55;
+      font-size: 8.5pt;
+      line-height: 1.4;
       color: var(--ink);
       margin: 0;
     }
     .footer-block .muted {
       color: var(--muted);
-      font-size: 9pt;
+      font-size: 8pt;
     }
     .legal {
-      margin-top: 6mm;
-      padding-top: 4mm;
+      margin-top: 3mm;
+      padding-top: 2mm;
       border-top: 1px dotted var(--border);
       font-family: "Inter", sans-serif;
-      font-size: 7.5pt;
-      line-height: 1.5;
+      font-size: 7pt;
+      line-height: 1.4;
       color: var(--muted);
       text-align: center;
     }
