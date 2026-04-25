@@ -438,24 +438,18 @@
     }
     .extras-box .columns-2 { column-rule: none; column-gap: 5mm; }
 
-    /* Sobremesas em grid horizontal de 3 colunas (respiro final da página) */
-    .sobremesas-block {
-      margin-top: 6mm;
-      padding-top: 4mm;
-      border-top: 2px solid var(--ink);
-      break-inside: avoid;
-    }
-    .sobremesas-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 5mm;
-      margin-top: 2mm;
-    }
-    .sobremesas-grid .item {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
+    /* Páginas com respiro maior (Bebidas e Vinhos) — fontes e margens generosas */
+    .page-spacious .item { margin-bottom: 2.4mm; padding-bottom: 1.8mm; }
+    .page-spacious .item-name { font-size: 11pt; line-height: 1.18; }
+    .page-spacious .item-desc { font-size: 8.5pt; line-height: 1.4; margin-top: 0.8mm; }
+    .page-spacious .section-name { font-size: 14pt; }
+    .page-spacious .section-header { margin: 4mm 0 2.2mm; padding-bottom: 1.2mm; }
+    .page-spacious .vinicola { margin-bottom: 5mm; }
+    .page-spacious .vinicola-name { font-size: 13pt; }
+    .page-spacious .vinicola-pais { font-size: 10pt; }
+    .page-spacious .vinicola-tipo { font-size: 7.5pt; margin: 2mm 0 1.2mm; }
+    .page-spacious .vinicola-header { margin-bottom: 1.8mm; padding-bottom: 1mm; }
+    .page-spacious .page-2col { column-gap: 12mm; }
 
     /* Página final — info do bar */
     .footer-block-wrap {
@@ -499,30 +493,43 @@
       color: var(--muted);
       text-align: center;
     }
-    /* Bloco unificado de avisos legais (no rodapé da última página) */
+    /* Bloco unificado de avisos legais — mascote falando à esquerda */
     .legal-unified {
-      margin-top: 3mm;
-      padding-top: 2mm;
-      border-top: 1.5px solid var(--ink);
-      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 6mm;
+      margin-top: 5mm;
+      padding: 4mm 5mm;
+      border: 2px solid var(--ink);
+      border-radius: 3mm;
       break-inside: avoid;
+    }
+    .legal-mascot {
+      width: 26mm;
+      height: auto;
+      flex-shrink: 0;
+    }
+    .legal-text {
+      flex: 1;
+      text-align: left;
     }
     .legal-unified h3 {
       font-family: "Inter", sans-serif;
       font-weight: 700;
-      font-size: 7pt;
-      letter-spacing: 0.25em;
+      font-size: 9pt;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--red);
-      margin: 0 0 1.2mm;
+      margin: 0 0 1.5mm;
+      text-align: left;
     }
     .legal-unified p {
       font-family: "Inter", sans-serif;
-      font-size: 6.8pt;
-      line-height: 1.35;
-      color: var(--muted);
-      margin: 0 auto;
-      max-width: 170mm;
+      font-size: 8pt;
+      line-height: 1.4;
+      color: var(--ink);
+      margin: 0;
+      text-align: left;
     }
     .legal strong { color: var(--ink); font-weight: 600; }
 
@@ -691,29 +698,13 @@
       if (entradas) leftHtml += renderSection(entradas, itemsOf('entradas'), { singleColumn: true });
       if (principais) leftHtml += renderSection(principais, itemsOf('principais'), { singleColumn: true });
 
-      // ===== COLUNA DIREITA: Sanduíches + Complementos (caixa vermelha) =====
+      // ===== COLUNA DIREITA: Sanduíches + Complementos (borda vermelha) + Sobremesas =====
       let rightHtml = '';
       const sanduiches = findSec('sanduiches');
       if (sanduiches) rightHtml += renderSection(sanduiches, itemsOf('sanduiches'), { singleColumn: true });
       rightHtml += renderExtrasBox();
-
-      // ===== ABAIXO (full width): Sobremesas em grid de 3 colunas =====
       const sobremesas = findSec('sobremesas');
-      const sobremesasItems = itemsOf('sobremesas');
-      let sobremesasHtml = '';
-      if (sobremesas && sobremesasItems.length) {
-        sobremesasHtml = `
-          <div class="sobremesas-block">
-            <div class="section-header">
-              <h2 class="section-name">${esc(pt(sobremesas.nome))}</h2>
-              <span class="section-subtitle">${esc(pt(sobremesas.subtitle))}</span>
-            </div>
-            <div class="sobremesas-grid">
-              ${sobremesasItems.map(it => renderItem(it)).join('')}
-            </div>
-          </div>
-        `;
-      }
+      if (sobremesas) rightHtml += renderSection(sobremesas, itemsOf('sobremesas'), { singleColumn: true });
 
       return `
         <section class="page">
@@ -726,7 +717,6 @@
               <div class="col-left">${leftHtml}</div>
               <div class="col-right">${rightHtml}</div>
             </div>
-            ${sobremesasHtml}
           </div>
           <div class="page-mark"><span class="red">SURREAL</span><span>02 / COMIDAS</span></div>
         </section>
@@ -755,7 +745,7 @@
       const rightHtml = renderSecionsLista(['classicos-zero', 'classicos']);
 
       return `
-        <section class="page">
+        <section class="page page-spacious">
           <div class="inner">
             <div class="page-header">
               <h1>Bebidas</h1>
@@ -839,7 +829,7 @@
       }
 
       return `
-        <section class="page">
+        <section class="page page-spacious">
           <div class="inner" style="padding-bottom: 8mm;">
             <div class="page-header">
               <h1>Vinhos & Cervejas</h1>
@@ -857,13 +847,16 @@
 
             <div class="footer-block-wrap">
               <div class="legal-unified">
-                <h3>Atenção, viajante do sabor</h3>
-                <p>
-                  Alguns pratos podem conter lactose, glúten, nozes, pimenta ou outros ingredientes alergênicos.
-                  Se tiver qualquer restrição, alergia ou "inimizade" alimentar, avise nossa equipe antes de pedir.
-                  Aceitamos dinheiro, pix, cartões de débito/crédito e vouchers (consulte com o atendente).
-                  Procon 151 · Vigilância Sanitária 1746 · Se beber, não dirija. Proibida a venda de bebida alcoólica para menores de 18 anos. Exija cupom fiscal.
-                </p>
+                <img src="/assets/mascot.png" alt="" class="legal-mascot" />
+                <div class="legal-text">
+                  <h3>Atenção, viajante do sabor</h3>
+                  <p>
+                    Alguns pratos podem conter lactose, glúten, nozes, pimenta ou outros ingredientes alergênicos.
+                    Se tiver qualquer restrição, alergia ou "inimizade" alimentar, avise nossa equipe antes de pedir.
+                    Aceitamos dinheiro, pix, cartões de débito/crédito e vouchers (consulte com o atendente).
+                    Procon 151 · Vigilância Sanitária 1746 · Se beber, não dirija. Proibida a venda de bebida alcoólica para menores de 18 anos. Exija cupom fiscal.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
