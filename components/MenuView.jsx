@@ -76,7 +76,6 @@ const ComidasView = ({ openDish, density }) => {
     { id: 'all', label: uiT('filterAll', lang) },
     { id: 'chef', label: uiT('filterChef', lang) },
     { id: 'veggie', label: uiT('filterVeggie', lang) },
-    { id: 'teatro', label: uiT('filterTeatro', lang) },
   ];
 
   const match = (d) => {
@@ -89,7 +88,6 @@ const ComidasView = ({ openDish, density }) => {
     if (filter === 'all') return true;
     if (filter === 'chef') return d.tag === 'Chef';
     if (filter === 'veggie') return d.alerg && (d.alerg.includes('vegano') || d.alerg.includes('veggie'));
-    if (filter === 'teatro') return d.tag === 'Teatro';
     return true;
   };
 
