@@ -143,14 +143,14 @@
     .cover::before {
       content: "";
       position: absolute;
-      inset: 9mm;
+      inset: 14mm;
       border: 2px solid var(--ink);
       pointer-events: none;
     }
     .cover::after {
       content: "";
       position: absolute;
-      inset: 11mm;
+      inset: 16mm;
       border: 1px solid var(--ink);
       pointer-events: none;
     }
@@ -511,10 +511,11 @@
       const nome = pt(item.nome);
       const desc = pt(item.desc);
       const base = !opts.hideBase && item.base && item.secao !== 'cervejas' && item.secao !== 'chopp' && item.secao !== 'soft' && opts.showBase ? `<span class="item-base">${esc(item.base)}</span>` : '';
+      // Sem tag/badge no impresso — pedido do cliente
       return `
         <div class="item">
           <div class="item-row">
-            <div class="item-name">${esc(nome)}${tagBadge(item.tag)}${metaBadge(item)}${base}</div>
+            <div class="item-name">${esc(nome)}${metaBadge(item)}${base}</div>
             <div class="item-price">R$ ${item.preco}</div>
           </div>
           ${desc ? `<div class="item-desc">${esc(desc)}</div>` : ''}
@@ -568,34 +569,41 @@
       `;
     }
 
+    function renderExtrasBox() {
+      const D = window.SURREAL;
+      if (!D.extras || !D.extras.length) return '';
+      return `
+        <div class="extras-box">
+          <div class="section-header" style="border-bottom: 1px solid var(--ink); margin-top: 0;">
+            <h2 class="section-name">Complementos</h2>
+            <span class="section-subtitle">deixe seu sanduíche ainda mais surreal</span>
+          </div>
+          <div class="columns-2">
+            ${D.extras.map(x => `
+              <div class="item" style="border-bottom: none; padding-bottom: 1mm;">
+                <div class="item-row">
+                  <span class="item-name" style="font-style: normal; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 10pt;">${esc(pt(x.item))}</span>
+                  <span class="item-price">R$ ${x.preco}</span>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
     function renderComidas() {
       const D = window.SURREAL;
       const sections = D.secoes.comidas;
       let html = '';
+      // Entradas → Sanduíches → COMPLEMENTOS (vinculados aos sanduíches) → Principais → Sobremesas
       for (const s of sections) {
         const items = D.menu.filter(d => d.secao === s.id);
         html += renderSection(s, items);
-      }
-      // Extras
-      if (D.extras && D.extras.length) {
-        html += `
-          <div class="extras-box">
-            <div class="section-header" style="border-bottom: 1px solid var(--ink); margin-top: 0;">
-              <h2 class="section-name">Complementos</h2>
-              <span class="section-subtitle">deixe seu sanduíche ainda mais surreal</span>
-            </div>
-            <div class="columns-2">
-              ${D.extras.map(x => `
-                <div class="item" style="border-bottom: none; padding-bottom: 1mm;">
-                  <div class="item-row">
-                    <span class="item-name" style="font-style: normal; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 10pt;">${esc(pt(x.item))}</span>
-                    <span class="item-price">R$ ${x.preco}</span>
-                  </div>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-        `;
+        // Insere caixa de complementos logo depois dos sanduíches
+        if (s.id === 'sanduiches') {
+          html += renderExtrasBox();
+        }
       }
       return `
         <section class="page">
