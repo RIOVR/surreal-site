@@ -547,65 +547,132 @@ const DrinkRow = ({ drink, last, onClick }) => {
 };
 
 // ---------- Wine list ----------
+// Estrutura visual:
+//   VINÍCOLA · País
+//     Tinto
+//       - Vinho 1 ........... R$ XX
+//         notas...
+//       - Vinho 2 ........... R$ XX
+//     Branco
+//       - ...
+//     Rosé
+//       - ...
+//
+// "Taça de vinho" (sem vinícola) aparece num bloco "Por taça" no início.
 const WineList = ({ vinhos }) => {
   const isMobile = useIsMobile();
   const { lang } = useLang();
 
-  // Agrupa por grupo (traduzindo o label do grupo)
-  const byGroup = {};
+  // Vinhos sem vinicola (ex: "Taça de vinho") → bloco separado "Por taça"
+  const semVinicola = vinhos.filter(v => !v.vinicola);
+
+  // Vinhos com vinicola → agrupar por vinicola → subagrupar por tipo
+  // Preserva ordem de aparição
+  const vinicolaOrder = [];
+  const byVinicola = {};
   vinhos.forEach(v => {
-    const key = v.grupo ? JSON.stringify(v.grupo) : 'porTaca';
-    if (!byGroup[key]) byGroup[key] = { grupoRaw: v.grupo, pais: v.pais, items: [] };
-    byGroup[key].items.push(v);
+    if (!v.vinicola) return;
+    if (!byVinicola[v.vinicola]) {
+      byVinicola[v.vinicola] = { pais: v.pais, byTipo: {}, tipoOrder: [] };
+      vinicolaOrder.push(v.vinicola);
+    }
+    const block = byVinicola[v.vinicola];
+    const tipo = v.tipo || '—';
+    if (!block.byTipo[tipo]) {
+      block.byTipo[tipo] = [];
+      block.tipoOrder.push(tipo);
+    }
+    block.byTipo[tipo].push(v);
   });
 
-  return (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(360px, 1fr))',
-      gap: isMobile ? 28 : 40,
+  const renderWineRow = (v, isLast) => (
+    <div key={v.id} style={{
+      padding: '14px 0',
+      borderBottom: isLast ? 'none' : '1px solid var(--border)',
     }}>
-      {Object.entries(byGroup).map(([key, { grupoRaw, pais, items }]) => {
-        const groupLabel = grupoRaw ? t(grupoRaw, lang) : uiT('porTaca', lang);
-        return (
-        <div key={key}>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
-            <Eyebrow color="ember">{groupLabel}</Eyebrow>
-            {pais && (
-              <span style={{
-                fontFamily: 'var(--font-serif)',
-                fontStyle: 'italic',
-                fontSize: 13,
-                color: 'var(--fg-muted)',
-                letterSpacing: '0.05em',
-              }}>· {pais}</span>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
+        <span style={{
+          fontFamily: 'var(--font-serif)', fontStyle: 'italic',
+          fontSize: 16, color: 'var(--bone)',
+        }}>{t(v.nome, lang)}</span>
+        <Leader />
+        <Price value={v.preco} style={{ fontSize: 13 }} />
+      </div>
+      <div style={{
+        fontFamily: 'var(--font-body)', fontSize: 12,
+        color: 'var(--fg-muted)', marginTop: 4,
+        lineHeight: 1.45,
+      }}>{t(v.desc, lang)}</div>
+    </div>
+  );
+
+  return (
+    <div>
+      {/* Bloco "Por taça" (vinhos sem vinícola) */}
+      {semVinicola.length > 0 && (
+        <div style={{ marginBottom: 56, maxWidth: 720 }}>
+          <Eyebrow color="ember">{uiT('porTaca', lang)}</Eyebrow>
+          <div style={{ marginTop: 14 }}>
+            {semVinicola.map((v, i) =>
+              renderWineRow(v, i === semVinicola.length - 1)
             )}
           </div>
-          <div style={{ marginTop: 14 }}>
-            {items.map((v, i) => (
-              <div key={v.id} style={{
-                padding: '14px 0',
-                borderBottom: i === items.length - 1 ? 'none' : '1px solid var(--border)',
-              }}>
-                <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
-                  <span style={{
-                    fontFamily: 'var(--font-serif)', fontStyle: 'italic',
-                    fontSize: 16, color: 'var(--bone)',
-                  }}>{t(v.nome, lang)}</span>
-                  <Leader />
-                  <Price value={v.preco} style={{ fontSize: 13 }} />
-                </div>
-                <div style={{
-                  fontFamily: 'var(--font-body)', fontSize: 12,
-                  color: 'var(--fg-muted)', marginTop: 4,
-                  lineHeight: 1.45,
-                }}>{t(v.desc, lang)}</div>
-              </div>
-            ))}
-          </div>
         </div>
-        );
-      })}
+      )}
+
+      {/* Grid de vinícolas */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(360px, 1fr))',
+        gap: isMobile ? 36 : 48,
+      }}>
+        {vinicolaOrder.map(vinicola => {
+          const block = byVinicola[vinicola];
+          return (
+            <div key={vinicola}>
+              {/* Header da vinícola — nome grande + país discreto */}
+              <div style={{
+                paddingBottom: 12,
+                marginBottom: 18,
+                borderBottom: '1px solid var(--border)',
+              }}>
+                <div style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 'clamp(20px, 2.4vw, 26px)',
+                  lineHeight: 1.1,
+                  color: 'var(--bone)',
+                  letterSpacing: '-0.005em',
+                }}>{vinicola}</div>
+                {block.pais && (
+                  <div style={{
+                    fontFamily: 'var(--font-serif)',
+                    fontStyle: 'italic',
+                    fontSize: 14,
+                    color: 'var(--ember)',
+                    marginTop: 4,
+                    letterSpacing: '0.04em',
+                  }}>{block.pais}</div>
+                )}
+              </div>
+
+              {/* Subgrupos por tipo */}
+              {block.tipoOrder.map((tipo, ti) => {
+                const items = block.byTipo[tipo];
+                return (
+                  <div key={tipo} style={{ marginBottom: ti === block.tipoOrder.length - 1 ? 0 : 22 }}>
+                    <Eyebrow color="muted">{tipoVinhoT(tipo, lang)}</Eyebrow>
+                    <div style={{ marginTop: 8 }}>
+                      {items.map((v, i) =>
+                        renderWineRow(v, i === items.length - 1)
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

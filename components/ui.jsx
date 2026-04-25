@@ -285,6 +285,21 @@ const LangProvider = ({ children }) => {
 
 const useLang = () => React.useContext(LangContext) || { lang: 'pt', setLang: () => {} };
 
+// Tradução de TIPO de vinho (lookup fixo, não vem do data.json).
+// Usado pra renderizar "Tinto/Branco/Rosé" nos 3 idiomas.
+const TIPO_VINHO_I18N = {
+  'Tinto':     { pt: 'Tinto',     en: 'Red',      es: 'Tinto'    },
+  'Branco':    { pt: 'Branco',    en: 'White',    es: 'Blanco'   },
+  'Rosé':      { pt: 'Rosé',      en: 'Rosé',     es: 'Rosado'   },
+  'Espumante': { pt: 'Espumante', en: 'Sparkling',es: 'Espumoso' },
+};
+const tipoVinhoT = (tipo, lang = 'pt') => {
+  if (!tipo) return '';
+  const map = TIPO_VINHO_I18N[tipo];
+  if (!map) return tipo; // fallback: retorna como veio
+  return map[lang] || map.pt || tipo;
+};
+
 // Helper t() — traduz um VALOR de dado (vindo de data.json ou i18n).
 // - Se for string/number/null: retorna ele mesmo (fallback).
 // - Se for objeto {pt, en, es}: retorna a variante correta, com fallback pt.
@@ -365,4 +380,5 @@ Object.assign(window, {
   Eyebrow, Button, Chip, Tag, Price, Leader,
   useIsMobile,
   LangProvider, useLang, t, uiT, LangSwitcher, I18N_UI,
+  tipoVinhoT, TIPO_VINHO_I18N,
 });
