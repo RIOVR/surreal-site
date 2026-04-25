@@ -256,11 +256,12 @@
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      gap: 4mm;
+      gap: 1mm 4mm;
+      flex-wrap: wrap;             /* subtítulo cai pra linha de baixo se não couber junto do nome */
       margin: 2mm 0 1mm;
       padding-bottom: 0.7mm;
       border-bottom: 1px solid var(--border);
-      break-after: avoid;        /* não deixa header órfão no fim de coluna */
+      break-after: avoid;
     }
     .section-name {
       font-family: "Herbus", sans-serif;
@@ -436,20 +437,21 @@
       padding-bottom: 0;
       border-bottom: none;
     }
-    .extras-box .columns-2 { column-rule: none; column-gap: 5mm; }
+    /* Força 1 coluna pra items não quebrarem em colunas estreitas */
+    .extras-box .columns-2 { column-count: 1 !important; column-rule: none; }
 
-    /* Páginas com respiro maior (Bebidas e Vinhos) — fontes e margens generosas */
-    .page-spacious .item { margin-bottom: 2.4mm; padding-bottom: 1.8mm; }
-    .page-spacious .item-name { font-size: 11pt; line-height: 1.18; }
-    .page-spacious .item-desc { font-size: 8.5pt; line-height: 1.4; margin-top: 0.8mm; }
-    .page-spacious .section-name { font-size: 14pt; }
-    .page-spacious .section-header { margin: 4mm 0 2.2mm; padding-bottom: 1.2mm; }
-    .page-spacious .vinicola { margin-bottom: 5mm; }
-    .page-spacious .vinicola-name { font-size: 13pt; }
-    .page-spacious .vinicola-pais { font-size: 10pt; }
-    .page-spacious .vinicola-tipo { font-size: 7.5pt; margin: 2mm 0 1.2mm; }
-    .page-spacious .vinicola-header { margin-bottom: 1.8mm; padding-bottom: 1mm; }
-    .page-spacious .page-2col { column-gap: 12mm; }
+    /* Páginas com respiro moderado (Bebidas e Vinhos) — só um pouco mais que o default */
+    .page-spacious .item { margin-bottom: 1.5mm; padding-bottom: 1mm; }
+    .page-spacious .item-name { font-size: 10.5pt; line-height: 1.13; }
+    .page-spacious .item-desc { font-size: 7.8pt; line-height: 1.3; margin-top: 0.4mm; }
+    .page-spacious .section-name { font-size: 12pt; }
+    .page-spacious .section-header { margin: 2.5mm 0 1.2mm; padding-bottom: 0.7mm; }
+    .page-spacious .vinicola { margin-bottom: 3.5mm; }
+    .page-spacious .vinicola-name { font-size: 11.5pt; }
+    .page-spacious .vinicola-pais { font-size: 9pt; }
+    .page-spacious .vinicola-tipo { font-size: 7pt; margin: 1.2mm 0 0.8mm; }
+    .page-spacious .vinicola-header { margin-bottom: 1.2mm; padding-bottom: 0.6mm; }
+    .page-spacious .page-2col { column-gap: 10mm; }
 
     /* Página final — info do bar */
     .footer-block-wrap {
@@ -497,15 +499,15 @@
     .legal-unified {
       display: flex;
       align-items: center;
-      gap: 6mm;
-      margin-top: 5mm;
-      padding: 4mm 5mm;
+      gap: 5mm;
+      margin-top: 3mm;
+      padding: 3mm 4mm;
       border: 2px solid var(--ink);
       border-radius: 3mm;
       break-inside: avoid;
     }
     .legal-mascot {
-      width: 26mm;
+      width: 20mm;
       height: auto;
       flex-shrink: 0;
     }
@@ -516,17 +518,17 @@
     .legal-unified h3 {
       font-family: "Inter", sans-serif;
       font-weight: 700;
-      font-size: 9pt;
+      font-size: 8pt;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--red);
-      margin: 0 0 1.5mm;
+      margin: 0 0 1mm;
       text-align: left;
     }
     .legal-unified p {
       font-family: "Inter", sans-serif;
-      font-size: 8pt;
-      line-height: 1.4;
+      font-size: 7.2pt;
+      line-height: 1.35;
       color: var(--ink);
       margin: 0;
       text-align: left;
