@@ -87,7 +87,7 @@ const ComidasView = ({ openDish, density }) => {
       if (!nomeStr.includes(q) && !descStr.includes(q)) return false;
     }
     if (filter === 'all') return true;
-    if (filter === 'chef') return d.tag === 'Chef' || d.tag === 'Assinatura';
+    if (filter === 'chef') return d.tag === 'Chef';
     if (filter === 'veggie') return d.alerg && (d.alerg.includes('vegano') || d.alerg.includes('veggie'));
     if (filter === 'teatro') return d.tag === 'Teatro';
     return true;
@@ -460,9 +460,9 @@ const DishCard = ({ dish, onClick }) => {
             fontFamily: 'var(--font-body)', fontWeight: 600,
             fontSize: 10, letterSpacing: '0.28em', textTransform: 'uppercase',
             padding: '6px 10px', borderRadius: 999,
-            background: dish.tag === 'Chef' || dish.tag === 'Assinatura' ? 'rgba(0,0,0,.6)' : 'var(--surreal-red)',
-            color: dish.tag === 'Chef' || dish.tag === 'Assinatura' ? 'var(--ember)' : 'var(--bone)',
-            border: dish.tag === 'Chef' || dish.tag === 'Assinatura' ? '1px solid var(--ember)' : 'none',
+            background: dish.tag === 'Chef' ? 'rgba(0,0,0,.6)' : 'var(--surreal-red)',
+            color: dish.tag === 'Chef' ? 'var(--ember)' : 'var(--bone)',
+            border: dish.tag === 'Chef' ? '1px solid var(--ember)' : 'none',
             backdropFilter: 'blur(6px)',
           }}>{dish.tag}</span>
         )}
