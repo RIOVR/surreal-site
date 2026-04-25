@@ -176,6 +176,10 @@ const I18N_UI = {
     navVinhos: 'Vinhos',
     navCervejas: 'Cervejas',
     navSoftDrinks: 'Soft Drinks',
+    navEntradas: 'Entradas',
+    navSanduiches: 'Sanduíches',
+    navPratos: 'Pratos',
+    navSobremesas: 'Sobremesas',
   },
   en: {
     comidas: 'Food', bebidas: 'Drinks',
@@ -226,6 +230,10 @@ const I18N_UI = {
     navVinhos: 'Wines',
     navCervejas: 'Beers',
     navSoftDrinks: 'Soft Drinks',
+    navEntradas: 'Starters',
+    navSanduiches: 'Sandwiches',
+    navPratos: 'Mains',
+    navSobremesas: 'Desserts',
   },
   es: {
     comidas: 'Comidas', bebidas: 'Bebidas',
@@ -276,6 +284,10 @@ const I18N_UI = {
     navVinhos: 'Vinos',
     navCervejas: 'Cervezas',
     navSoftDrinks: 'Refrescos',
+    navEntradas: 'Entradas',
+    navSanduiches: 'Sándwiches',
+    navPratos: 'Platos',
+    navSobremesas: 'Postres',
   },
 };
 

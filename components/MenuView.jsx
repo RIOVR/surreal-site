@@ -156,6 +156,14 @@ const ComidasView = ({ openDish, density }) => {
         </div>
       </div>
 
+      {/* Atalhos por categoria — ordem da página */}
+      <QuickNav items={[
+        { id: 'sec-entradas',    label: uiT('navEntradas', lang) },
+        { id: 'sec-sanduiches',  label: uiT('navSanduiches', lang) },
+        { id: 'sec-principais',  label: uiT('navPratos', lang) },
+        { id: 'sec-sobremesas',  label: uiT('navSobremesas', lang) },
+      ]} />
+
       {/* Sections */}
       {secoes.map((sec, idx) => {
         const dishes = menu.filter(d => d.secao === sec.id && match(d));
