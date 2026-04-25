@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Surreal — Cardápio para impressão</title>
+  <link rel="icon" href="/assets/mascot.png" type="image/png" />
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Anton&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+    @font-face {
+      font-family: "Herbus";
+      src: url("/assets/fonts/herbus-bold.woff2") format("woff2"),
+           url("/assets/fonts/herbus-bold.woff") format("woff");
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    :root {
+      --bone:        #F2E9D8;
+      --bone-soft:   #E8DFCC;
+      --ink:         #0A0A0A;
+      --red:         #E4322B;
+      --red-dark:    #B8231D;
+      --ember:       #B8231D;
+      --muted:       #5A554B;
+      --faint:       #8A8270;
+      --border:      #BFB3A0;
+    }
+
+    /* ============ PAGE SETUP ============ */
+    @page {
+      size: A4 portrait;
+      margin: 14mm;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      background: var(--bone);
+      color: var(--ink);
+      font-family: "Inter", system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Banner que aparece SÓ no navegador, some na hora de imprimir */
+    .toolbar {
+      background: var(--ink);
+      color: var(--bone);
+      padding: 18px 24px;
+      text-align: center;
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .toolbar strong { color: var(--red); }
+    .toolbar kbd {
+      background: rgba(255,255,255,0.12);
+      padding: 3px 7px;
+      border-radius: 4px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+    }
+    .toolbar button {
+      margin-top: 12px;
+      background: var(--red);
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      font-family: "Inter", sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .toolbar button:hover { background: var(--red-dark); }
+    @media print { .toolbar { display: none !important; } }
+
+    /* Container das páginas — visualização em tela */
+    .pages-container {
+      max-width: 220mm;
+      margin: 30px auto;
+      padding: 0 10px;
+    }
+    @media print {
+      .pages-container { max-width: none; margin: 0; padding: 0; }
+    }
+
+    /* ============ PAGE ============ */
+    .page {
+      background: var(--bone);
+      width: 100%;
+      max-width: 200mm;
+      min-height: 277mm;     /* altura útil A4 menos margens */
+      padding: 0;
+      margin: 0 auto 24px;
+      page-break-after: always;
+      break-after: always;
+      position: relative;
+      box-shadow: 0 8px 32px rgba(0,0,0,.15);
+    }
+    .page:last-child {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+    @media print {
+      .page {
+        box-shadow: none;
+        margin: 0;
+        max-width: none;
+        min-height: 0;
+      }
+    }
+
+    /* ============ COVER ============ */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30mm 14mm;
+      min-height: 270mm;
+      background:
+        radial-gradient(ellipse at center, rgba(228,50,43,0.03) 0%, transparent 60%),
+        var(--bone);
+      position: relative;
+    }
+    .cover::before {
+      content: "";
+      position: absolute;
+      inset: 14mm;
+      border: 2px solid var(--ink);
+      pointer-events: none;
+    }
+    .cover::after {
+      content: "";
+      position: absolute;
+      inset: 16mm;
+      border: 1px solid var(--ink);
+      pointer-events: none;
+    }
+    .cover-inner {
+      position: relative;
+      z-index: 2;
+    }
+    .cover-mark {
+      font-family: "Inter", sans-serif;
+      font-size: 9pt;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 18mm;
+    }
+    .cover-logo {
+      font-family: "Herbus", sans-serif;
+      font-size: 100pt;
+      line-height: 1;
+      color: var(--ink);
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+    .cover-divider {
+      width: 60mm;
+      height: 1px;
+      background: var(--ink);
+      margin: 12mm auto;
+    }
+    .cover-title {
+      font-family: "Herbus", sans-serif;
+      font-size: 56pt;
+      line-height: 0.92;
+      color: var(--ink);
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .cover-title .red {
+      color: var(--red);
+      font-style: italic;
+    }
+    .cover-tag {
+      font-family: "Libre Caslon Text", serif;
+      font-style: italic;
+      font-size: 16pt;
+      color: var(--muted);
+      margin: 18mm 0 0;
+      max-width: 110mm;
+      line-height: 1.4;
+    }
+    .cover-meta {
+      font-family: "Inter", sans-serif;
+      font-size: 8.5pt;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-top: 30mm;
+    }
+    .cover-meta span { color: var(--red); }
+
+    /* ============ INNER PAGE ============ */
+    .inner {
+      padding: 14mm 14mm;
+    }
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 4mm;
+      margin-bottom: 7mm;
+      border-bottom: 2px solid var(--ink);
+    }
+    .page-header h1 {
+      font-family: "Herbus", sans-serif;
+      font-size: 38pt;
+      line-height: 1;
+      color: var(--ink);
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .page-header .subtitle {
+      font-family: "Libre Caslon Text", serif;
+      font-style: italic;
+      font-size: 11pt;
+      color: var(--muted);
+    }
+
+    /* Section Header (dentro de uma página) */
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 4mm;
+      margin: 4mm 0 3mm;
+      padding-bottom: 1.5mm;
+      border-bottom: 1px solid var(--border);
+      break-after: avoid;
+    }
+    .section-name {
+      font-family: "Herbus", sans-serif;
+      font-size: 16pt;
+      color: var(--red);
+      line-height: 1;
+      margin: 0;
+      letter-spacing: -0.005em;
+    }
+    .section-subtitle {
+      font-family: "Libre Caslon Text", serif;
+      font-style: italic;
+      font-size: 9pt;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    /* 2-column layout */
+    .columns-2 {
+      column-count: 2;
+      column-gap: 7mm;
+      column-rule: 1px dotted var(--border);
+    }
+    .columns-2 > * {
+      break-inside: avoid;
+    }
+
+    /* Item (dish/drink) */
+    .item {
+      break-inside: avoid;
+      margin-bottom: 3mm;
+      padding-bottom: 2mm;
+      border-bottom: 1px dotted var(--border);
+    }
+    .item:last-child {
+      border-bottom: none;
+    }
+    .item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 3mm;
+      margin-bottom: 0.5mm;
+    }
+    .item-name {
+      font-family: "Libre Caslon Text", serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 11.5pt;
+      color: var(--ink);
+      line-height: 1.15;
+    }
+    .item-name .item-tag {
+      display: inline-block;
+      font-family: "Inter", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 6.5pt;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-left: 2mm;
+      vertical-align: middle;
+    }
+    .item-name .item-tag.chef {
+      color: var(--bone);
+      background: var(--ink);
+      padding: 1pt 4pt;
+      border-radius: 999px;
+      letter-spacing: 0.2em;
+    }
+    .item-name .item-meta {
+      font-family: "JetBrains Mono", monospace;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 6.5pt;
+      letter-spacing: 0.1em;
+      color: var(--faint);
+      margin-left: 2mm;
+    }
+    .item-price {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: var(--ember);
+      white-space: nowrap;
+    }
+    .item-desc {
+      font-family: "Inter", sans-serif;
+      font-size: 8.5pt;
+      line-height: 1.35;
+      color: var(--muted);
+      margin: 0.5mm 0 0;
+    }
+    .item-base {
+      display: inline-block;
+      font-family: "Inter", sans-serif;
+      font-weight: 600;
+      font-size: 6.5pt;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-left: 2mm;
+    }
+
+    /* Vinícola block */
+    .vinicola {
+      break-inside: avoid;
+      margin-bottom: 5mm;
+    }
+    .vinicola-header {
+      display: flex;
+      align-items: baseline;
+      gap: 3mm;
+      padding-bottom: 1mm;
+      margin-bottom: 2mm;
+      border-bottom: 1px solid var(--ink);
+    }
+    .vinicola-name {
+      font-family: "Herbus", sans-serif;
+      font-size: 14pt;
+      color: var(--ink);
+      line-height: 1;
+      letter-spacing: -0.005em;
+    }
+    .vinicola-pais {
+      font-family: "Libre Caslon Text", serif;
+      font-style: italic;
+      font-size: 10pt;
+      color: var(--ember);
+    }
+    .vinicola-tipo {
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      font-size: 7.5pt;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin: 2mm 0 1.5mm;
+    }
+
+    /* Extras (sanduíches) */
+    .extras-box {
+      margin-top: 4mm;
+      padding: 4mm 5mm;
+      border: 1px solid var(--border);
+      border-radius: 2mm;
+      background: var(--bone-soft);
+      break-inside: avoid;
+    }
+    .extras-box .section-name { font-size: 12pt; }
+    .extras-box .columns-2 { column-rule: none; gap: 5mm; }
+    .extras-box .item { margin-bottom: 1mm; padding-bottom: 0; border-bottom: none; }
+
+    /* Página final — info do bar */
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1.2fr;
+      gap: 6mm;
+      margin-top: 10mm;
+      padding-top: 6mm;
+      border-top: 2px solid var(--ink);
+    }
+    .footer-block h3 {
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      font-size: 8pt;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin: 0 0 3mm;
+    }
+    .footer-block p, .footer-block div {
+      font-family: "Inter", sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.55;
+      color: var(--ink);
+      margin: 0;
+    }
+    .footer-block .muted {
+      color: var(--muted);
+      font-size: 9pt;
+    }
+    .legal {
+      margin-top: 6mm;
+      padding-top: 4mm;
+      border-top: 1px dotted var(--border);
+      font-family: "Inter", sans-serif;
+      font-size: 7.5pt;
+      line-height: 1.5;
+      color: var(--muted);
+      text-align: center;
+    }
+    .legal strong { color: var(--ink); font-weight: 600; }
+
+    .page-mark {
+      position: absolute;
+      bottom: 8mm;
+      left: 14mm;
+      right: 14mm;
+      display: flex;
+      justify-content: space-between;
+      font-family: "Inter", sans-serif;
+      font-size: 7pt;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--faint);
+      pointer-events: none;
+    }
+    .page-mark .red { color: var(--red); }
+
+    /* Mensagem de erro caso data.js não carregue */
+    .error {
+      padding: 20mm;
+      font-family: "Inter", sans-serif;
+      color: var(--red);
+      background: var(--bone);
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <strong>Surreal · Cardápio para impressão</strong><br/>
+    Pressione <kbd>Cmd+P</kbd> (Mac) ou <kbd>Ctrl+P</kbd> (Windows) → escolha <strong>"Salvar como PDF"</strong>.<br/>
+    Depois leve esse PDF pra gráfica e peça <strong>impressão A3 dobrado em 2 (4 páginas)</strong>.
+    <br/>
+    <button onclick="window.print()">Imprimir agora</button>
+  </div>
+
+  <div class="pages-container" id="pages">
+    <div class="error">Carregando dados do cardápio...</div>
+  </div>
+
+  <script src="/data.js"></script>
+  <script>
+    // Helpers
+    function pt(val) {
+      if (val == null) return '';
+      if (typeof val === 'string') return val;
+      if (Array.isArray(val)) return val;
+      return val.pt || val.en || val.es || '';
+    }
+    function esc(s) {
+      return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function tagBadge(tag) {
+      if (!tag) return '';
+      const cls = tag === 'Chef' ? 'chef' : '';
+      return `<span class="item-tag ${cls}">${esc(tag)}</span>`;
+    }
+
+    function metaBadge(item) {
+      const parts = [];
+      if (item.ml) parts.push(`${item.ml}ML`);
+      return parts.length ? `<span class="item-meta">${parts.join(' · ')}</span>` : '';
+    }
+
+    function renderItem(item, opts = {}) {
+      const nome = pt(item.nome);
+      const desc = pt(item.desc);
+      const base = !opts.hideBase && item.base && item.secao !== 'cervejas' && item.secao !== 'chopp' && item.secao !== 'soft' && opts.showBase ? `<span class="item-base">${esc(item.base)}</span>` : '';
+      return `
+        <div class="item">
+          <div class="item-row">
+            <div class="item-name">${esc(nome)}${tagBadge(item.tag)}${metaBadge(item)}${base}</div>
+            <div class="item-price">R$ ${item.preco}</div>
+          </div>
+          ${desc ? `<div class="item-desc">${esc(desc)}</div>` : ''}
+        </div>
+      `;
+    }
+
+    function renderItemCompact(item) {
+      const nome = pt(item.nome);
+      const desc = pt(item.desc);
+      return `
+        <div class="item">
+          <div class="item-row">
+            <div class="item-name">${esc(nome)}${metaBadge(item)}</div>
+            <div class="item-price">R$ ${item.preco}</div>
+          </div>
+          ${desc ? `<div class="item-desc">${esc(desc)}</div>` : ''}
+        </div>
+      `;
+    }
+
+    function renderSection(secao, items, opts = {}) {
+      if (!items.length) return '';
+      const nome = pt(secao.nome);
+      const sub = pt(secao.subtitle);
+      return `
+        <div class="section-header">
+          <h2 class="section-name">${esc(nome)}</h2>
+          ${sub ? `<span class="section-subtitle">${esc(sub)}</span>` : ''}
+        </div>
+        <div class="columns-2">
+          ${items.map(it => renderItem(it, opts)).join('')}
+        </div>
+      `;
+    }
+
+    function renderCover() {
+      const D = window.SURREAL;
+      const tagline = pt(D.info.tagline);
+      return `
+        <section class="page cover">
+          <div class="cover-inner">
+            <div class="cover-mark">CARDÁPIO · EDIÇÃO 2026</div>
+            <div class="cover-logo">Surreal</div>
+            <div class="cover-divider"></div>
+            <h1 class="cover-title">UM MENU<br/><span class="red">surreal.</span></h1>
+            <div class="cover-tag">"${esc(tagline)}"</div>
+            <div class="cover-meta">BOTAFOGO · <span>RIO DE JANEIRO</span></div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderComidas() {
+      const D = window.SURREAL;
+      const sections = D.secoes.comidas;
+      let html = '';
+      for (const s of sections) {
+        const items = D.menu.filter(d => d.secao === s.id);
+        html += renderSection(s, items);
+      }
+      // Extras
+      if (D.extras && D.extras.length) {
+        html += `
+          <div class="extras-box">
+            <div class="section-header" style="border-bottom: 1px solid var(--ink); margin-top: 0;">
+              <h2 class="section-name">Complementos</h2>
+              <span class="section-subtitle">deixe seu sanduíche ainda mais surreal</span>
+            </div>
+            <div class="columns-2">
+              ${D.extras.map(x => `
+                <div class="item" style="border-bottom: none; padding-bottom: 1mm;">
+                  <div class="item-row">
+                    <span class="item-name" style="font-style: normal; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 10pt;">${esc(pt(x.item))}</span>
+                    <span class="item-price">R$ ${x.preco}</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+      return `
+        <section class="page">
+          <div class="inner">
+            <div class="page-header">
+              <h1>Comidas</h1>
+              <span class="subtitle">o que se come por aqui</span>
+            </div>
+            ${html}
+          </div>
+          <div class="page-mark"><span class="red">SURREAL</span><span>02 / COMIDAS</span></div>
+        </section>
+      `;
+    }
+
+    function renderBebidas() {
+      const D = window.SURREAL;
+      const sections = D.secoes.drinks;
+      // Drinks autorais + clássicos (não cervejas/chopp/soft — esses vão na página final)
+      const wantedSecoes = ['leves', 'intensos', 'sem-alcool', 'classicos-zero', 'classicos'];
+      let html = '';
+      for (const s of sections) {
+        if (!wantedSecoes.includes(s.id)) continue;
+        const items = D.bebidas.filter(b => b.secao === s.id);
+        html += renderSection(s, items);
+      }
+      return `
+        <section class="page">
+          <div class="inner">
+            <div class="page-header">
+              <h1>Bebidas</h1>
+              <span class="subtitle">entre o real e o imaginado</span>
+            </div>
+            ${html}
+          </div>
+          <div class="page-mark"><span class="red">SURREAL</span><span>03 / BEBIDAS</span></div>
+        </section>
+      `;
+    }
+
+    function renderVinhos() {
+      const D = window.SURREAL;
+
+      // Agrupar por vinicola → tipo
+      const semVinicola = D.vinhos.filter(v => !v.vinicola);
+      const vinicolaOrder = [];
+      const byVinicola = {};
+      D.vinhos.forEach(v => {
+        if (!v.vinicola) return;
+        if (!byVinicola[v.vinicola]) {
+          byVinicola[v.vinicola] = { pais: v.pais, byTipo: {}, tipoOrder: [] };
+          vinicolaOrder.push(v.vinicola);
+        }
+        const block = byVinicola[v.vinicola];
+        if (!block.byTipo[v.tipo]) {
+          block.byTipo[v.tipo] = [];
+          block.tipoOrder.push(v.tipo);
+        }
+        block.byTipo[v.tipo].push(v);
+      });
+
+      let winesHtml = '';
+
+      if (semVinicola.length) {
+        winesHtml += `
+          <div class="vinicola">
+            <div class="vinicola-tipo">Por Taça</div>
+            ${semVinicola.map(renderItemCompact).join('')}
+          </div>
+        `;
+      }
+
+      winesHtml += `<div class="columns-2">`;
+      vinicolaOrder.forEach(v => {
+        const block = byVinicola[v];
+        winesHtml += `
+          <div class="vinicola">
+            <div class="vinicola-header">
+              <span class="vinicola-name">${esc(v)}</span>
+              ${block.pais ? `<span class="vinicola-pais">${esc(block.pais)}</span>` : ''}
+            </div>
+            ${block.tipoOrder.map(tipo => `
+              <div class="vinicola-tipo">${esc(tipo)}</div>
+              ${block.byTipo[tipo].map(renderItemCompact).join('')}
+            `).join('')}
+          </div>
+        `;
+      });
+      winesHtml += `</div>`;
+
+      // Cervejas (chopp + cervejas) e Soft drinks
+      const D2 = D;
+      const cervejaSecoes = D2.secoes.drinks.filter(s => s.id === 'chopp' || s.id === 'cervejas');
+      const softSecao = D2.secoes.drinks.find(s => s.id === 'soft');
+      let cervHtml = '';
+      cervejaSecoes.forEach(s => {
+        const items = D2.bebidas.filter(b => b.secao === s.id);
+        if (items.length) cervHtml += renderSection(s, items);
+      });
+      let softHtml = '';
+      if (softSecao) {
+        const items = D2.bebidas.filter(b => b.secao === softSecao.id);
+        if (items.length) softHtml = renderSection(softSecao, items);
+      }
+
+      const i = D.info;
+      return `
+        <section class="page">
+          <div class="inner" style="padding-bottom: 18mm;">
+            <div class="page-header">
+              <h1>Vinhos & Cervejas</h1>
+              <span class="subtitle">por taça, garrafa, copo ou alegria</span>
+            </div>
+
+            <div class="section-header" style="margin-top: 0;">
+              <h2 class="section-name">Carta de Vinhos</h2>
+              <span class="section-subtitle">por taça ou garrafa</span>
+            </div>
+            ${winesHtml}
+
+            ${cervHtml}
+            ${softHtml}
+
+            <div class="footer-grid">
+              <div class="footer-block">
+                <h3>Onde nos achar</h3>
+                <div>${esc(pt(i.address))}</div>
+                <div class="muted" style="margin-top: 2mm;">Seg–Qui · 12h–16h / 18h–00h</div>
+                <div class="muted">Sex · 12h–16h / 18h–01h</div>
+                <div class="muted">Sáb · 12h–01h</div>
+                <div class="muted">Dom · 12h–00h</div>
+              </div>
+              <div class="footer-block">
+                <h3>Fale com a gente</h3>
+                <div>${esc(i.instagram || '')}</div>
+                <div>${esc(i.site || 'www.surrealrio.com')}</div>
+              </div>
+              <div class="footer-block">
+                <h3>Bom saber</h3>
+                <p class="muted">Aceitamos dinheiro, pix, cartões de débito/crédito e vouchers (consulte com o atendente).</p>
+              </div>
+            </div>
+
+            <div class="legal">
+              <strong>Atenção, viajante do sabor:</strong> alguns pratos podem conter lactose, glúten, nozes, pimenta ou outros ingredientes alergênicos.
+              Se tiver qualquer restrição, alergia ou "inimizade" alimentar, avise nossa equipe antes de pedir.<br/>
+              Procon 151 · Vigilância Sanitária 1746 · Se beber, não dirija. Proibida a venda de bebida alcoólica para menores de 18 anos. Exija cupom fiscal.
+            </div>
+          </div>
+          <div class="page-mark"><span class="red">SURREAL</span><span>04 / VINHOS · CERVEJAS · SUCOS</span></div>
+        </section>
+      `;
+    }
+
+    function render() {
+      try {
+        const root = document.getElementById('pages');
+        if (!window.SURREAL) {
+          root.innerHTML = '<div class="error">Erro: dados do cardápio não carregaram. Recarregue a página.</div>';
+          return;
+        }
+        root.innerHTML =
+          renderCover() +
+          renderComidas() +
+          renderBebidas() +
+          renderVinhos();
+        document.title = 'Surreal · Cardápio 2026 (impressão)';
+      } catch (e) {
+        document.getElementById('pages').innerHTML = `<div class="error">Erro ao renderizar: ${esc(e.message)}</div>`;
+        console.error(e);
+      }
+    }
+
+    render();
+  </script>
+</body>
+</html>
