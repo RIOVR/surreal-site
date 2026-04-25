@@ -35,6 +35,9 @@
       size: A4 portrait;
       margin: 11mm 12mm;     /* margens menores → mais área útil */
     }
+    @page :first {
+      margin: 0;             /* CAPA sem margem — borda decorativa ocupa quase a página inteira */
+    }
 
     * { box-sizing: border-box; }
 
@@ -132,27 +135,37 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 18mm 14mm;     /* reduzido pra caber tudo numa página A4 */
-      min-height: 263mm;      /* um pouco menos que a página */
+      padding: 24mm 18mm;
+      min-height: 263mm;
       background: var(--paper);
       position: relative;
     }
     @media print {
-      .cover { min-height: 0; height: auto; padding: 14mm 14mm; }
+      /* Cover ocupa o A4 inteiro (porque @page :first é margin 0) */
+      .cover {
+        min-height: 297mm;     /* altura completa A4 */
+        height: 297mm;
+        padding: 28mm 22mm;    /* respiro interno, já que não há @page margin */
+      }
     }
     .cover::before {
       content: "";
       position: absolute;
-      inset: 14mm;
+      inset: 10mm;             /* na visualização */
       border: 2px solid var(--ink);
       pointer-events: none;
     }
     .cover::after {
       content: "";
       position: absolute;
-      inset: 16mm;
+      inset: 12mm;
       border: 1px solid var(--ink);
       pointer-events: none;
+    }
+    @media print {
+      /* Bordas mais próximas da borda do papel — ocupam mais a página */
+      .cover::before { inset: 8mm; }
+      .cover::after  { inset: 11mm; }
     }
     .cover-inner {
       position: relative;
@@ -404,14 +417,16 @@
     .extras-box .item { margin-bottom: 0.8mm; padding-bottom: 0; border-bottom: none; }
 
     /* Página final — info do bar */
+    .footer-block-wrap {
+      break-inside: avoid;        /* footer + legal sempre juntos */
+    }
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.3fr 1fr 1.5fr;
-      gap: 4mm;
-      margin-top: 3mm;
-      padding-top: 2.5mm;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 6mm;
+      margin-top: 2mm;
+      padding-top: 1.5mm;
       border-top: 1.5px solid var(--ink);
-      break-inside: avoid;        /* mantém o footer junto */
     }
     .footer-block h3 {
       font-family: "Inter", sans-serif;
@@ -420,12 +435,12 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--red);
-      margin: 0 0 1.2mm;
+      margin: 0 0 1mm;
     }
     .footer-block p, .footer-block div {
       font-family: "Inter", sans-serif;
       font-size: 7.5pt;
-      line-height: 1.32;
+      line-height: 1.3;
       color: var(--ink);
       margin: 0;
     }
@@ -434,15 +449,14 @@
       font-size: 7pt;
     }
     .legal {
-      margin-top: 2mm;
-      padding-top: 1.5mm;
+      margin-top: 1.5mm;
+      padding-top: 1mm;
       border-top: 1px dotted var(--border);
       font-family: "Inter", sans-serif;
-      font-size: 6.5pt;
-      line-height: 1.32;
+      font-size: 6pt;
+      line-height: 1.25;
       color: var(--muted);
       text-align: center;
-      break-inside: avoid;
     }
     .legal strong { color: var(--ink); font-weight: 600; }
 
@@ -733,15 +747,8 @@
             ${cervHtml}
             ${softHtml}
 
-            <div class="footer-grid" style="page-break-before: avoid; break-before: avoid;">
-              <div class="footer-block">
-                <h3>Onde nos achar</h3>
-                <div>${esc(pt(i.address))}</div>
-                <div class="muted" style="margin-top: 2mm;">Seg–Qui · 12h–16h / 18h–00h</div>
-                <div class="muted">Sex · 12h–16h / 18h–01h</div>
-                <div class="muted">Sáb · 12h–01h</div>
-                <div class="muted">Dom · 12h–00h</div>
-              </div>
+            <div class="footer-block-wrap">
+            <div class="footer-grid">
               <div class="footer-block">
                 <h3>Fale com a gente</h3>
                 <div>${esc(i.instagram || '')}</div>
@@ -755,8 +762,9 @@
 
             <div class="legal">
               <strong>Atenção, viajante do sabor:</strong> alguns pratos podem conter lactose, glúten, nozes, pimenta ou outros ingredientes alergênicos.
-              Se tiver qualquer restrição, alergia ou "inimizade" alimentar, avise nossa equipe antes de pedir.<br/>
+              Se tiver qualquer restrição, alergia ou "inimizade" alimentar, avise nossa equipe antes de pedir.
               Procon 151 · Vigilância Sanitária 1746 · Se beber, não dirija. Proibida a venda de bebida alcoólica para menores de 18 anos. Exija cupom fiscal.
+            </div>
             </div>
           </div>
           <div class="page-mark"><span class="red">SURREAL</span><span>04 / VINHOS · CERVEJAS · SUCOS</span></div>
