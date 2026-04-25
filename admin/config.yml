@@ -96,9 +96,7 @@ collections:
                 options:
                   - { label: "Sem tag", value: "" }
                   - { label: "Chef", value: "Chef" }
-                  - { label: "Assinatura", value: "Assinatura" }
                   - { label: "Clássico", value: "Clássico" }
-                  - { label: "Teatro", value: "Teatro" }
                   - { label: "Veggie", value: "Veggie" }
                   - { label: "Vegano", value: "Vegano" }
                   - { label: "Novo", value: "Novo" }
