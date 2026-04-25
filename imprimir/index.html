@@ -495,6 +495,60 @@
       color: var(--muted);
       text-align: center;
     }
+    /* Badges de alérgenos (G/L/V/Vg) inline ao lado do nome do prato */
+    .alerg-badges {
+      display: inline-flex;
+      gap: 1mm;
+      margin-left: 1.5mm;
+      vertical-align: 0.3mm;
+    }
+    .alerg-badge {
+      display: inline-block;
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      font-style: normal;
+      font-size: 5.8pt;
+      letter-spacing: 0;
+      color: var(--red);
+      background: white;
+      border: 1px solid var(--red);
+      border-radius: 999px;
+      min-width: 3.6mm;
+      height: 3.6mm;
+      line-height: 3.4mm;
+      text-align: center;
+      padding: 0 1pt;
+      box-sizing: border-box;
+    }
+    .alerg-badge.veg { color: var(--absinthe, #8FB23A); border-color: var(--absinthe, #8FB23A); }
+
+    /* Legenda compacta de alérgenos (topo de cada página) */
+    .alerg-legend {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2mm 4mm;
+      font-family: "Inter", sans-serif;
+      font-size: 7pt;
+      color: var(--muted);
+      margin: -2mm 0 4mm;
+      padding-bottom: 2mm;
+      border-bottom: 1px dotted var(--border);
+    }
+    .alerg-legend strong {
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      font-size: 6.5pt;
+    }
+    .alerg-legend .item-pair {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.5mm;
+    }
+    .alerg-legend .alerg-badges { margin-left: 0; }
+
     /* Bloco unificado de avisos legais — mascote falando à esquerda */
     .legal-unified {
       display: flex;
@@ -602,15 +656,48 @@
       return parts.length ? `<span class="item-meta">${parts.join(' · ')}</span>` : '';
     }
 
+    // Mapeamento de alérgenos → badge curta (RDC ANVISA 26/2015)
+    const ALERG_MAP = {
+      'glúten':   { letra: 'G',  cls: '' },
+      'gluten':   { letra: 'G',  cls: '' },
+      'lactose':  { letra: 'L',  cls: '' },
+      'leite':    { letra: 'L',  cls: '' },
+      'veggie':   { letra: 'V',  cls: 'veg' },
+      'vegetariano': { letra: 'V', cls: 'veg' },
+      'vegano':   { letra: 'Vg', cls: 'veg' },
+      'vegan':    { letra: 'Vg', cls: 'veg' },
+    };
+    function renderAlergBadges(alerg) {
+      if (!alerg || !alerg.length) return '';
+      const badges = alerg
+        .map(a => ALERG_MAP[String(a).toLowerCase()])
+        .filter(Boolean);
+      if (!badges.length) return '';
+      return `<span class="alerg-badges">${
+        badges.map(b => `<span class="alerg-badge ${b.cls}">${b.letra}</span>`).join('')
+      }</span>`;
+    }
+
+    function renderAlergLegend() {
+      return `
+        <div class="alerg-legend">
+          <strong>Legenda</strong>
+          <span class="item-pair"><span class="alerg-badge">G</span> glúten</span>
+          <span class="item-pair"><span class="alerg-badge">L</span> lactose</span>
+          <span class="item-pair"><span class="alerg-badge veg">V</span> vegetariano</span>
+          <span class="item-pair"><span class="alerg-badge veg">Vg</span> vegano</span>
+        </div>
+      `;
+    }
+
     function renderItem(item, opts = {}) {
       const nome = pt(item.nome);
       const desc = pt(item.desc);
       const base = !opts.hideBase && item.base && item.secao !== 'cervejas' && item.secao !== 'chopp' && item.secao !== 'soft' && opts.showBase ? `<span class="item-base">${esc(item.base)}</span>` : '';
-      // Sem tag/badge no impresso — pedido do cliente
       return `
         <div class="item">
           <div class="item-row">
-            <div class="item-name">${esc(nome)}${metaBadge(item)}${base}</div>
+            <div class="item-name">${esc(nome)}${renderAlergBadges(item.alerg)}${metaBadge(item)}${base}</div>
             <div class="item-price">R$ ${item.preco}</div>
           </div>
           ${desc ? `<div class="item-desc">${esc(desc)}</div>` : ''}
@@ -624,7 +711,7 @@
       return `
         <div class="item">
           <div class="item-row">
-            <div class="item-name">${esc(nome)}${metaBadge(item)}</div>
+            <div class="item-name">${esc(nome)}${renderAlergBadges(item.alerg)}${metaBadge(item)}</div>
             <div class="item-price">R$ ${item.preco}</div>
           </div>
           ${desc ? `<div class="item-desc">${esc(desc)}</div>` : ''}
@@ -715,6 +802,7 @@
               <h1>Comidas</h1>
               <span class="subtitle">o que se come por aqui</span>
             </div>
+            ${renderAlergLegend()}
             <div class="page-2col">
               <div class="col-left">${leftHtml}</div>
               <div class="col-right">${rightHtml}</div>
@@ -753,6 +841,7 @@
               <h1>Bebidas</h1>
               <span class="subtitle">entre o real e o imaginado</span>
             </div>
+            ${renderAlergLegend()}
             <div class="page-2col">
               <div class="col-left">${leftHtml}</div>
               <div class="col-right">${rightHtml}</div>
@@ -837,7 +926,7 @@
               <h1>Vinhos & Cervejas</h1>
               <span class="subtitle">por taça, garrafa, copo ou alegria</span>
             </div>
-
+            ${renderAlergLegend()}
             <div class="page-2col">
               <div class="col-left">
                 ${winesHtml}
