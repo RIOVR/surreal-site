@@ -19,15 +19,15 @@
     }
 
     :root {
-      --bone:        #F2E9D8;
-      --bone-soft:   #E8DFCC;
+      --paper:       #FFFFFF;        /* fundo branco — economiza tinta */
+      --paper-soft:  #FFFFFF;
       --ink:         #0A0A0A;
       --red:         #E4322B;
       --red-dark:    #B8231D;
       --ember:       #B8231D;
-      --muted:       #5A554B;
-      --faint:       #8A8270;
-      --border:      #BFB3A0;
+      --muted:       #4A4A4A;        /* mais escuro pra contraste em fundo branco */
+      --faint:       #7A7A7A;
+      --border:      #BBBBBB;
     }
 
     /* ============ PAGE SETUP ============ */
@@ -39,7 +39,7 @@
     * { box-sizing: border-box; }
 
     html, body {
-      background: var(--bone);
+      background: #ECECEC;          /* cinza só na visualização do navegador */
       color: var(--ink);
       font-family: "Inter", system-ui, sans-serif;
       margin: 0;
@@ -47,11 +47,14 @@
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
+    @media print {
+      html, body { background: white; }
+    }
 
     /* Banner que aparece SÓ no navegador, some na hora de imprimir */
     .toolbar {
       background: var(--ink);
-      color: var(--bone);
+      color: white;
       padding: 18px 24px;
       text-align: center;
       font-family: "Inter", sans-serif;
@@ -95,7 +98,7 @@
 
     /* ============ PAGE ============ */
     .page {
-      background: var(--bone);
+      background: var(--paper);
       width: 100%;
       max-width: 200mm;
       min-height: 277mm;     /* altura útil A4 menos margens */
@@ -128,9 +131,7 @@
       text-align: center;
       padding: 30mm 14mm;
       min-height: 270mm;
-      background:
-        radial-gradient(ellipse at center, rgba(228,50,43,0.03) 0%, transparent 60%),
-        var(--bone);
+      background: var(--paper);
       position: relative;
     }
     .cover::before {
@@ -160,12 +161,12 @@
       margin-bottom: 18mm;
     }
     .cover-logo {
-      font-family: "Herbus", sans-serif;
-      font-size: 100pt;
-      line-height: 1;
-      color: var(--ink);
-      margin: 0;
-      letter-spacing: -0.02em;
+      width: 110mm;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      /* Logo já é preto sobre transparente — sem filtro */
     }
     .cover-divider {
       width: 60mm;
@@ -306,7 +307,7 @@
       vertical-align: middle;
     }
     .item-name .item-tag.chef {
-      color: var(--bone);
+      color: white;
       background: var(--ink);
       padding: 1pt 4pt;
       border-radius: 999px;
@@ -388,7 +389,7 @@
       padding: 4mm 5mm;
       border: 1px solid var(--border);
       border-radius: 2mm;
-      background: var(--bone-soft);
+      background: transparent;
       break-inside: avoid;
     }
     .extras-box .section-name { font-size: 12pt; }
@@ -457,7 +458,7 @@
       padding: 20mm;
       font-family: "Inter", sans-serif;
       color: var(--red);
-      background: var(--bone);
+      background: white;
     }
   </style>
 </head>
@@ -465,7 +466,7 @@
   <div class="toolbar">
     <strong>Surreal · Cardápio para impressão</strong><br/>
     Pressione <kbd>Cmd+P</kbd> (Mac) ou <kbd>Ctrl+P</kbd> (Windows) → escolha <strong>"Salvar como PDF"</strong>.<br/>
-    Depois leve esse PDF pra gráfica e peça <strong>impressão A3 dobrado em 2 (4 páginas)</strong>.
+    Imprima em <strong>papel A4 retrato</strong> — 4 folhas pra prancheta.
     <br/>
     <button onclick="window.print()">Imprimir agora</button>
   </div>
@@ -551,7 +552,7 @@
         <section class="page cover">
           <div class="cover-inner">
             <div class="cover-mark">CARDÁPIO · EDIÇÃO 2026</div>
-            <div class="cover-logo">Surreal</div>
+            <img src="/assets/logo-wordmark.png" alt="Surreal" class="cover-logo" />
             <div class="cover-divider"></div>
             <h1 class="cover-title">UM MENU<br/><span class="red">surreal.</span></h1>
             <div class="cover-tag">"${esc(tagline)}"</div>
