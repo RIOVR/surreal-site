@@ -458,6 +458,31 @@
       color: var(--muted);
       text-align: center;
     }
+    /* Bloco unificado de avisos legais (no rodapé da última página) */
+    .legal-unified {
+      margin-top: 5mm;
+      padding-top: 3mm;
+      border-top: 1.5px solid var(--ink);
+      text-align: center;
+      break-inside: avoid;
+    }
+    .legal-unified h3 {
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      font-size: 8pt;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin: 0 0 2mm;
+    }
+    .legal-unified p {
+      font-family: "Inter", sans-serif;
+      font-size: 7.5pt;
+      line-height: 1.45;
+      color: var(--muted);
+      margin: 0 auto;
+      max-width: 165mm;
+    }
     .legal strong { color: var(--ink); font-weight: 600; }
 
     .page-mark {
@@ -748,23 +773,15 @@
             ${softHtml}
 
             <div class="footer-block-wrap">
-            <div class="footer-grid">
-              <div class="footer-block">
-                <h3>Fale com a gente</h3>
-                <div>${esc(i.instagram || '')}</div>
-                <div>${esc(i.site || 'www.surrealrio.com')}</div>
+              <div class="legal-unified">
+                <h3>Atenção, viajante do sabor</h3>
+                <p>
+                  Alguns pratos podem conter lactose, glúten, nozes, pimenta ou outros ingredientes alergênicos.
+                  Se tiver qualquer restrição, alergia ou "inimizade" alimentar, avise nossa equipe antes de pedir.
+                  Aceitamos dinheiro, pix, cartões de débito/crédito e vouchers (consulte com o atendente).
+                  Procon 151 · Vigilância Sanitária 1746 · Se beber, não dirija. Proibida a venda de bebida alcoólica para menores de 18 anos. Exija cupom fiscal.
+                </p>
               </div>
-              <div class="footer-block">
-                <h3>Bom saber</h3>
-                <p class="muted">Aceitamos dinheiro, pix, cartões de débito/crédito e vouchers (consulte com o atendente).</p>
-              </div>
-            </div>
-
-            <div class="legal">
-              <strong>Atenção, viajante do sabor:</strong> alguns pratos podem conter lactose, glúten, nozes, pimenta ou outros ingredientes alergênicos.
-              Se tiver qualquer restrição, alergia ou "inimizade" alimentar, avise nossa equipe antes de pedir.
-              Procon 151 · Vigilância Sanitária 1746 · Se beber, não dirija. Proibida a venda de bebida alcoólica para menores de 18 anos. Exija cupom fiscal.
-            </div>
             </div>
           </div>
           <div class="page-mark"><span class="red">SURREAL</span><span>04 / VINHOS · CERVEJAS · SUCOS</span></div>
