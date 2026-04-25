@@ -278,7 +278,7 @@
       flex-shrink: 0;
     }
 
-    /* 2-column layout */
+    /* 2-column layout (auto-balance via CSS columns) */
     .columns-2 {
       column-count: 2;
       column-gap: 6mm;
@@ -286,6 +286,20 @@
     }
     .columns-2 > * {
       break-inside: avoid;
+    }
+    /* Single-column passthrough (items empilham verticalmente) */
+    .columns-1 > * {
+      break-inside: avoid;
+    }
+    /* Layout 2-colunas EXPLÍCITO (esquerda/direita fixas, não auto-balance) */
+    .page-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 8mm;
+      align-items: start;
+    }
+    .page-2col > div {
+      min-width: 0;          /* evita overflow do grid */
     }
 
     /* Item (dish/drink) */
@@ -369,19 +383,19 @@
     /* Vinícola block */
     .vinicola {
       break-inside: avoid;
-      margin-bottom: 4mm;
+      margin-bottom: 3mm;
     }
     .vinicola-header {
       display: flex;
       align-items: baseline;
       gap: 2mm;
-      padding-bottom: 0.7mm;
-      margin-bottom: 1.5mm;
+      padding-bottom: 0.5mm;
+      margin-bottom: 1mm;
       border-bottom: 1px solid var(--ink);
     }
     .vinicola-name {
       font-family: "Herbus", sans-serif;
-      font-size: 12pt;
+      font-size: 11pt;
       color: var(--ink);
       line-height: 1;
       letter-spacing: -0.005em;
@@ -389,17 +403,17 @@
     .vinicola-pais {
       font-family: "Libre Caslon Text", serif;
       font-style: italic;
-      font-size: 9pt;
+      font-size: 8.5pt;
       color: var(--ember);
     }
     .vinicola-tipo {
       font-family: "Inter", sans-serif;
       font-weight: 700;
-      font-size: 7pt;
+      font-size: 6.5pt;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--red);
-      margin: 1.5mm 0 1mm;
+      margin: 1mm 0 0.7mm;
     }
 
     /* Extras (sanduíches) */
@@ -460,8 +474,8 @@
     }
     /* Bloco unificado de avisos legais (no rodapé da última página) */
     .legal-unified {
-      margin-top: 5mm;
-      padding-top: 3mm;
+      margin-top: 3mm;
+      padding-top: 2mm;
       border-top: 1.5px solid var(--ink);
       text-align: center;
       break-inside: avoid;
@@ -469,19 +483,19 @@
     .legal-unified h3 {
       font-family: "Inter", sans-serif;
       font-weight: 700;
-      font-size: 8pt;
+      font-size: 7pt;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--red);
-      margin: 0 0 2mm;
+      margin: 0 0 1.2mm;
     }
     .legal-unified p {
       font-family: "Inter", sans-serif;
-      font-size: 7.5pt;
-      line-height: 1.45;
+      font-size: 6.8pt;
+      line-height: 1.35;
       color: var(--muted);
       margin: 0 auto;
-      max-width: 165mm;
+      max-width: 170mm;
     }
     .legal strong { color: var(--ink); font-weight: 600; }
 
@@ -586,12 +600,13 @@
       if (!items.length) return '';
       const nome = pt(secao.nome);
       const sub = pt(secao.subtitle);
+      const cls = opts.singleColumn ? 'columns-1' : 'columns-2';
       return `
         <div class="section-header">
           <h2 class="section-name">${esc(nome)}</h2>
           ${sub ? `<span class="section-subtitle">${esc(sub)}</span>` : ''}
         </div>
-        <div class="columns-2">
+        <div class="${cls}">
           ${items.map(it => renderItem(it, opts)).join('')}
         </div>
       `;
@@ -692,7 +707,7 @@
     function renderVinhos() {
       const D = window.SURREAL;
 
-      // Agrupar por vinicola → tipo
+      // ===== COLUNA ESQUERDA: VINHOS =====
       const semVinicola = D.vinhos.filter(v => !v.vinicola);
       const vinicolaOrder = [];
       const byVinicola = {};
@@ -710,7 +725,12 @@
         block.byTipo[v.tipo].push(v);
       });
 
-      let winesHtml = '';
+      let winesHtml = `
+        <div class="section-header" style="margin-top: 0;">
+          <h2 class="section-name">Carta de Vinhos</h2>
+          <span class="section-subtitle">por taça ou garrafa</span>
+        </div>
+      `;
 
       if (semVinicola.length) {
         winesHtml += `
@@ -721,7 +741,7 @@
         `;
       }
 
-      winesHtml += `<div class="columns-2">`;
+      // Vinicolas em coluna única (não usa columns-2 interno)
       vinicolaOrder.forEach(v => {
         const block = byVinicola[v];
         winesHtml += `
@@ -737,40 +757,36 @@
           </div>
         `;
       });
-      winesHtml += `</div>`;
 
-      // Cervejas (chopp + cervejas) e Soft drinks
-      const D2 = D;
-      const cervejaSecoes = D2.secoes.drinks.filter(s => s.id === 'chopp' || s.id === 'cervejas');
-      const softSecao = D2.secoes.drinks.find(s => s.id === 'soft');
-      let cervHtml = '';
+      // ===== COLUNA DIREITA: CERVEJAS + SOFT =====
+      const cervejaSecoes = D.secoes.drinks.filter(s => s.id === 'chopp' || s.id === 'cervejas');
+      const softSecao = D.secoes.drinks.find(s => s.id === 'soft');
+      let rightHtml = '';
       cervejaSecoes.forEach(s => {
-        const items = D2.bebidas.filter(b => b.secao === s.id);
-        if (items.length) cervHtml += renderSection(s, items);
+        const items = D.bebidas.filter(b => b.secao === s.id);
+        if (items.length) rightHtml += renderSection(s, items, { singleColumn: true });
       });
-      let softHtml = '';
       if (softSecao) {
-        const items = D2.bebidas.filter(b => b.secao === softSecao.id);
-        if (items.length) softHtml = renderSection(softSecao, items);
+        const items = D.bebidas.filter(b => b.secao === softSecao.id);
+        if (items.length) rightHtml += renderSection(softSecao, items, { singleColumn: true });
       }
 
-      const i = D.info;
       return `
         <section class="page">
-          <div class="inner" style="padding-bottom: 18mm;">
+          <div class="inner" style="padding-bottom: 8mm;">
             <div class="page-header">
               <h1>Vinhos & Cervejas</h1>
               <span class="subtitle">por taça, garrafa, copo ou alegria</span>
             </div>
 
-            <div class="section-header" style="margin-top: 0;">
-              <h2 class="section-name">Carta de Vinhos</h2>
-              <span class="section-subtitle">por taça ou garrafa</span>
+            <div class="page-2col">
+              <div class="col-left">
+                ${winesHtml}
+              </div>
+              <div class="col-right">
+                ${rightHtml}
+              </div>
             </div>
-            ${winesHtml}
-
-            ${cervHtml}
-            ${softHtml}
 
             <div class="footer-block-wrap">
               <div class="legal-unified">
