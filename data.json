@@ -670,7 +670,7 @@
           "Una oferta que no puedes rechazar."
         ]
       },
-      "tag": null,
+      "tag": "Chef",
       "id": "poderoso-chefao",
       "secao": "principais"
     },
@@ -931,7 +931,7 @@
           "si es un elogio o una advertencia."
         ]
       },
-      "tag": "Novo",
+      "tag": "Chef",
       "id": "sal-no-doce",
       "secao": "sobremesas"
     },
@@ -974,7 +974,7 @@
           "\"Oompa Loompa dumpa di du...\""
         ]
       },
-      "tag": null,
+      "tag": "Chef",
       "id": "fantastico-bolo",
       "secao": "sobremesas"
     }
