@@ -33,7 +33,7 @@
     /* ============ PAGE SETUP ============ */
     @page {
       size: A4 portrait;
-      margin: 11mm 12mm;     /* margens menores → mais área útil */
+      margin: 30mm 12mm 11mm; /* topo extra (30mm) pro prendedor da prancheta não cobrir o título */
     }
     @page :first {
       margin: 0;             /* CAPA sem margem — borda decorativa ocupa quase a página inteira */
@@ -416,19 +416,46 @@
       margin: 1mm 0 0.7mm;
     }
 
-    /* Extras (sanduíches) */
+    /* Extras (sanduíches) — destaque com borda vermelha grossa */
     .extras-box {
       margin-top: 3mm;
-      padding: 2.5mm 4mm 1.5mm;
-      border: 1px solid var(--border);
+      padding: 3mm 4mm;
+      border: 2px solid var(--red);
       border-radius: 2mm;
-      background: transparent;
+      background: rgba(228,50,43,0.025);    /* leve tinge vermelho — quase imperceptível */
       break-inside: avoid;
     }
-    .extras-box .section-header { margin-top: 0; padding-bottom: 0.5mm; }
-    .extras-box .section-name { font-size: 11pt; }
+    .extras-box .section-header {
+      margin-top: 0;
+      padding-bottom: 1mm;
+      border-bottom: 1px solid var(--red);
+    }
+    .extras-box .section-name { font-size: 11pt; color: var(--red); }
+    .extras-box .columns-1 .item, .extras-box .columns-2 .item, .extras-box .item {
+      margin-bottom: 0.6mm;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
     .extras-box .columns-2 { column-rule: none; column-gap: 5mm; }
-    .extras-box .item { margin-bottom: 0.8mm; padding-bottom: 0; border-bottom: none; }
+
+    /* Sobremesas em grid horizontal de 3 colunas (respiro final da página) */
+    .sobremesas-block {
+      margin-top: 6mm;
+      padding-top: 4mm;
+      border-top: 2px solid var(--ink);
+      break-inside: avoid;
+    }
+    .sobremesas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5mm;
+      margin-top: 2mm;
+    }
+    .sobremesas-grid .item {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
 
     /* Página final — info do bar */
     .footer-block-wrap {
@@ -654,17 +681,40 @@
 
     function renderComidas() {
       const D = window.SURREAL;
-      const sections = D.secoes.comidas;
-      let html = '';
-      // Entradas → Sanduíches → COMPLEMENTOS (vinculados aos sanduíches) → Principais → Sobremesas
-      for (const s of sections) {
-        const items = D.menu.filter(d => d.secao === s.id);
-        html += renderSection(s, items);
-        // Insere caixa de complementos logo depois dos sanduíches
-        if (s.id === 'sanduiches') {
-          html += renderExtrasBox();
-        }
+      const findSec = (id) => D.secoes.comidas.find(s => s.id === id);
+      const itemsOf = (id) => D.menu.filter(d => d.secao === id);
+
+      // ===== COLUNA ESQUERDA: Entradas + Pratos Principais =====
+      let leftHtml = '';
+      const entradas = findSec('entradas');
+      const principais = findSec('principais');
+      if (entradas) leftHtml += renderSection(entradas, itemsOf('entradas'), { singleColumn: true });
+      if (principais) leftHtml += renderSection(principais, itemsOf('principais'), { singleColumn: true });
+
+      // ===== COLUNA DIREITA: Sanduíches + Complementos (caixa vermelha) =====
+      let rightHtml = '';
+      const sanduiches = findSec('sanduiches');
+      if (sanduiches) rightHtml += renderSection(sanduiches, itemsOf('sanduiches'), { singleColumn: true });
+      rightHtml += renderExtrasBox();
+
+      // ===== ABAIXO (full width): Sobremesas em grid de 3 colunas =====
+      const sobremesas = findSec('sobremesas');
+      const sobremesasItems = itemsOf('sobremesas');
+      let sobremesasHtml = '';
+      if (sobremesas && sobremesasItems.length) {
+        sobremesasHtml = `
+          <div class="sobremesas-block">
+            <div class="section-header">
+              <h2 class="section-name">${esc(pt(sobremesas.nome))}</h2>
+              <span class="section-subtitle">${esc(pt(sobremesas.subtitle))}</span>
+            </div>
+            <div class="sobremesas-grid">
+              ${sobremesasItems.map(it => renderItem(it)).join('')}
+            </div>
+          </div>
+        `;
       }
+
       return `
         <section class="page">
           <div class="inner">
@@ -672,7 +722,11 @@
               <h1>Comidas</h1>
               <span class="subtitle">o que se come por aqui</span>
             </div>
-            ${html}
+            <div class="page-2col">
+              <div class="col-left">${leftHtml}</div>
+              <div class="col-right">${rightHtml}</div>
+            </div>
+            ${sobremesasHtml}
           </div>
           <div class="page-mark"><span class="red">SURREAL</span><span>02 / COMIDAS</span></div>
         </section>
@@ -681,15 +735,25 @@
 
     function renderBebidas() {
       const D = window.SURREAL;
-      const sections = D.secoes.drinks;
-      // Drinks autorais + clássicos (não cervejas/chopp/soft — esses vão na página final)
-      const wantedSecoes = ['leves', 'intensos', 'sem-alcool', 'classicos-zero', 'classicos'];
-      let html = '';
-      for (const s of sections) {
-        if (!wantedSecoes.includes(s.id)) continue;
-        const items = D.bebidas.filter(b => b.secao === s.id);
-        html += renderSection(s, items);
-      }
+      const findSec = (id) => D.secoes.drinks.find(s => s.id === id);
+      const itemsOf = (id) => D.bebidas.filter(b => b.secao === id);
+
+      const renderSecionsLista = (ids) => {
+        let h = '';
+        D.secoes.drinks.forEach(s => {
+          if (!ids.includes(s.id)) return;
+          const items = itemsOf(s.id);
+          if (items.length) h += renderSection(s, items, { singleColumn: true });
+        });
+        return h;
+      };
+
+      // ===== COLUNA ESQUERDA: drinks autorais (Leves + Intensos + Sem-Álcool) =====
+      const leftHtml = renderSecionsLista(['leves', 'intensos', 'sem-alcool']);
+
+      // ===== COLUNA DIREITA: Clássicos zero + Drinks Clássicos =====
+      const rightHtml = renderSecionsLista(['classicos-zero', 'classicos']);
+
       return `
         <section class="page">
           <div class="inner">
@@ -697,7 +761,10 @@
               <h1>Bebidas</h1>
               <span class="subtitle">entre o real e o imaginado</span>
             </div>
-            ${html}
+            <div class="page-2col">
+              <div class="col-left">${leftHtml}</div>
+              <div class="col-right">${rightHtml}</div>
+            </div>
           </div>
           <div class="page-mark"><span class="red">SURREAL</span><span>03 / BEBIDAS</span></div>
         </section>
