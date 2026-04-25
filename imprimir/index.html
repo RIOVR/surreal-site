@@ -101,13 +101,14 @@
       background: var(--paper);
       width: 100%;
       max-width: 200mm;
-      min-height: 277mm;     /* altura útil A4 menos margens */
+      min-height: 265mm;     /* um pouco menos que a área útil A4 (269mm) pra margem de segurança */
       padding: 0;
       margin: 0 auto 24px;
       page-break-after: always;
       break-after: always;
       position: relative;
       box-shadow: 0 8px 32px rgba(0,0,0,.15);
+      overflow: hidden;
     }
     .page:last-child {
       page-break-after: avoid;
@@ -118,7 +119,9 @@
         box-shadow: none;
         margin: 0;
         max-width: none;
-        min-height: 0;
+        min-height: 0;         /* deixa o conteúdo fluir livre no print */
+        height: auto;
+        overflow: visible;
       }
     }
 
@@ -129,22 +132,25 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 30mm 14mm;
-      min-height: 270mm;
+      padding: 18mm 14mm;     /* reduzido pra caber tudo numa página A4 */
+      min-height: 263mm;      /* um pouco menos que a página */
       background: var(--paper);
       position: relative;
+    }
+    @media print {
+      .cover { min-height: 0; height: auto; padding: 14mm 14mm; }
     }
     .cover::before {
       content: "";
       position: absolute;
-      inset: 14mm;
+      inset: 9mm;
       border: 2px solid var(--ink);
       pointer-events: none;
     }
     .cover::after {
       content: "";
       position: absolute;
-      inset: 16mm;
+      inset: 11mm;
       border: 1px solid var(--ink);
       pointer-events: none;
     }
@@ -158,10 +164,10 @@
       letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--red);
-      margin-bottom: 18mm;
+      margin-bottom: 10mm;
     }
     .cover-logo {
-      width: 110mm;
+      width: 95mm;
       max-width: 100%;
       height: auto;
       display: block;
@@ -169,14 +175,14 @@
       /* Logo já é preto sobre transparente — sem filtro */
     }
     .cover-divider {
-      width: 60mm;
+      width: 50mm;
       height: 1px;
       background: var(--ink);
-      margin: 12mm auto;
+      margin: 8mm auto;
     }
     .cover-title {
       font-family: "Herbus", sans-serif;
-      font-size: 56pt;
+      font-size: 48pt;
       line-height: 0.92;
       color: var(--ink);
       margin: 0;
@@ -189,9 +195,9 @@
     .cover-tag {
       font-family: "Libre Caslon Text", serif;
       font-style: italic;
-      font-size: 16pt;
+      font-size: 14pt;
       color: var(--muted);
-      margin: 18mm 0 0;
+      margin: 10mm 0 0;
       max-width: 110mm;
       line-height: 1.4;
     }
@@ -201,7 +207,7 @@
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--ink);
-      margin-top: 30mm;
+      margin-top: 18mm;
     }
     .cover-meta span { color: var(--red); }
 
