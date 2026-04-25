@@ -223,6 +223,64 @@ const ComidasView = ({ openDish, density }) => {
   );
 };
 
+// ---------- QuickNav ----------
+// Atalho horizontal pra ancoras na seção de bebidas.
+// Compensa altura da tab strip sticky pra a seção alvo não ficar atrás dela.
+const QuickNav = ({ items }) => {
+  const isMobile = useIsMobile();
+  const scrollToAnchor = (id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    // Mede dinamicamente a altura da tab strip sticky pra fazer offset
+    const stickyBar = document.querySelector('#menu > div'); // primeiro filho de #menu = tab strip
+    const offset = (stickyBar ? stickyBar.getBoundingClientRect().height : 60) + 16;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  };
+  return (
+    <div style={{
+      display: 'flex',
+      gap: 8,
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      marginBottom: isMobile ? 28 : 32,
+      paddingBottom: 22,
+      borderBottom: '1px dotted var(--border)',
+    }}>
+      {items.map(item => (
+        <button
+          key={item.id}
+          onClick={() => scrollToAnchor(item.id)}
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontWeight: 600,
+            fontSize: 11,
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            padding: '9px 16px',
+            borderRadius: 999,
+            border: '1px solid var(--neon-magenta)',
+            background: 'transparent',
+            color: 'var(--bone)',
+            cursor: 'pointer',
+            transition: 'all 180ms var(--ease-out-soft)',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = 'var(--neon-magenta)';
+            e.currentTarget.style.color = 'var(--bone)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = 'transparent';
+            e.currentTarget.style.color = 'var(--bone)';
+          }}
+        >
+          {item.label}
+        </button>
+      ))}
+    </div>
+  );
+};
+
 // ====================== BEBIDAS ======================
 const BebidasView = ({ openDrink, density }) => {
   const secoes = window.SURREAL.secoes.drinks;
@@ -261,6 +319,14 @@ const BebidasView = ({ openDrink, density }) => {
           </p>
         </div>
       </div>
+
+      {/* Atalhos de navegação por categoria — ordem segue a sequência física da página */}
+      <QuickNav items={[
+        { id: 'bsec-leves', label: uiT('navDrinks', lang) },
+        { id: 'bsec-chopp', label: uiT('navCervejas', lang) },
+        { id: 'bsec-soft',  label: uiT('navSoftDrinks', lang) },
+        { id: 'vinhos',     label: uiT('navVinhos', lang) },
+      ]} />
 
       {/* Base filter */}
       <div style={{

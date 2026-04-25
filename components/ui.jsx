@@ -171,6 +171,11 @@ const I18N_UI = {
     footerVersao: 'CARDÁPIO VIVO — VERSÃO 2026.04',
     fotoEmBreve: 'foto em breve',
     fecharTravessia: 'voltar',
+    navIrPara: '↓ ir para',
+    navDrinks: 'Drinks',
+    navVinhos: 'Vinhos',
+    navCervejas: 'Cervejas',
+    navSoftDrinks: 'Soft Drinks',
   },
   en: {
     comidas: 'Food', bebidas: 'Drinks',
@@ -216,6 +221,11 @@ const I18N_UI = {
     footerVersao: 'LIVING MENU — VERSION 2026.04',
     fotoEmBreve: 'photo coming soon',
     fecharTravessia: 'back',
+    navIrPara: '↓ jump to',
+    navDrinks: 'Cocktails',
+    navVinhos: 'Wines',
+    navCervejas: 'Beers',
+    navSoftDrinks: 'Soft Drinks',
   },
   es: {
     comidas: 'Comidas', bebidas: 'Bebidas',
@@ -261,6 +271,11 @@ const I18N_UI = {
     footerVersao: 'MENÚ VIVO — VERSIÓN 2026.04',
     fotoEmBreve: 'foto próximamente',
     fecharTravessia: 'volver',
+    navIrPara: '↓ ir a',
+    navDrinks: 'Tragos',
+    navVinhos: 'Vinos',
+    navCervejas: 'Cervezas',
+    navSoftDrinks: 'Refrescos',
   },
 };
 
