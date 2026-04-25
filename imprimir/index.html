@@ -219,8 +219,8 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      padding-bottom: 2mm;
-      margin-bottom: 4mm;
+      padding-bottom: 1.5mm;
+      margin-bottom: 3mm;
       border-bottom: 2px solid var(--ink);
     }
     .page-header h1 {
@@ -244,14 +244,14 @@
       align-items: baseline;
       justify-content: space-between;
       gap: 4mm;
-      margin: 3mm 0 1.5mm;
-      padding-bottom: 1mm;
+      margin: 2mm 0 1mm;
+      padding-bottom: 0.7mm;
       border-bottom: 1px solid var(--border);
       break-after: avoid;        /* não deixa header órfão no fim de coluna */
     }
     .section-name {
       font-family: "Herbus", sans-serif;
-      font-size: 13pt;           /* compactado de 16pt */
+      font-size: 12pt;
       color: var(--red);
       line-height: 1;
       margin: 0;
@@ -278,8 +278,8 @@
     /* Item (dish/drink) */
     .item {
       break-inside: avoid;
-      margin-bottom: 1.8mm;
-      padding-bottom: 1.2mm;
+      margin-bottom: 1.3mm;
+      padding-bottom: 0.9mm;
       border-bottom: 1px dotted var(--border);
     }
     .item:last-child {
@@ -406,41 +406,43 @@
     /* Página final — info do bar */
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr 1.2fr;
-      gap: 5mm;
-      margin-top: 5mm;
-      padding-top: 4mm;
-      border-top: 2px solid var(--ink);
+      grid-template-columns: 1.3fr 1fr 1.5fr;
+      gap: 4mm;
+      margin-top: 3mm;
+      padding-top: 2.5mm;
+      border-top: 1.5px solid var(--ink);
+      break-inside: avoid;        /* mantém o footer junto */
     }
     .footer-block h3 {
       font-family: "Inter", sans-serif;
       font-weight: 700;
-      font-size: 7.5pt;
-      letter-spacing: 0.25em;
+      font-size: 6.5pt;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--red);
-      margin: 0 0 2mm;
+      margin: 0 0 1.2mm;
     }
     .footer-block p, .footer-block div {
       font-family: "Inter", sans-serif;
-      font-size: 8.5pt;
-      line-height: 1.4;
+      font-size: 7.5pt;
+      line-height: 1.32;
       color: var(--ink);
       margin: 0;
     }
     .footer-block .muted {
       color: var(--muted);
-      font-size: 8pt;
+      font-size: 7pt;
     }
     .legal {
-      margin-top: 3mm;
-      padding-top: 2mm;
+      margin-top: 2mm;
+      padding-top: 1.5mm;
       border-top: 1px dotted var(--border);
       font-family: "Inter", sans-serif;
-      font-size: 7pt;
-      line-height: 1.4;
+      font-size: 6.5pt;
+      line-height: 1.32;
       color: var(--muted);
       text-align: center;
+      break-inside: avoid;
     }
     .legal strong { color: var(--ink); font-weight: 600; }
 
@@ -459,6 +461,9 @@
       pointer-events: none;
     }
     .page-mark .red { color: var(--red); }
+    @media print {
+      .page-mark { display: none; }   /* esconde no print, dá mais espaço útil */
+    }
 
     /* Mensagem de erro caso data.js não carregue */
     .error {
@@ -728,7 +733,7 @@
             ${cervHtml}
             ${softHtml}
 
-            <div class="footer-grid">
+            <div class="footer-grid" style="page-break-before: avoid; break-before: avoid;">
               <div class="footer-block">
                 <h3>Onde nos achar</h3>
                 <div>${esc(pt(i.address))}</div>
