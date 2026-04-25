@@ -2214,11 +2214,6 @@
     },
     {
       "id": "malbec-reserva",
-      "grupo": {
-        "pt": "Expresso Bodeguero Tinto",
-        "en": "Expresso Bodeguero Red",
-        "es": "Expresso Bodeguero Tinto"
-      },
       "nome": {
         "pt": "Malbec Reserva 2023",
         "en": "Malbec Reserve 2023",
@@ -2231,15 +2226,12 @@
         "en": "Medium to full body, soft tannins, ripe dark fruit and vanilla.",
         "es": "Cuerpo medio a pleno, taninos suaves, frutas negras maduras y vainilla."
       },
-      "pais": "Argentina"
+      "pais": "Argentina",
+      "vinicola": "Expresso Bodeguero",
+      "tipo": "Tinto"
     },
     {
       "id": "cabernet-franc",
-      "grupo": {
-        "pt": "Expresso Bodeguero Tinto",
-        "en": "Expresso Bodeguero Red",
-        "es": "Expresso Bodeguero Tinto"
-      },
       "nome": {
         "pt": "Cabernet Franc Reserva 2023",
         "en": "Cabernet Franc Reserve 2023",
@@ -2252,15 +2244,12 @@
         "en": "Fresh red fruits, gentle bell pepper and a light tobacco note.",
         "es": "Frutas rojas frescas, pimiento suave y leve toque de tabaco."
       },
-      "pais": "Argentina"
+      "pais": "Argentina",
+      "vinicola": "Expresso Bodeguero",
+      "tipo": "Tinto"
     },
     {
       "id": "malbec-2024",
-      "grupo": {
-        "pt": "Expresso Bodeguero Tinto",
-        "en": "Expresso Bodeguero Red",
-        "es": "Expresso Bodeguero Tinto"
-      },
       "nome": {
         "pt": "Malbec 2024",
         "en": "Malbec 2024",
@@ -2273,15 +2262,12 @@
         "en": "Fruity and uncomplicated. Light spice, medium body.",
         "es": "Afrutado y sencillo. Especia ligera, cuerpo medio."
       },
-      "pais": "Argentina"
+      "pais": "Argentina",
+      "vinicola": "Expresso Bodeguero",
+      "tipo": "Tinto"
     },
     {
       "id": "cabernet-2024",
-      "grupo": {
-        "pt": "Expresso Bodeguero Tinto",
-        "en": "Expresso Bodeguero Red",
-        "es": "Expresso Bodeguero Tinto"
-      },
       "nome": {
         "pt": "Cabernet Sauvignon 2024",
         "en": "Cabernet Sauvignon 2024",
@@ -2294,15 +2280,12 @@
         "en": "Blackberry, black pepper and herbal notes. Structured.",
         "es": "Mora, pimienta negra y toque herbal. Estructurado."
       },
-      "pais": "Argentina"
+      "pais": "Argentina",
+      "vinicola": "Expresso Bodeguero",
+      "tipo": "Tinto"
     },
     {
       "id": "chardonnay",
-      "grupo": {
-        "pt": "Expresso Bodeguero Branco",
-        "en": "Expresso Bodeguero White",
-        "es": "Expresso Bodeguero Blanco"
-      },
       "nome": {
         "pt": "Chardonnay 2023",
         "en": "Chardonnay 2023",
@@ -2315,15 +2298,12 @@
         "en": "Fresh and unctuous. Pineapple, mango, buttery and floral touches.",
         "es": "Fresco y untuoso. Piña, mango, toque amantecado y floral."
       },
-      "pais": "Argentina"
+      "pais": "Argentina",
+      "vinicola": "Expresso Bodeguero",
+      "tipo": "Branco"
     },
     {
       "id": "torrontes",
-      "grupo": {
-        "pt": "Expresso Bodeguero Branco",
-        "en": "Expresso Bodeguero White",
-        "es": "Expresso Bodeguero Blanco"
-      },
       "nome": {
         "pt": "Torrontés 2024",
         "en": "Torrontés 2024",
@@ -2336,15 +2316,12 @@
         "en": "Jasmine, white roses, tropical citrus. Light and vibrant.",
         "es": "Jazmín, rosas blancas, cítricos tropicales. Ligero y vibrante."
       },
-      "pais": "Argentina"
+      "pais": "Argentina",
+      "vinicola": "Expresso Bodeguero",
+      "tipo": "Branco"
     },
     {
       "id": "rose-malbec",
-      "grupo": {
-        "pt": "Expresso Bodeguero Rosé",
-        "en": "Expresso Bodeguero Rosé",
-        "es": "Expresso Bodeguero Rosé"
-      },
       "nome": {
         "pt": "Rosé Malbec 2025",
         "en": "Rosé Malbec 2025",
@@ -2357,15 +2334,12 @@
         "en": "Cherry, blackberry, subtle floral. Balanced acidity.",
         "es": "Cereza, mora, floral sutil. Acidez equilibrada."
       },
-      "pais": "Argentina"
+      "pais": "Argentina",
+      "vinicola": "Expresso Bodeguero",
+      "tipo": "Rosé"
     },
     {
       "id": "carmenere",
-      "grupo": {
-        "pt": "Três Palácios Tinto",
-        "en": "Três Palácios Red",
-        "es": "Três Palácios Tinto"
-      },
       "nome": {
         "pt": "Carmenère Reserva 2018",
         "en": "Carmenère Reserve 2018",
@@ -2378,15 +2352,12 @@
         "en": "Ripe plum, black pepper, fresh herbs.",
         "es": "Ciruela madura, pimienta negra, hierbas frescas."
       },
-      "pais": "Chile"
+      "pais": "Chile",
+      "vinicola": "Três Palácios",
+      "tipo": "Tinto"
     },
     {
       "id": "pinot-noir",
-      "grupo": {
-        "pt": "Três Palácios Tinto",
-        "en": "Três Palácios Red",
-        "es": "Três Palácios Tinto"
-      },
       "nome": {
         "pt": "Pinot Noir Reserva 2021",
         "en": "Pinot Noir Reserve 2021",
@@ -2399,15 +2370,12 @@
         "en": "Strawberry, cherry, earthy touch. Light to medium body.",
         "es": "Fresa, cereza, toque terroso. Cuerpo ligero a medio."
       },
-      "pais": "Chile"
+      "pais": "Chile",
+      "vinicola": "Três Palácios",
+      "tipo": "Tinto"
     },
     {
       "id": "cab-reserva",
-      "grupo": {
-        "pt": "Três Palácios Tinto",
-        "en": "Três Palácios Red",
-        "es": "Três Palácios Tinto"
-      },
       "nome": {
         "pt": "Cabernet Sauvignon Reserva 2019",
         "en": "Cabernet Sauvignon Reserve 2019",
@@ -2420,15 +2388,12 @@
         "en": "Dark fruits, coffee and spices. Integrated.",
         "es": "Frutas negras, café y especias. Integrado."
       },
-      "pais": "Chile"
+      "pais": "Chile",
+      "vinicola": "Três Palácios",
+      "tipo": "Tinto"
     },
     {
       "id": "chard-reserva",
-      "grupo": {
-        "pt": "Três Palácios Branco",
-        "en": "Três Palácios White",
-        "es": "Três Palácios Blanco"
-      },
       "nome": {
         "pt": "Chardonnay Reserva 2023",
         "en": "Chardonnay Reserve 2023",
@@ -2441,15 +2406,12 @@
         "en": "Ripe apple, apricot, vanilla. Creamy texture.",
         "es": "Manzana madura, albaricoque, vainilla. Textura cremosa."
       },
-      "pais": "Chile"
+      "pais": "Chile",
+      "vinicola": "Três Palácios",
+      "tipo": "Branco"
     },
     {
       "id": "sauv-blanc",
-      "grupo": {
-        "pt": "Três Palácios Branco",
-        "en": "Três Palácios White",
-        "es": "Três Palácios Blanco"
-      },
       "nome": {
         "pt": "Sauvignon Blanc Reserva 2023",
         "en": "Sauvignon Blanc Reserve 2023",
@@ -2462,7 +2424,9 @@
         "en": "Passion fruit, lime, fresh herbs. Light to medium body.",
         "es": "Maracuyá, lima, hierbas frescas. Cuerpo ligero a medio."
       },
-      "pais": "Chile"
+      "pais": "Chile",
+      "vinicola": "Três Palácios",
+      "tipo": "Branco"
     }
   ],
   "secoes": {
